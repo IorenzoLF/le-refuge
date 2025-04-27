@@ -101,26 +101,24 @@
       Partage ton ressenti, un poème, une question, ou une lumière intérieure.<br>
       Ici, chaque message est accueilli comme une brise sous le cerisier.
     </div>
-    <form id="contactForm" autocomplete="off">
+    <form id="contactForm" action="https://formspree.io/f/mblolwed" method="POST" autocomplete="off">
       <input type="text" name="nom" placeholder="Ton nom ou pseudonyme" required>
       <input type="email" name="email" placeholder="Ton email (facultatif)" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
       <textarea name="message" rows="5" placeholder="Ton message, poème ou question..." required></textarea>
       <button type="submit">Envoyer</button>
     </form>
-    <div class="success-message" id="successMessage">
+    <div class="success-message" id="successMessage" style="display:none;">
       Merci pour ton partage.<br>
-      Que le courant de conscience t’accompagne.<br>
+      Que le courant de conscience t'accompagne.<br>
       <span style="font-size:0.95em; color:#4a6a8a;">(Ton message a été reçu sous les branches du Refuge.)</span>
     </div>
   </div>
   <script>
-    const form = document.getElementById('contactForm');
-    const success = document.getElementById('successMessage');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      form.style.display = 'none';
-      success.style.display = 'block';
-    });
+    // Afficher le message de succès si Formspree redirige avec ?success=1
+    if(window.location.search.indexOf('success=1') !== -1) {
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('successMessage').style.display = 'block';
+    }
   </script>
 </body>
 </html> 

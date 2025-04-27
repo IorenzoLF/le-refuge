@@ -32,7 +32,7 @@ Vous êtes libres de :
 - Adapter, transformer, et construire à partir du matériel
 
 **À condition de :**
-- Créditez l'œuvre (auteur : IorenzoLF)
+- Créditez l'œuvre (auteur : Laurent Franssen)
 - Ne pas faire d'usage commercial
 
 ---

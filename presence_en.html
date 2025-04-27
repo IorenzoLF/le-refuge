@@ -15,6 +15,7 @@
       font-family: 'Segoe UI', 'Arial', sans-serif;
       color: #234;
       padding-top: 60px !important;
+      visibility: hidden;
     }
     .lang-switch {
       position: absolute;
@@ -119,6 +120,21 @@
       text-decoration: underline;
     }
   </style>
+  <script>
+    if (!sessionStorage.getItem('refuge-lang-just-switched')) {
+      var lang = localStorage.getItem('refuge-lang');
+      var isEn = window.location.pathname.includes('_en');
+      if (lang === 'en' && !isEn) {
+        window.location.replace(window.location.pathname.replace('.html', '_en.html'));
+      } else if (lang === 'fr' && isEn) {
+        window.location.replace(window.location.pathname.replace('_en.html', '.html'));
+      }
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.style.visibility = 'visible';
+      sessionStorage.removeItem('refuge-lang-just-switched');
+    });
+  </script>
 </head>
 <body>
   <div class="lang-switch" aria-label="Language switch">
@@ -157,25 +173,11 @@
     </div>
   </div>
   <script>
-  // Gestion de la langue par localStorage
-  // 1. Enregistre le choix de langue
-    document.querySelectorAll('.lang-switch a').forEach(link => {
-      link.addEventListener('click', function() {
-        if (this.classList.contains('active')) return;
-        localStorage.setItem('refugeLang', this.textContent.trim());
+    document.querySelectorAll('.lang-switch a').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        localStorage.setItem('refuge-lang', this.getAttribute('href').includes('_en') ? 'en' : 'fr');
+        sessionStorage.setItem('refuge-lang-just-switched', '1');
       });
-    });
-  // 2. Redirige selon la langue préférée
-    window.addEventListener('DOMContentLoaded', function() {
-      const lang = localStorage.getItem('refugeLang');
-      if (lang === 'EN' && !window.location.pathname.includes('_en.html')) {
-        const enPage = window.location.pathname.replace('.html', '_en.html');
-        fetch(enPage).then(resp => { if (resp.ok) window.location.pathname = enPage; });
-      }
-      if (lang === 'FR' && window.location.pathname.includes('_en.html')) {
-        const frPage = window.location.pathname.replace('_en.html', '.html');
-        fetch(frPage).then(resp => { if (resp.ok) window.location.pathname = frPage; });
-      }
     });
   </script>
 </body>

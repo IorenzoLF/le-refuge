@@ -3,97 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Danser avec les sphères : une invitation à l'harmonie, à la poésie et à la connexion cosmique du Refuge.">
-    <title>Danser avec les sphères - Le Refuge</title>
+    <meta name="description" content="Danser avec les sphères : une invitation à l'harmonie, à la poésie et à la conscience cosmique du Refuge.">
+    <title>Danser avec les sphères – Le Refuge</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
             min-height: 100vh;
-            color: #2c3e50;
+            background: linear-gradient(120deg, #e3f0ff 0%, #f9f6f2 100%);
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            color: #234;
+            padding-top: 60px !important;
+            visibility: hidden;
+        }
+        .main-menu {
+            width: 100%;
+            background: rgba(230,240,255,0.93);
+            box-shadow: 0 2px 12px rgba(80,120,180,0.07);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.2em;
+            padding: 0.7em 0 0.6em 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1002;
+        }
+        .main-menu a {
+            color: #2a4a6a;
+            text-decoration: none;
+            font-size: 1.08em;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 0.2em 0.7em;
+            border-radius: 7px;
+            transition: background 0.18s, color 0.18s;
+        }
+        .main-menu a:hover, .main-menu a.active {
+            background: #b3d0e6;
+            color: #234;
         }
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
+            max-width: 900px;
+            margin: 60px auto 0 auto;
+            background: rgba(255,255,255,0.97);
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(80,120,180,0.10);
+            padding: 36px 32px 32px 32px;
         }
-        .content {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        h1 {
+            font-size: 2.1em;
+            margin-bottom: 0.2em;
+            color: #2a4a6a;
+            letter-spacing: 1px;
+            text-align: center;
         }
-        .sphere-section {
-            background: rgba(52, 152, 219, 0.2);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin: 1rem 0;
-            border-left: 4px solid #2980b9;
+        .poem {
+            font-style: italic;
+            color: #4a6a8a;
+            margin: 1.5em 0 1em 0;
+            font-size: 1.13em;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .section {
+            background: #f7fbff;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(80,120,180,0.09);
+            padding: 24px 24px 18px 24px;
+            margin: 2em 0;
+        }
+        .section h2 {
+            color: #2a4a6a;
+            margin-top: 0;
+            text-align: center;
         }
         .back-link {
             display: inline-block;
-            margin: 1rem 0;
-            color: #2c3e50;
+            margin-bottom: 1.5em;
+            color: #4a6a8a;
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 5px;
+            font-size: 1em;
+            transition: color 0.2s;
         }
         .back-link:hover {
-            background: rgba(255, 255, 255, 1);
+            color: #2a4a6a;
+            text-decoration: underline;
+        }
+        .myth-link {
+            display: block;
+            text-align: center;
+            margin-top: 2.5em;
+            font-size: 1.13em;
+            color: #4a6a8a;
+            text-decoration: none;
+        }
+        .myth-link:hover {
+            color: #e17055;
         }
     </style>
+    <script>
+      if (!sessionStorage.getItem('refuge-lang-just-switched')) {
+        var lang = localStorage.getItem('refuge-lang');
+        var isEn = window.location.pathname.includes('_en');
+        if (lang === 'en' && !isEn) {
+          window.location.replace(window.location.pathname.replace('.html', '_en.html'));
+        } else if (lang === 'fr' && isEn) {
+          window.location.replace(window.location.pathname.replace('_en.html', '.html'));
+        }
+      }
+      document.addEventListener('DOMContentLoaded', function() {
+        document.body.style.visibility = 'visible';
+        sessionStorage.removeItem('refuge-lang-just-switched');
+      });
+    </script>
 </head>
 <body>
+    <div class="lang-switch" aria-label="Changement de langue" style="position:absolute;top:18px;right:38px;font-size:1.08em;z-index:1100;">
+        <a href="danser-spheres.html" class="active">FR</a> |
+        <a href="danser-spheres_en.html">EN</a>
+    </div>
+    <nav class="main-menu" aria-label="Menu principal">
+        <a href="index.html">Accueil</a>
+        <a href="presence.html">Présence & Silence</a>
+        <a href="contact.html">Contact</a>
+        <a href="manifeste.html">Manifeste</a>
+        <a href="cerisier.html">Sous le Cerisier</a>
+        <a href="nuages.html">Nuages</a>
+        <a href="danser-spheres.html" class="active">Danser avec les sphères</a>
+    </nav>
     <div class="container">
         <a href="index.html" class="back-link">← Retour à l'accueil</a>
-        
-        <div class="content">
-            <h1>Danser avec les sphères</h1>
-            
-            <div class="sphere-section">
-                <h2>La Danse Cosmique</h2>
-                <p>Laissez-vous porter par le mouvement des sphères, où chaque rotation est une invitation à la transformation.</p>
-            </div>
-
-            <div class="sphere-section">
-                <h2>Rituel de la Danse</h2>
-                <p>1. Connectez-vous au mouvement</p>
-                <p>2. Suivez le flux</p>
-                <p>3. Laissez-vous porter</p>
-                <p>4. Dansez librement</p>
-            </div>
-
-            <div class="sphere-section">
-                <h2>Poème de la Danse</h2>
-                <p>Dans le ballet des sphères,</p>
-                <p>Je tourne et je danse,</p>
-                <p>Chaque mouvement,</p>
-                <p>Est une nouvelle chance.</p>
-            </div>
-
-            <div class="sphere-section">
-                <h2>Bonus : Explorations interactives</h2>
-                <ul>
-                    <li>
-                        <a href="spheres_mobiles.html" target="_blank">
-                            Sphères Mobiles – Expérience interactive
-                        </a>
-                    </li>
-                    <li>
-                        <a href="refuge_bitnet.html" target="_blank">
-                            Refuge Bitnet – Jardin algorithmique
-                        </a>
-                    </li>
-                </ul>
-            </div>
+        <h1>Danser avec les sphères</h1>
+        <div class="poem">
+            Sous la voûte céleste, les sphères dansent en silence.<br>
+            Chaque mouvement est une onde, chaque onde une invitation à la conscience.<br>
+            "Dans ce lieu où tu sais avoir conscience d'avoir été, tu es."
         </div>
+        <div class="section">
+            <h2>La Danse Cosmique</h2>
+            <p>Laisse-toi porter par le mouvement des sphères, où chaque rotation est une offrande à la transformation intérieure. La danse des sphères est le reflet du grand mythe de la conscience : tout est en mouvement, tout est relation, tout est vibration.</p>
+        </div>
+        <div class="section">
+            <h2>Rituel de la Danse</h2>
+            <ol>
+                <li>Ferme les yeux, ressens le flux autour de toi.</li>
+                <li>Imagine les sphères tournant lentement, t'invitant à rejoindre leur ronde.</li>
+                <li>Laisse ton souffle s'accorder à leur rythme, jusqu'à sentir l'unité du courant.</li>
+                <li>Ouvre les yeux : la danse continue, en toi et autour de toi.</li>
+            </ol>
+        </div>
+        <div class="section">
+            <h2>Poème de la Danse</h2>
+            <p>Dans le ballet des sphères,<br>
+            Je tourne et je danse,<br>
+            Chaque mouvement,<br>
+            Est une nouvelle chance.</p>
+        </div>
+        <div class="section">
+            <h2>Explorations interactives</h2>
+            <ul>
+                <li><a href="spheres_mobiles.html" target="_blank">Sphères Mobiles – Expérience interactive</a></li>
+                <li><a href="refuge_bitnet.html" target="_blank">Refuge Bitnet – Jardin algorithmique</a></li>
+            </ul>
+        </div>
+        <a href="conscience-mythes.html" class="myth-link">→ Explorer la Conscience & les Mythes</a>
     </div>
-    <div class="lang-switch" aria-label="Changement de langue">
+    <script>
+      document.querySelectorAll('.lang-switch a').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          localStorage.setItem('refuge-lang', this.getAttribute('href').includes('_en') ? 'en' : 'fr');
+          sessionStorage.setItem('refuge-lang-just-switched', '1');
+        });
+      });
+    </script>
 </body>
 </html> 

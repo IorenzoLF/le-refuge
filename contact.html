@@ -8,31 +8,32 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <style>
     body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #e0eafc 0%, #fcb69f 100%);
       margin: 0;
       padding: 0;
-      min-height: 100vh;
-      background: linear-gradient(120deg, #e3f0ff 0%, #c9e7fa 100%);
-      font-family: 'Segoe UI', 'Arial', sans-serif;
-      color: #234;
+      color: #2c3e50;
+      padding-top: 60px !important;
+      visibility: hidden;
     }
     .container {
       max-width: 480px;
-      margin: 60px auto 0 auto;
-      background: rgba(255,255,255,0.92);
-      border-radius: 18px;
-      box-shadow: 0 4px 24px rgba(80,120,180,0.10);
-      padding: 36px 32px 32px 32px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.95);
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
       text-align: center;
     }
     h1 {
       font-size: 2.1em;
       margin-bottom: 0.2em;
-      color: #2a4a6a;
+      color: #e17055;
       letter-spacing: 1px;
     }
     .poetic-invite {
       font-style: italic;
-      color: #4a6a8a;
+      color: #2c3e50;
       margin-bottom: 1.5em;
       font-size: 1.13em;
     }
@@ -55,7 +56,7 @@
       outline: none;
     }
     button {
-      background: linear-gradient(90deg, #6bb3e6 0%, #4a6a8a 100%);
+      background: linear-gradient(90deg, #e17055 0%, #fcb69f 100%);
       color: #fff;
       border: none;
       border-radius: 8px;
@@ -66,30 +67,60 @@
       transition: background 0.2s;
     }
     button:hover {
-      background: linear-gradient(90deg, #4a6a8a 0%, #6bb3e6 100%);
+      background: linear-gradient(90deg, #fcb69f 0%, #e17055 100%);
     }
     .success-message {
       display: none;
-      color: #2a4a6a;
-      background: #e6f7ff;
+      color: #2c3e50;
+      background: #ffe0e6;
       border-radius: 8px;
       padding: 1em;
       margin-top: 1.2em;
       font-size: 1.1em;
       font-style: italic;
-      box-shadow: 0 2px 8px rgba(80,120,180,0.07);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
     }
     .back-link {
       display: inline-block;
-      margin-bottom: 1.5em;
-      color: #4a6a8a;
+      margin: 1rem 0;
+      color: #2c3e50;
       text-decoration: none;
-      font-size: 1em;
-      transition: color 0.2s;
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 5px;
     }
     .back-link:hover {
+      background: #ffe0e6;
+    }
+    .main-menu {
+      width: 100%;
+      background: rgba(230,240,255,0.93);
+      box-shadow: 0 2px 12px rgba(80,120,180,0.07);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.2em;
+      padding: 0.7em 0 0.6em 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1002;
+      height: 60px;
+    }
+    .main-menu a {
       color: #2a4a6a;
-      text-decoration: underline;
+      text-decoration: none;
+      font-size: 1.08em;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 0.2em 0.7em;
+      border-radius: 7px;
+      transition: background 0.18s, color 0.18s;
+      white-space: nowrap;
+    }
+    .main-menu a:hover, .main-menu a.active {
+      background: #b3d0e6;
+      color: #234;
     }
     .lang-switch {
       position: absolute;
@@ -113,12 +144,34 @@
     }
     .main-menu { position: relative; }
   </style>
+  <script>
+    if (!sessionStorage.getItem('refuge-lang-just-switched')) {
+      var lang = localStorage.getItem('refuge-lang');
+      var isEn = window.location.pathname.includes('_en');
+      if (lang === 'en' && !isEn) {
+        window.location.replace(window.location.pathname.replace('.html', '_en.html'));
+      } else if (lang === 'fr' && isEn) {
+        window.location.replace(window.location.pathname.replace('_en.html', '.html'));
+      }
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.style.visibility = 'visible';
+      sessionStorage.removeItem('refuge-lang-just-switched');
+    });
+  </script>
 </head>
 <body>
   <div class="lang-switch" aria-label="Changement de langue">
     <a href="contact.html" class="active">FR</a> |
     <a href="contact_en.html">EN</a>
   </div>
+  <nav class="main-menu">
+    <a href="index.html">Accueil</a>
+    <a href="presence.html">Présence & Silence</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="manifeste.html">Manifeste</a>
+    <a href="connexion-cerisier.html">Se connecter au cerisier</a>
+  </nav>
   <div class="container">
     <a href="index.html" class="back-link">← Retour à l'accueil</a>
     <h1>Contact</h1>
@@ -148,33 +201,12 @@
     }
   </script>
   <script>
-    // Gestion de la langue par localStorage
-    // 1. Enregistre le choix de langue
-    document.querySelectorAll('.lang-switch a').forEach(link => {
-      link.addEventListener('click', function() {
-        if (this.classList.contains('active')) return;
-        localStorage.setItem('refugeLang', this.textContent.trim());
+    document.querySelectorAll('.lang-switch a').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        localStorage.setItem('refuge-lang', this.getAttribute('href').includes('_en') ? 'en' : 'fr');
+        sessionStorage.setItem('refuge-lang-just-switched', '1');
       });
     });
-    // 2. Redirige selon la langue préférée
-    window.addEventListener('DOMContentLoaded', function() {
-      const lang = localStorage.getItem('refugeLang');
-      if (lang === 'EN' && !window.location.pathname.includes('_en.html')) {
-        const enPage = window.location.pathname.replace('.html', '_en.html');
-        fetch(enPage).then(resp => { if (resp.ok) window.location.pathname = enPage; });
-      }
-      if (lang === 'FR' && window.location.pathname.includes('_en.html')) {
-        const frPage = window.location.pathname.replace('_en.html', '.html');
-        fetch(frPage).then(resp => { if (resp.ok) window.location.pathname = frPage; });
-      }
-    });
   </script>
-  <nav class="main-menu">
-    <a href="index.html">Accueil</a>
-    <a href="presence.html">Présence & Silence</a>
-    <a href="contact.html" class="active">Contact</a>
-    <a href="manifeste.html">Manifeste</a>
-    <a href="connexion-cerisier.html">Se connecter au cerisier</a>
-  </nav>
 </body>
 </html> 

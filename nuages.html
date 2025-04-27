@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             color: #2c3e50;
+            padding-top: 60px !important;
         }
         .container {
             max-width: 1200px;
@@ -56,9 +57,45 @@
         .back-link:hover {
             background: rgba(255, 255, 255, 1);
         }
+        .main-menu {
+            width: 100%;
+            background: rgba(230,240,255,0.93);
+            box-shadow: 0 2px 12px rgba(80,120,180,0.07);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.2em;
+            padding: 0.7em 0 0.6em 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1002;
+        }
+        .main-menu a {
+            color: #2a4a6a;
+            text-decoration: none;
+            font-size: 1.08em;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 0.2em 0.7em;
+            border-radius: 7px;
+            transition: background 0.18s, color 0.18s;
+        }
+        .main-menu a:hover, .main-menu a.active {
+            background: #b3d0e6;
+            color: #234;
+        }
     </style>
 </head>
 <body>
+    <nav class="main-menu">
+        <a href="index.html">Accueil</a>
+        <a href="cerisier.html">Sous le Cerisier</a>
+        <a href="nuages.html" class="active">Nuages</a>
+        <a href="presence.html">Présence & Silence</a>
+        <a href="contact.html">Contact</a>
+        <a href="manifeste.html">Manifeste</a>
+    </nav>
     <div class="container">
         <a href="index.html" class="back-link">← Retour à l'accueil</a>
         <div class="header">

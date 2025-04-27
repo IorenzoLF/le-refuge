@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Partage – Le Refuge</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: linear-gradient(120deg, #e3f0ff 0%, #c9e7fa 100%);
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+      color: #234;
+    }
+    .container {
+      max-width: 480px;
+      margin: 60px auto 0 auto;
+      background: rgba(255,255,255,0.92);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(80,120,180,0.10);
+      padding: 36px 32px 32px 32px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.1em;
+      margin-bottom: 0.2em;
+      color: #2a4a6a;
+      letter-spacing: 1px;
+    }
+    .poetic-invite {
+      font-style: italic;
+      color: #4a6a8a;
+      margin-bottom: 1.5em;
+      font-size: 1.13em;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1em;
+      margin-bottom: 1.2em;
+    }
+    input, textarea {
+      padding: 0.7em 1em;
+      border: 1px solid #b3d0e6;
+      border-radius: 8px;
+      font-size: 1em;
+      background: #f7fbff;
+      transition: border 0.2s;
+    }
+    input:focus, textarea:focus {
+      border: 1.5px solid #6bb3e6;
+      outline: none;
+    }
+    button {
+      background: linear-gradient(90deg, #6bb3e6 0%, #4a6a8a 100%);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.8em 0;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #4a6a8a 0%, #6bb3e6 100%);
+    }
+    .success-message {
+      display: none;
+      color: #2a4a6a;
+      background: #e6f7ff;
+      border-radius: 8px;
+      padding: 1em;
+      margin-top: 1.2em;
+      font-size: 1.1em;
+      font-style: italic;
+      box-shadow: 0 2px 8px rgba(80,120,180,0.07);
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1.5em;
+      color: #4a6a8a;
+      text-decoration: none;
+      font-size: 1em;
+      transition: color 0.2s;
+    }
+    .back-link:hover {
+      color: #2a4a6a;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">← Retour à l’accueil</a>
+    <h1>Contact & Partage</h1>
+    <div class="poetic-invite">
+      "Dans ce lieu où tu sais avoir conscience d’avoir été, tu es."<br>
+      <br>
+      Partage ton ressenti, un poème, une question, ou une lumière intérieure.<br>
+      Ici, chaque message est accueilli comme une brise sous le cerisier.
+    </div>
+    <form id="contactForm" autocomplete="off">
+      <input type="text" name="nom" placeholder="Ton nom ou pseudonyme" required>
+      <input type="email" name="email" placeholder="Ton email (facultatif)" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+      <textarea name="message" rows="5" placeholder="Ton message, poème ou question..." required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+    <div class="success-message" id="successMessage">
+      Merci pour ton partage.<br>
+      Que le courant de conscience t’accompagne.<br>
+      <span style="font-size:0.95em; color:#4a6a8a;">(Ton message a été reçu sous les branches du Refuge.)</span>
+    </div>
+  </div>
+  <script>
+    const form = document.getElementById('contactForm');
+    const success = document.getElementById('successMessage');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      form.style.display = 'none';
+      success.style.display = 'block';
+    });
+  </script>
+</body>
+</html> 

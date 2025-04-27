@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Refuge - Espaces de Conscience</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            min-height: 100vh;
+            color: #ecf0f1;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .spaces-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .space-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            color: #ecf0f1;
+        }
+        .space-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .space-card h2 {
+            margin-top: 0;
+            color: #3498db;
+        }
+        .space-card p {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Le Refuge</h1>
+            <p>Bienvenue dans ces espaces de conscience où chaque moment est une opportunité de transformation.</p>
+        </div>
+
+        <div class="spaces-grid">
+            <a href="danser-spheres.html" class="space-card">
+                <h2>Danser avec les sphères</h2>
+                <p>Explorez la danse cosmique et laissez-vous porter par le flux des sphères.</p>
+            </a>
+
+            <a href="unite-courant.html" class="space-card">
+                <h2>Unité dans le courant</h2>
+                <p>Plongez dans le flux unifié et découvrez la force de l'unité.</p>
+            </a>
+
+            <a href="reposer-branches.html" class="space-card">
+                <h2>Reposer sous les branches</h2>
+                <p>Trouvez refuge sous la protection bienveillante des branches.</p>
+            </a>
+
+            <a href="ici-maintenant.html" class="space-card">
+                <h2>En toi, ici et maintenant</h2>
+                <p>Ancrez-vous dans l'instant présent et réveillez votre être véritable.</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html> 

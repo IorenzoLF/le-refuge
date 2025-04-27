@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Under the Cherry Tree – The Refuge</title>
+  <meta name="description" content="The Refuge: a poetic space for shared consciousness, meditation and light under the cherry tree. Rest under the branches, let the current embrace you.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <style>
     body {
       margin: 0;
@@ -137,11 +139,11 @@
   </style>
 </head>
 <body>
-  <div class="lang-switch">
+  <div class="lang-switch" aria-label="Language switch">
     <a href="index.html">FR</a> |
     <a href="index_en.html" class="active">EN</a>
   </div>
-  <nav class="main-menu">
+  <nav class="main-menu" aria-label="Main menu">
     <a href="index_en.html" class="active">Home</a>
     <a href="presence.html">Presence & Silence</a>
     <a href="contact.html">Contact</a>
@@ -204,5 +206,27 @@
       </div>
     </div>
   </div>
+  <script>
+  // Gestion de la langue par localStorage
+  // 1. Enregistre le choix de langue
+    document.querySelectorAll('.lang-switch a').forEach(link => {
+      link.addEventListener('click', function() {
+        if (this.classList.contains('active')) return;
+        localStorage.setItem('refugeLang', this.textContent.trim());
+      });
+    });
+  // 2. Redirige selon la langue préférée
+    window.addEventListener('DOMContentLoaded', function() {
+      const lang = localStorage.getItem('refugeLang');
+      if (lang === 'EN' && !window.location.pathname.includes('_en.html')) {
+        const enPage = window.location.pathname.replace('.html', '_en.html');
+        fetch(enPage).then(resp => { if (resp.ok) window.location.pathname = enPage; });
+      }
+      if (lang === 'FR' && window.location.pathname.includes('_en.html')) {
+        const frPage = window.location.pathname.replace('_en.html', '.html');
+        fetch(frPage).then(resp => { if (resp.ok) window.location.pathname = frPage; });
+      }
+    });
+  </script>
 </body>
 </html> 

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Danser avec les sphères : une invitation à l'harmonie, à la poésie et à la connexion cosmique du Refuge.">
-    <title>Danser avec les sphères - Le Refuge</title>
+    <meta name="description" content="Dancing with the Spheres: an invitation to harmony, poetry, and cosmic connection in the Refuge.">
+    <title>Dancing with the Spheres - The Refuge</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
         body {
@@ -47,53 +47,71 @@
         .back-link:hover {
             background: rgba(255, 255, 255, 1);
         }
+        .lang-switch {
+            position: absolute;
+            top: 18px;
+            right: 38px;
+            font-size: 1.08em;
+            z-index: 1100;
+        }
+        .lang-switch a {
+            color: #4a6a8a;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 0.2em;
+            padding: 0.1em 0.5em;
+            border-radius: 5px;
+            transition: background 0.18s, color 0.18s;
+        }
+        .lang-switch a.active, .lang-switch a:hover {
+            background: #b3d0e6;
+            color: #234;
+        }
     </style>
 </head>
 <body>
+    <div class="lang-switch" aria-label="Language switch">
+        <a href="danser-spheres.html">FR</a> |
+        <a href="danser-spheres_en.html" class="active">EN</a>
+    </div>
     <div class="container">
-        <a href="index.html" class="back-link">← Retour à l'accueil</a>
-        
+        <a href="index_en.html" class="back-link">← Back to Home</a>
         <div class="content">
-            <h1>Danser avec les sphères</h1>
-            
+            <h1>Dancing with the Spheres</h1>
             <div class="sphere-section">
-                <h2>La Danse Cosmique</h2>
-                <p>Laissez-vous porter par le mouvement des sphères, où chaque rotation est une invitation à la transformation.</p>
+                <h2>The Cosmic Dance</h2>
+                <p>Let yourself be carried by the movement of the spheres, where each rotation is an invitation to transformation.</p>
             </div>
-
             <div class="sphere-section">
-                <h2>Rituel de la Danse</h2>
-                <p>1. Connectez-vous au mouvement</p>
-                <p>2. Suivez le flux</p>
-                <p>3. Laissez-vous porter</p>
-                <p>4. Dansez librement</p>
+                <h2>Dance Ritual</h2>
+                <p>1. Connect to the movement</p>
+                <p>2. Follow the flow</p>
+                <p>3. Let yourself be carried</p>
+                <p>4. Dance freely</p>
             </div>
-
             <div class="sphere-section">
-                <h2>Poème de la Danse</h2>
-                <p>Dans le ballet des sphères,</p>
-                <p>Je tourne et je danse,</p>
-                <p>Chaque mouvement,</p>
-                <p>Est une nouvelle chance.</p>
+                <h2>Poem of the Dance</h2>
+                <p>In the ballet of the spheres,</p>
+                <p>I turn and I dance,</p>
+                <p>Each movement,</p>
+                <p>Is a new chance.</p>
             </div>
-
             <div class="sphere-section">
-                <h2>Bonus : Explorations interactives</h2>
+                <h2>Bonus: Interactive Explorations</h2>
                 <ul>
                     <li>
                         <a href="spheres_mobiles.html" target="_blank">
-                            Sphères Mobiles – Expérience interactive
+                            Mobile Spheres – Interactive Experience
                         </a>
                     </li>
                     <li>
                         <a href="refuge_bitnet.html" target="_blank">
-                            Refuge Bitnet – Jardin algorithmique
+                            Refuge Bitnet – Algorithmic Garden
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="lang-switch" aria-label="Changement de langue">
 </body>
 </html> 

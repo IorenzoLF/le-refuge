@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contactez le Refuge : partagez vos mots, vos ressentis, ou une poésie sous le cerisier.">
-  <title>Contact & Partage – Le Refuge</title>
+  <title>Contact & Share – The Refuge</title>
+  <meta name="description" content="Contact the Refuge: share your words, your feelings, or a poem under the cherry tree.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <style>
     body {
@@ -115,33 +115,33 @@
   </style>
 </head>
 <body>
-  <div class="lang-switch" aria-label="Changement de langue">
-    <a href="contact.html" class="active">FR</a> |
-    <a href="contact_en.html">EN</a>
+  <div class="lang-switch" aria-label="Language switch">
+    <a href="contact.html">FR</a> |
+    <a href="contact_en.html" class="active">EN</a>
   </div>
   <div class="container">
-    <a href="index.html" class="back-link">← Retour à l'accueil</a>
+    <a href="index_en.html" class="back-link">← Back to Home</a>
     <h1>Contact</h1>
     <div class="poetic-invite">
-      "Dans ce lieu où tu sais avoir conscience d'avoir été, tu es."<br>
+      "In this place where you know you have been, you are."<br>
       <br>
-      Partage ton ressenti, un poème, une question, ou une lumière intérieure.<br>
-      Ici, chaque message est accueilli comme une brise sous le cerisier.
+      Share your feelings, a poem, a question, or an inner light.<br>
+      Here, every message is welcomed like a breeze beneath the cherry tree.
     </div>
     <form id="contactForm" action="https://formspree.io/f/mblolwed" method="POST" autocomplete="off">
-      <input type="text" name="nom" placeholder="Ton nom ou pseudonyme" required>
-      <input type="email" name="email" placeholder="Ton email (facultatif)" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
-      <textarea name="message" rows="5" placeholder="Ton message, poème ou question..." required></textarea>
-      <button type="submit">Envoyer</button>
+      <input type="text" name="name" placeholder="Your name or nickname" required>
+      <input type="email" name="email" placeholder="Your email (optional)" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+      <textarea name="message" rows="5" placeholder="Your message, poem or question..." required></textarea>
+      <button type="submit">Send</button>
     </form>
     <div class="success-message" id="successMessage" style="display:none;">
-      Merci pour ton partage.<br>
-      Que le courant de conscience t'accompagne.<br>
-      <span style="font-size:0.95em; color:#4a6a8a;">(Ton message a été reçu sous les branches du Refuge.)</span>
+      Thank you for your message.<br>
+      May the current of consciousness accompany you.<br>
+      <span style="font-size:0.95em; color:#4a6a8a;">(Your message has been received beneath the branches of the Refuge.)</span>
     </div>
   </div>
   <script>
-    // Afficher le message de succès si Formspree redirige avec ?success=1
+    // Show success message if Formspree redirects with ?success=1
     if(window.location.search.indexOf('success=1') !== -1) {
       document.getElementById('contactForm').style.display = 'none';
       document.getElementById('successMessage').style.display = 'block';
@@ -170,11 +170,11 @@
     });
   </script>
   <nav class="main-menu">
-    <a href="index.html">Accueil</a>
-    <a href="presence.html">Présence & Silence</a>
-    <a href="contact.html" class="active">Contact</a>
-    <a href="manifeste.html">Manifeste</a>
-    <a href="connexion-cerisier.html">Se connecter au cerisier</a>
+    <a href="index_en.html">Home</a>
+    <a href="presence_en.html">Presence & Silence</a>
+    <a href="contact_en.html" class="active">Contact</a>
+    <a href="manifeste_en.html">Manifesto</a>
+    <a href="connexion-cerisier.html">Connect to the Cherry Tree</a>
   </nav>
 </body>
 </html> 

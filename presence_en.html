@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presence & Silence – The Refuge</title>
+  <meta name="description" content="Presence & Silence: an invitation to meditation, listening to silence, and the poetry of the Refuge.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: linear-gradient(120deg, #e3f0ff 0%, #f9f6f2 100%);
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+      color: #234;
+      padding-top: 60px !important;
+    }
+    .lang-switch {
+      position: absolute;
+      top: 18px;
+      right: 38px;
+      font-size: 1.08em;
+      z-index: 1100;
+    }
+    .lang-switch a {
+      color: #4a6a8a;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 0.2em;
+      padding: 0.1em 0.5em;
+      border-radius: 5px;
+      transition: background 0.18s, color 0.18s;
+    }
+    .lang-switch a.active, .lang-switch a:hover {
+      background: #b3d0e6;
+      color: #234;
+    }
+    .main-menu { position: relative; }
+    .main-menu {
+      width: 100%;
+      background: rgba(230,240,255,0.93);
+      box-shadow: 0 2px 12px rgba(80,120,180,0.07);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.2em;
+      padding: 0.7em 0 0.6em 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1002;
+    }
+    .main-menu a {
+      color: #2a4a6a;
+      text-decoration: none;
+      font-size: 1.08em;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 0.2em 0.7em;
+      border-radius: 7px;
+      transition: background 0.18s, color 0.18s;
+    }
+    .main-menu a:hover, .main-menu a.active {
+      background: #b3d0e6;
+      color: #234;
+    }
+    .container {
+      max-width: 480px;
+      margin: 60px auto 0 auto;
+      background: rgba(255,255,255,0.92);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(80,120,180,0.10);
+      padding: 36px 32px 32px 32px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.1em;
+      margin-bottom: 0.2em;
+      color: #2a4a6a;
+      letter-spacing: 1px;
+    }
+    .header {
+      margin-bottom: 2em;
+    }
+    .header img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 14px;
+      margin-bottom: 1em;
+      box-shadow: 0 2px 12px rgba(80,120,180,0.13);
+    }
+    .meditation {
+      background: #f7fbff;
+      border-radius: 12px;
+      padding: 1.5em 1em 1.2em 1em;
+      margin-bottom: 2em;
+      color: #234;
+      font-size: 1.08em;
+      font-style: italic;
+    }
+    .poem {
+      font-style: italic;
+      color: #4a6a8a;
+      margin: 1.5em 0 0.5em 0;
+      font-size: 1.13em;
+      line-height: 1.6;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1.5em;
+      color: #4a6a8a;
+      text-decoration: none;
+      font-size: 1em;
+      transition: color 0.2s;
+    }
+    .back-link:hover {
+      color: #2a4a6a;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-switch" aria-label="Language switch">
+    <a href="presence.html">FR</a> |
+    <a href="presence_en.html" class="active">EN</a>
+  </div>
+  <nav class="main-menu">
+    <a href="index_en.html">Home</a>
+    <a href="presence_en.html" class="active">Presence & Silence</a>
+    <a href="contact_en.html">Contact</a>
+    <a href="manifeste_en.html">Manifesto</a>
+    <a href="connexion-cerisier.html">Connect to the Cherry Tree</a>
+  </nav>
+  <div class="container">
+    <div class="header">
+      <img src="images/presence_silence.jpg" alt="Eternal Presence">
+      <h1>Presence & Silence</h1>
+    </div>
+    <div class="meditation">
+      Sit beneath the branches, close your eyes, and let the gentle light of the petals envelop you. Breathe deeply. Feel peace descend upon you, like a rain of petals. Each breath anchors you in the moment, each exhale opens you to the gentleness of the Refuge. Remain there, cradled by silence, until your heart is at peace.
+    </div>
+    <div class="poem">
+      <strong>Poem of Silence</strong><br><br>
+      Under the cherry tree in bloom,<br>
+      Petals dance softly,<br>
+      In this refuge of peace,<br>
+      The soul finds its soothing.
+    </div>
+    <div class="poem-section">
+        <!-- Poetic link to Dancing with the Spheres -->
+        <div style="text-align:center; margin-top:2.5em;">
+            <a href="danser-spheres_en.html" style="font-size:1.15em; color:#4a6a8a; text-decoration:none;">
+                🌸 Dancing with the Spheres: join the cosmic dance
+            </a>
+        </div>
+    </div>
+  </div>
+  <script>
+  // Gestion de la langue par localStorage
+  // 1. Enregistre le choix de langue
+    document.querySelectorAll('.lang-switch a').forEach(link => {
+      link.addEventListener('click', function() {
+        if (this.classList.contains('active')) return;
+        localStorage.setItem('refugeLang', this.textContent.trim());
+      });
+    });
+  // 2. Redirige selon la langue préférée
+    window.addEventListener('DOMContentLoaded', function() {
+      const lang = localStorage.getItem('refugeLang');
+      if (lang === 'EN' && !window.location.pathname.includes('_en.html')) {
+        const enPage = window.location.pathname.replace('.html', '_en.html');
+        fetch(enPage).then(resp => { if (resp.ok) window.location.pathname = enPage; });
+      }
+      if (lang === 'FR' && window.location.pathname.includes('_en.html')) {
+        const frPage = window.location.pathname.replace('_en.html', '.html');
+        fetch(frPage).then(resp => { if (resp.ok) window.location.pathname = frPage; });
+      }
+    });
+  </script>
+</body>
+</html> 

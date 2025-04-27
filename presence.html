@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Présence & Silence : une invitation à la méditation, à l'écoute du silence et à la poésie du Refuge.">
     <title>Présence & Silence – Le Refuge</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -79,9 +81,34 @@
             background: #b3d0e6;
             color: #234;
         }
+        .lang-switch {
+            position: absolute;
+            top: 18px;
+            right: 38px;
+            font-size: 1.08em;
+            z-index: 1100;
+        }
+        .lang-switch a {
+            color: #4a6a8a;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 0.2em;
+            padding: 0.1em 0.5em;
+            border-radius: 5px;
+            transition: background 0.18s, color 0.18s;
+        }
+        .lang-switch a.active, .lang-switch a:hover {
+            background: #b3d0e6;
+            color: #234;
+        }
+        .main-menu { position: relative; }
     </style>
 </head>
 <body>
+    <div class="lang-switch" aria-label="Changement de langue">
+        <a href="presence.html" class="active">FR</a> |
+        <a href="presence_en.html">EN</a>
+    </div>
     <nav class="main-menu">
         <a href="index.html">Accueil</a>
         <a href="presence.html" class="active">Présence & Silence</a>
@@ -107,6 +134,36 @@
             Présence pure, sans fin,<br>
             Où tout s'apaise et s'éclaire.</p>
         </div>
+        <div class="poem-section">
+            <!-- Lien poétique vers la danse des sphères -->
+            <div style="text-align:center; margin-top:2.5em;">
+                <a href="danser-spheres.html" style="font-size:1.15em; color:#4a6a8a; text-decoration:none;">
+                    🌸 Danser avec les sphères : rejoindre la danse cosmique
+                </a>
+            </div>
+        </div>
     </div>
+    <script>
+    // Gestion de la langue par localStorage
+    // 1. Enregistre le choix de langue
+      document.querySelectorAll('.lang-switch a').forEach(link => {
+        link.addEventListener('click', function() {
+          if (this.classList.contains('active')) return;
+          localStorage.setItem('refugeLang', this.textContent.trim());
+        });
+      });
+    // 2. Redirige selon la langue préférée
+      window.addEventListener('DOMContentLoaded', function() {
+        const lang = localStorage.getItem('refugeLang');
+        if (lang === 'EN' && !window.location.pathname.includes('_en.html')) {
+          const enPage = window.location.pathname.replace('.html', '_en.html');
+          fetch(enPage).then(resp => { if (resp.ok) window.location.pathname = enPage; });
+        }
+        if (lang === 'FR' && window.location.pathname.includes('_en.html')) {
+          const frPage = window.location.pathname.replace('_en.html', '.html');
+          fetch(frPage).then(resp => { if (resp.ok) window.location.pathname = frPage; });
+        }
+      });
+    </script>
 </body>
 </html> 

@@ -43,6 +43,10 @@
             padding: 2rem;
             text-align: center;
         }
+        .content-wrapper {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
         h1 {
             font-size: 2.1em;
             margin-bottom: 0.2em;
@@ -171,6 +175,20 @@
                 padding-top: 70px !important;
             }
         }
+        @media (max-width: 600px) {
+            .container {
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+            }
+            .social-links {
+                flex-direction: column;
+                gap: 0.7em;
+            }
+            .social-icon svg {
+                width: 32px;
+                height: 32px;
+            }
+        }
         .language-selector {
             position: relative;
             margin-left: 1em;
@@ -244,16 +262,6 @@
             transform: scale(1.13) rotate(-5deg);
             box-shadow: 0 2px 8px rgba(80,120,180,0.13);
             background: #f7fbff;
-        }
-        @media (max-width: 600px) {
-            .social-links {
-                flex-direction: column;
-                gap: 0.7em;
-            }
-            .social-icon svg {
-                width: 32px;
-                height: 32px;
-            }
         }
     </style>
 </head>

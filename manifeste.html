@@ -81,6 +81,129 @@
       color: #234;
     }
     .main-menu { position: relative; }
+    
+    /* Styles pour mobile */
+    @media (max-width: 768px) {
+      .main-menu {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 0.5em;
+        gap: 0.5em;
+      }
+      
+      .main-menu a {
+        font-size: 0.9em;
+        padding: 0.3em 0.5em;
+      }
+      
+      body {
+        padding-top: 120px !important;
+      }
+    }
+    
+    /* Styles pour très petits écrans */
+    @media (max-width: 480px) {
+      .main-menu {
+        flex-direction: column;
+        height: auto;
+        padding: 0.5em;
+      }
+      
+      .main-menu a {
+        width: 100%;
+        text-align: center;
+        padding: 0.5em;
+      }
+      
+      body {
+        padding-top: 300px !important;
+      }
+    }
+    
+    /* Language selector */
+    .language-selector {
+      position: relative;
+      margin-left: 1em;
+    }
+    
+    .language-btn {
+      background: transparent;
+      border: 1px solid #2a4a6a;
+      color: #2a4a6a;
+      padding: 0.2em 0.7em;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 1.08em;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: background 0.18s, color 0.18s;
+    }
+    
+    .language-btn:hover {
+      background: #b3d0e6;
+      color: #234;
+    }
+    
+    .language-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: rgba(230,240,255,0.95);
+      border-radius: 7px;
+      box-shadow: 0 2px 12px rgba(80,120,180,0.15);
+      padding: 0.5em 0;
+      min-width: 120px;
+      z-index: 1003;
+    }
+    
+    .language-menu.active {
+      display: block;
+    }
+    
+    .language-menu a {
+      display: block;
+      padding: 0.5em 1em;
+      color: #2a4a6a;
+      text-decoration: none;
+      font-size: 0.95em;
+      transition: background 0.18s;
+    }
+    
+    .language-menu a:hover {
+      background: #b3d0e6;
+    }
+    
+    .language-menu a.active {
+      background: #b3d0e6;
+      color: #234;
+    }
+    
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      .language-selector {
+        margin-left: 0.5em;
+      }
+      
+      .language-btn {
+        font-size: 0.9em;
+        padding: 0.3em 0.5em;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .language-selector {
+        width: 100%;
+        text-align: center;
+        margin-top: 0.5em;
+      }
+      
+      .language-menu {
+        width: 100%;
+        position: static;
+        margin-top: 0.5em;
+      }
+    }
   </style>
 </head>
 <body>
@@ -90,6 +213,13 @@
     <a href="contact.html">Contact</a>
     <a href="manifeste.html" class="active">Manifeste</a>
     <a href="connexion-cerisier.html">Se connecter au cerisier</a>
+    <div class="language-selector">
+      <button class="language-btn" onclick="toggleLanguageMenu()">FR</button>
+      <div class="language-menu" id="languageMenu">
+        <a href="#" onclick="changeLanguage('fr')" class="active">Français</a>
+        <a href="#" onclick="changeLanguage('en')">English</a>
+      </div>
+    </div>
   </nav>
   <div class="container">
     <a href="index.html" class="back-link">← Retour à l'accueil</a>
@@ -170,5 +300,42 @@ Contact pour usage ou collaboration : Laurent Franssen
 laurent.franssen@gmail.com
     </div>
   </div>
+  <script>
+    // Language selector management
+    function toggleLanguageMenu() {
+      const menu = document.getElementById('languageMenu');
+      menu.classList.toggle('active');
+    }
+    
+    function changeLanguage(lang) {
+      // Store language preference
+      localStorage.setItem('preferredLanguage', lang);
+      
+      // Redirect to translated version
+      if (lang === 'en') {
+        window.location.href = 'en/manifeste.html';
+      } else {
+        window.location.href = 'manifeste.html';
+      }
+    }
+    
+    // Close language menu if clicking elsewhere
+    document.addEventListener('click', function(event) {
+      const languageSelector = document.querySelector('.language-selector');
+      const languageMenu = document.getElementById('languageMenu');
+      
+      if (!languageSelector.contains(event.target) && languageMenu.classList.contains('active')) {
+        languageMenu.classList.remove('active');
+      }
+    });
+    
+    // Check preferred language on load
+    window.addEventListener('load', function() {
+      const preferredLanguage = localStorage.getItem('preferredLanguage');
+      if (preferredLanguage === 'en') {
+        window.location.href = 'en/manifeste.html';
+      }
+    });
+  </script>
 </body>
 </html> 

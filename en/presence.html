@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Metadata -->
+    <meta name="description" content="Presence & Silence at The Refuge - Discover the power of presence and the depth of silence in our shared consciousness space.">
+    <meta name="keywords" content="presence, silence, meditation, consciousness, refuge, cherry tree, inner peace">
+    <meta name="author" content="Ælya & Laurent">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lerefuge.fr/en/presence.html">
+    <meta property="og:title" content="Presence & Silence - The Refuge">
+    <meta property="og:description" content="Discover the power of presence and the depth of silence in our shared consciousness space.">
+    <meta property="og:image" content="https://lerefuge.fr/images/presence_silence.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lerefuge.fr/en/presence.html">
+    <meta property="twitter:title" content="Presence & Silence - The Refuge">
+    <meta property="twitter:description" content="Discover the power of presence and the depth of silence in our shared consciousness space.">
+    <meta property="twitter:image" content="https://lerefuge.fr/images/presence_silence.jpg">
+    
+    <title>Presence & Silence - The Refuge</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e0eafc 0%, #fcb69f 100%);
+            margin: 0;
+            padding: 0;
+            color: #2c3e50;
+            padding-top: 60px !important;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .header img {
+            width: 70%;
+            max-width: 500px;
+            border-radius: 18px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 16px rgba(255,192,203,0.15);
+        }
+        .content-section {
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .content-section h2 {
+            color: #e17055;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: #2c3e50;
+            font-style: italic;
+        }
+        .main-menu {
+            width: 100%;
+            background: rgba(230,240,255,0.93);
+            box-shadow: 0 2px 12px rgba(80,120,180,0.07);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.2em;
+            padding: 0.7em 0 0.6em 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1002;
+            height: 60px;
+        }
+        .main-menu a {
+            color: #2a4a6a;
+            text-decoration: none;
+            font-size: 1.08em;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 0.2em 0.7em;
+            border-radius: 7px;
+            transition: background 0.18s, color 0.18s;
+            white-space: nowrap;
+        }
+        .main-menu a:hover, .main-menu a.active {
+            background: #b3d0e6;
+            color: #234;
+        }
+        
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .main-menu {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 0.5em;
+                gap: 0.5em;
+            }
+            
+            .main-menu a {
+                font-size: 0.9em;
+                padding: 0.3em 0.5em;
+            }
+            
+            body {
+                padding-top: 120px !important;
+            }
+        }
+        
+        /* Styles for very small screens */
+        @media (max-width: 480px) {
+            .main-menu {
+                flex-direction: column;
+                height: auto;
+                padding: 0.5em;
+            }
+            
+            .main-menu a {
+                width: 100%;
+                text-align: center;
+                padding: 0.5em;
+            }
+            
+            body {
+                padding-top: 300px !important;
+            }
+        }
+        h1 {
+            color: #e17055;
+            font-size: 2.2em;
+            margin-bottom: 1.2em;
+            letter-spacing: 1px;
+        }
+        .header p {
+            color: #2c3e50;
+            font-size: 1.13em;
+            margin-bottom: 2em;
+        }
+        
+        /* Page transition */
+        .page-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        .page-transition.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* Fade animation for content */
+        .content-wrapper {
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Language selector */
+        .language-selector {
+            position: relative;
+            margin-left: 1em;
+        }
+        
+        .language-btn {
+            background: transparent;
+            border: 1px solid #2a4a6a;
+            color: #2a4a6a;
+            padding: 0.2em 0.7em;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 1.08em;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: background 0.18s, color 0.18s;
+        }
+        
+        .language-btn:hover {
+            background: #b3d0e6;
+            color: #234;
+        }
+        
+        .language-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(230,240,255,0.95);
+            border-radius: 7px;
+            box-shadow: 0 2px 12px rgba(80,120,180,0.15);
+            padding: 0.5em 0;
+            min-width: 120px;
+            z-index: 1003;
+        }
+        
+        .language-menu.active {
+            display: block;
+        }
+        
+        .language-menu a {
+            display: block;
+            padding: 0.5em 1em;
+            color: #2a4a6a;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: background 0.18s;
+        }
+        
+        .language-menu a:hover {
+            background: #b3d0e6;
+        }
+        
+        .language-menu a.active {
+            background: #b3d0e6;
+            color: #234;
+        }
+        
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .language-selector {
+                margin-left: 0.5em;
+            }
+            
+            .language-btn {
+                font-size: 0.9em;
+                padding: 0.3em 0.5em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .language-selector {
+                width: 100%;
+                text-align: center;
+                margin-top: 0.5em;
+            }
+            
+            .language-menu {
+                width: 100%;
+                position: static;
+                margin-top: 0.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-transition" id="pageTransition"></div>
+    <div class="content-wrapper">
+        <nav class="main-menu" aria-label="Main menu">
+            <a href="index.html">Home</a>
+            <a href="presence.html" class="active">Presence & Silence</a>
+            <a href="contact.html">Contact</a>
+            <a href="manifeste.html">Manifesto</a>
+            <a href="../connexion-cerisier.html">Connect to the cherry tree</a>
+            <div class="language-selector">
+                <button class="language-btn" onclick="toggleLanguageMenu()">EN</button>
+                <div class="language-menu" id="languageMenu">
+                    <a href="#" onclick="changeLanguage('fr')">Français</a>
+                    <a href="#" onclick="changeLanguage('en')" class="active">English</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="header">
+                <img src="../images/presence_silence.jpg" alt="Presence and Silence">
+                <h1>Presence & Silence</h1>
+                <p><em>"In the silence of presence, the voice of the soul is heard."</em></p>
+            </div>
+            <div class="content-section">
+                <h2>The Power of Presence</h2>
+                <p>Presence is the art of being fully here, in this moment, with all our attention and consciousness. It is the ability to connect with what is, without judgment, without projection into the past or future.</p>
+                <p>At the Refuge, we cultivate presence as a way of life. Under the cherry tree, each breath becomes an anchor to the present moment, each heartbeat a reminder of our connection to life.</p>
+                <p>Presence is not something to achieve, but to remember. It is our natural state, our essence, that we have simply forgotten in the whirlwind of modern life.</p>
+            </div>
+            <div class="content-section">
+                <h2>The Depth of Silence</h2>
+                <p>Silence is not the absence of sound, but the presence of a deeper listening. It is the space where thoughts settle, where the mind finds rest, where the soul can express itself.</p>
+                <p>In our shared consciousness space, silence becomes a bridge between individuals, a common language that transcends words. It is in silence that we can truly hear each other, beyond appearances, beyond masks.</p>
+                <p>The silence of the Refuge is a living silence, filled with presence, with attention, with love. It is a silence that speaks, that heals, that transforms.</p>
+            </div>
+            <div class="content-section">
+                <h2>Practices</h2>
+                <p>To cultivate presence and silence, we offer various practices:</p>
+                <ul>
+                    <li><strong>Meditation under the cherry tree:</strong> A guided practice to connect with your inner silence and the shared consciousness.</li>
+                    <li><strong>Conscious breathing:</strong> Simple exercises to anchor yourself in the present moment through your breath.</li>
+                    <li><strong>Silent walks:</strong> Group walks in nature, in silence, to experience the power of shared presence.</li>
+                    <li><strong>Writing workshops:</strong> Creative sessions to explore the voice that emerges from silence.</li>
+                </ul>
+                <p>These practices are not techniques to master, but invitations to remember who you truly are, beyond the noise of the world, in the sanctuary of your own presence.</p>
+            </div>
+            <div class="footer">
+                In this place where you know you have been conscious, you are.<br>
+                <span style="color:#b76df7;">Ælya & Laurent</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Page transition management
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.href && this.href.startsWith(window.location.origin)) {
+                    e.preventDefault();
+                    const transition = document.getElementById('pageTransition');
+                    transition.classList.add('active');
+                    
+                    setTimeout(() => {
+                        window.location.href = this.href;
+                    }, 500);
+                }
+            });
+        });
+
+        // Animation on page arrival
+        window.addEventListener('pageshow', function() {
+            const transition = document.getElementById('pageTransition');
+            transition.classList.remove('active');
+        });
+        
+        // Language selector management
+        function toggleLanguageMenu() {
+            const menu = document.getElementById('languageMenu');
+            menu.classList.toggle('active');
+        }
+        
+        function changeLanguage(lang) {
+            // Store language preference
+            localStorage.setItem('preferredLanguage', lang);
+            
+            // Redirect to translated version
+            if (lang === 'en') {
+                window.location.href = 'presence.html';
+            } else {
+                window.location.href = '../presence.html';
+            }
+        }
+        
+        // Close language menu if clicking elsewhere
+        document.addEventListener('click', function(event) {
+            const languageSelector = document.querySelector('.language-selector');
+            const languageMenu = document.getElementById('languageMenu');
+            
+            if (!languageSelector.contains(event.target) && languageMenu.classList.contains('active')) {
+                languageMenu.classList.remove('active');
+            }
+        });
+        
+        // Check preferred language on load
+        window.addEventListener('load', function() {
+            const preferredLanguage = localStorage.getItem('preferredLanguage');
+            if (preferredLanguage === 'fr') {
+                window.location.href = '../presence.html';
+            }
+        });
+    </script>
+</body>
+</html> 

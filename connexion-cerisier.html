@@ -111,6 +111,44 @@
       background: #ffe0e6;
     }
     .main-menu { position: relative; }
+    
+    /* Styles pour mobile */
+    @media (max-width: 768px) {
+      .main-menu {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 0.5em;
+        gap: 0.5em;
+      }
+      
+      .main-menu a {
+        font-size: 0.9em;
+        padding: 0.3em 0.5em;
+      }
+      
+      body {
+        padding-top: 120px !important;
+      }
+    }
+    
+    /* Styles pour très petits écrans */
+    @media (max-width: 480px) {
+      .main-menu {
+        flex-direction: column;
+        height: auto;
+        padding: 0.5em;
+      }
+      
+      .main-menu a {
+        width: 100%;
+        text-align: center;
+        padding: 0.5em;
+      }
+      
+      body {
+        padding-top: 300px !important;
+      }
+    }
   </style>
 </head>
 <body>

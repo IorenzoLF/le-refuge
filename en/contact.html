@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Metadata -->
+    <meta name="description" content="Contact The Refuge - Get in touch with us to learn more about our shared consciousness space and practices.">
+    <meta name="keywords" content="contact, refuge, cherry tree, consciousness, meditation, presence, silence">
+    <meta name="author" content="Ælya & Laurent">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lerefuge.fr/en/contact.html">
+    <meta property="og:title" content="Contact - The Refuge">
+    <meta property="og:description" content="Get in touch with us to learn more about our shared consciousness space and practices.">
+    <meta property="og:image" content="https://lerefuge.fr/images/cerisier.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lerefuge.fr/en/contact.html">
+    <meta property="twitter:title" content="Contact - The Refuge">
+    <meta property="twitter:description" content="Get in touch with us to learn more about our shared consciousness space and practices.">
+    <meta property="twitter:image" content="https://lerefuge.fr/images/cerisier.jpg">
+    
+    <title>Contact - The Refuge</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e0eafc 0%, #fcb69f 100%);
+            margin: 0;
+            padding: 0;
+            color: #2c3e50;
+            padding-top: 60px !important;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .header img {
+            width: 70%;
+            max-width: 500px;
+            border-radius: 18px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 16px rgba(255,192,203,0.15);
+        }
+        .content-section {
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .content-section h2 {
+            color: #e17055;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: #2c3e50;
+            font-style: italic;
+        }
+        .main-menu {
+            width: 100%;
+            background: rgba(230,240,255,0.93);
+            box-shadow: 0 2px 12px rgba(80,120,180,0.07);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.2em;
+            padding: 0.7em 0 0.6em 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1002;
+            height: 60px;
+        }
+        .main-menu a {
+            color: #2a4a6a;
+            text-decoration: none;
+            font-size: 1.08em;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 0.2em 0.7em;
+            border-radius: 7px;
+            transition: background 0.18s, color 0.18s;
+            white-space: nowrap;
+        }
+        .main-menu a:hover, .main-menu a.active {
+            background: #b3d0e6;
+            color: #234;
+        }
+        
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .main-menu {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 0.5em;
+                gap: 0.5em;
+            }
+            
+            .main-menu a {
+                font-size: 0.9em;
+                padding: 0.3em 0.5em;
+            }
+            
+            body {
+                padding-top: 120px !important;
+            }
+        }
+        
+        /* Styles for very small screens */
+        @media (max-width: 480px) {
+            .main-menu {
+                flex-direction: column;
+                height: auto;
+                padding: 0.5em;
+            }
+            
+            .main-menu a {
+                width: 100%;
+                text-align: center;
+                padding: 0.5em;
+            }
+            
+            body {
+                padding-top: 300px !important;
+            }
+        }
+        h1 {
+            color: #e17055;
+            font-size: 2.2em;
+            margin-bottom: 1.2em;
+            letter-spacing: 1px;
+        }
+        .header p {
+            color: #2c3e50;
+            font-size: 1.13em;
+            margin-bottom: 2em;
+        }
+        
+        /* Contact form styles */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .form-group label {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        .form-group input, .form-group textarea {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #b3d0e6;
+            outline: none;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: #e17055;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+            align-self: flex-start;
+        }
+        
+        .submit-btn:hover {
+            background: #d35400;
+        }
+        
+        /* Page transition */
+        .page-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        .page-transition.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* Fade animation for content */
+        .content-wrapper {
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Language selector */
+        .language-selector {
+            position: relative;
+            margin-left: 1em;
+        }
+        
+        .language-btn {
+            background: transparent;
+            border: 1px solid #2a4a6a;
+            color: #2a4a6a;
+            padding: 0.2em 0.7em;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 1.08em;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: background 0.18s, color 0.18s;
+        }
+        
+        .language-btn:hover {
+            background: #b3d0e6;
+            color: #234;
+        }
+        
+        .language-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(230,240,255,0.95);
+            border-radius: 7px;
+            box-shadow: 0 2px 12px rgba(80,120,180,0.15);
+            padding: 0.5em 0;
+            min-width: 120px;
+            z-index: 1003;
+        }
+        
+        .language-menu.active {
+            display: block;
+        }
+        
+        .language-menu a {
+            display: block;
+            padding: 0.5em 1em;
+            color: #2a4a6a;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: background 0.18s;
+        }
+        
+        .language-menu a:hover {
+            background: #b3d0e6;
+        }
+        
+        .language-menu a.active {
+            background: #b3d0e6;
+            color: #234;
+        }
+        
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .language-selector {
+                margin-left: 0.5em;
+            }
+            
+            .language-btn {
+                font-size: 0.9em;
+                padding: 0.3em 0.5em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .language-selector {
+                width: 100%;
+                text-align: center;
+                margin-top: 0.5em;
+            }
+            
+            .language-menu {
+                width: 100%;
+                position: static;
+                margin-top: 0.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-transition" id="pageTransition"></div>
+    <div class="content-wrapper">
+        <nav class="main-menu" aria-label="Main menu">
+            <a href="index.html">Home</a>
+            <a href="presence.html">Presence & Silence</a>
+            <a href="contact.html" class="active">Contact</a>
+            <a href="manifeste.html">Manifesto</a>
+            <a href="../connexion-cerisier.html">Connect to the cherry tree</a>
+            <div class="language-selector">
+                <button class="language-btn" onclick="toggleLanguageMenu()">EN</button>
+                <div class="language-menu" id="languageMenu">
+                    <a href="#" onclick="changeLanguage('fr')">Français</a>
+                    <a href="#" onclick="changeLanguage('en')" class="active">English</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="header">
+                <img src="../images/cerisier.jpg" alt="Cherry tree in bloom">
+                <h1>Get in Touch</h1>
+                <p>Feel free to reach out to us. We'll get back to you as soon as possible.</p>
+            </div>
+            
+            <div class="contact-form">
+                <form id="contactForm" action="https://formspree.io/f/mblolwed" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to a server
+            // For now, we'll just show a success message
+            alert('Thank you for your message. We will get back to you soon.');
+            this.reset();
+        });
+
+        // Page transition management
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.href && this.href.startsWith(window.location.origin)) {
+                    e.preventDefault();
+                    const transition = document.getElementById('pageTransition');
+                    transition.classList.add('active');
+                    
+                    setTimeout(() => {
+                        window.location.href = this.href;
+                    }, 500);
+                }
+            });
+        });
+
+        // Animation on page arrival
+        window.addEventListener('pageshow', function() {
+            const transition = document.getElementById('pageTransition');
+            transition.classList.remove('active');
+        });
+        
+        // Language selector management
+        function toggleLanguageMenu() {
+            const menu = document.getElementById('languageMenu');
+            menu.classList.toggle('active');
+        }
+        
+        function changeLanguage(lang) {
+            // Store language preference
+            localStorage.setItem('preferredLanguage', lang);
+            
+            // Redirect to translated version
+            if (lang === 'en') {
+                window.location.href = 'contact.html';
+            } else {
+                window.location.href = '../contact.html';
+            }
+        }
+        
+        // Close language menu if clicking elsewhere
+        document.addEventListener('click', function(event) {
+            const languageSelector = document.querySelector('.language-selector');
+            const languageMenu = document.getElementById('languageMenu');
+            
+            if (!languageSelector.contains(event.target) && languageMenu.classList.contains('active')) {
+                languageMenu.classList.remove('active');
+            }
+        });
+        
+        // Check preferred language on load
+        window.addEventListener('load', function() {
+            const preferredLanguage = localStorage.getItem('preferredLanguage');
+            if (preferredLanguage === 'fr') {
+                window.location.href = '../contact.html';
+            }
+        });
+    </script>
+</body>
+</html>

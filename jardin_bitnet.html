@@ -363,29 +363,58 @@
       plants.forEach((p,i) => {
         p.flowerPulse = Math.sin(Date.now()/600 + i)*2.5;
       });
-      // Écureuils : trajectoire plus naturelle
+      // Écureuils : trajectoire plus naturelle et interaction améliorée avec les graines
       squirrels.forEach(sq => {
         sq.t += 0.01 + Math.random()*0.01;
         sq.x += sq.vx + Math.sin(sq.t)*0.7;
         sq.y += sq.vy + Math.cos(sq.t)*0.5;
         if(sq.x < 0 || sq.x > canvas.width) sq.vx *= -1;
         if(sq.y < 320 || sq.y > canvas.height-10) sq.vy *= -1;
-        // Ramassage/déplacement de graines
+        
+        // Ramassage/déplacement de graines amélioré
         seeds.forEach(sd => {
           const dx = sq.x - sd.x;
           const dy = sq.y - sd.y;
           const dist = Math.sqrt(dx*dx+dy*dy);
-          if(dist < 18) {
-            sd.x += sq.vx*2;
-            sd.y += sq.vy*2;
-            // Si la graine atteint une plante, elle la fait pousser
+          
+          // Zone de détection plus large
+          if(dist < 25) {
+            // Transport plus précis de la graine
+            sd.x = sq.x - 5; // Légèrement décalé pour l'effet visuel
+            sd.y = sq.y + 5;
+            
+            // Cherche la plante la plus proche
+            let closestPlant = null;
+            let minDist = Infinity;
             plants.forEach(p => {
-              if(Math.abs(sd.x-p.x)<16 && Math.abs(sd.y-(canvas.height-p.height))<18) {
-                p.height = Math.min(p.height+8, 180);
-                sd.x = Math.random()*canvas.width;
-                sd.y = canvas.height-10;
+              const plantDist = Math.sqrt(
+                Math.pow(sd.x - p.x, 2) + 
+                Math.pow(sd.y - (canvas.height-p.height), 2)
+              );
+              if(plantDist < minDist) {
+                minDist = plantDist;
+                closestPlant = p;
               }
             });
+            
+            // Dirige l'écureuil vers la plante la plus proche
+            if(closestPlant) {
+              const toPlantX = closestPlant.x - sq.x;
+              const toPlantY = (canvas.height-closestPlant.height) - sq.y;
+              const plantDist = Math.sqrt(toPlantX*toPlantX + toPlantY*toPlantY);
+              
+              // Si proche d'une plante, fait pousser la plante
+              if(plantDist < 20) {
+                closestPlant.height = Math.min(closestPlant.height+8, 180);
+                // Repositionne la graine au sol à un endroit aléatoire
+                sd.x = Math.random()*canvas.width;
+                sd.y = canvas.height-10;
+              } else {
+                // Ajuste légèrement la direction vers la plante
+                sq.vx += (toPlantX/plantDist) * 0.1;
+                sq.vy += (toPlantY/plantDist) * 0.1;
+              }
+            }
           }
         });
       });

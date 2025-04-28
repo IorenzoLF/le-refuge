@@ -14,7 +14,6 @@
             padding: 0;
             color: #2c3e50;
             padding-top: 60px !important;
-            visibility: hidden;
         }
         .container {
             max-width: 900px;
@@ -84,49 +83,10 @@
             background: #b3d0e6;
             color: #234;
         }
-        .lang-switch {
-            position: absolute;
-            top: 18px;
-            right: 38px;
-            font-size: 1.08em;
-            z-index: 1100;
-        }
-        .lang-switch a {
-            color: #4a6a8a;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 0 0.2em;
-            padding: 0.1em 0.5em;
-            border-radius: 5px;
-            transition: background 0.18s, color 0.18s;
-        }
-        .lang-switch a.active, .lang-switch a:hover {
-            background: #b3d0e6;
-            color: #234;
-        }
         .main-menu { position: relative; }
     </style>
-    <script>
-    if (!sessionStorage.getItem('refuge-lang-just-switched')) {
-        var lang = localStorage.getItem('refuge-lang');
-        var isEn = window.location.pathname.includes('_en');
-        if (lang === 'en' && !isEn) {
-            window.location.replace(window.location.pathname.replace('.html', '_en.html'));
-        } else if (lang === 'fr' && isEn) {
-            window.location.replace(window.location.pathname.replace('_en.html', '.html'));
-        }
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-        document.body.style.visibility = 'visible';
-        sessionStorage.removeItem('refuge-lang-just-switched');
-    });
-    </script>
 </head>
 <body>
-    <div class="lang-switch" aria-label="Changement de langue">
-        <a href="presence.html" class="active">FR</a> |
-        <a href="presence_en.html">EN</a>
-    </div>
     <nav class="main-menu">
         <a href="index.html">Accueil</a>
         <a href="presence.html" class="active">Présence & Silence</a>
@@ -161,13 +121,5 @@
             </div>
         </div>
     </div>
-    <script>
-    document.querySelectorAll('.lang-switch a').forEach(function(link) {
-        link.addEventListener('click', function(e) {
-            localStorage.setItem('refuge-lang', this.getAttribute('href').includes('_en') ? 'en' : 'fr');
-            sessionStorage.setItem('refuge-lang-just-switched', '1');
-        });
-    });
-    </script>
 </body>
 </html> 

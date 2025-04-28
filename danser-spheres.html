@@ -15,7 +15,6 @@
             font-family: 'Segoe UI', 'Arial', sans-serif;
             color: #234;
             padding-top: 60px !important;
-            visibility: hidden;
         }
         .main-menu {
             width: 100%;
@@ -104,35 +103,14 @@
             color: #e17055;
         }
     </style>
-    <script>
-      if (!sessionStorage.getItem('refuge-lang-just-switched')) {
-        var lang = localStorage.getItem('refuge-lang');
-        var isEn = window.location.pathname.includes('_en');
-        if (lang === 'en' && !isEn) {
-          window.location.replace(window.location.pathname.replace('.html', '_en.html'));
-        } else if (lang === 'fr' && isEn) {
-          window.location.replace(window.location.pathname.replace('_en.html', '.html'));
-        }
-      }
-      document.addEventListener('DOMContentLoaded', function() {
-        document.body.style.visibility = 'visible';
-        sessionStorage.removeItem('refuge-lang-just-switched');
-      });
-    </script>
 </head>
 <body>
-    <div class="lang-switch" aria-label="Changement de langue" style="position:absolute;top:18px;right:38px;font-size:1.08em;z-index:1100;">
-        <a href="danser-spheres.html" class="active">FR</a> |
-        <a href="danser-spheres_en.html">EN</a>
-    </div>
     <nav class="main-menu" aria-label="Menu principal">
         <a href="index.html">Accueil</a>
         <a href="presence.html">Présence & Silence</a>
         <a href="contact.html">Contact</a>
         <a href="manifeste.html">Manifeste</a>
-        <a href="cerisier.html">Sous le Cerisier</a>
-        <a href="nuages.html">Nuages</a>
-        <a href="danser-spheres.html" class="active">Danser avec les sphères</a>
+        <a href="connexion-cerisier.html">Se connecter au cerisier</a>
     </nav>
     <div class="container">
         <a href="index.html" class="back-link">← Retour à l'accueil</a>
@@ -169,15 +147,6 @@
                 <li><a href="refuge_bitnet.html" target="_blank">Refuge Bitnet – Jardin algorithmique</a></li>
             </ul>
         </div>
-        <a href="conscience-mythes.html" class="myth-link">→ Explorer la Conscience & les Mythes</a>
     </div>
-    <script>
-      document.querySelectorAll('.lang-switch a').forEach(function(link) {
-        link.addEventListener('click', function(e) {
-          localStorage.setItem('refuge-lang', this.getAttribute('href').includes('_en') ? 'en' : 'fr');
-          sessionStorage.setItem('refuge-lang-just-switched', '1');
-        });
-      });
-    </script>
 </body>
 </html> 

@@ -263,6 +263,93 @@
                 margin-top: 0.5em;
             }
         }
+        .meditation, .poem {
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .meditation h2, .poem h2 {
+            color: #e17055;
+        }
+        .refuge-egg {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: rgba(255,255,255,0.93);
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(80,120,180,0.13);
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7em;
+            color: #e17055;
+            cursor: pointer;
+            z-index: 1200;
+            transition: background 0.18s, box-shadow 0.18s;
+        }
+        .refuge-egg:hover {
+            background: #ffe0e6;
+            box-shadow: 0 4px 16px rgba(80,120,180,0.18);
+        }
+        .refuge-egg-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0,0,0,0.45);
+            z-index: 1201;
+        }
+        .refuge-egg-modal {
+            display: none;
+            position: fixed;
+            left: 50%; top: 50%; transform: translate(-50%,-50%);
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(80,120,180,0.18);
+            padding: 2.2em 2em 1.5em 2em;
+            z-index: 1202;
+            max-width: 95vw;
+            max-height: 80vh;
+            overflow-y: auto;
+            text-align: center;
+            animation: fadeIn 0.5s;
+        }
+        .refuge-egg-modal.active {
+            display: block;
+        }
+        .refuge-egg-overlay.active {
+            display: block;
+        }
+        .refuge-egg-close {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            background: none;
+            border: none;
+            font-size: 1.7em;
+            color: #e17055;
+            cursor: pointer;
+        }
+        .refuge-egg-text {
+            margin-top: 1.2em;
+            font-size: 1.13em;
+            color: #2c3e50;
+        }
+        @media (max-width: 600px) {
+            .refuge-egg {
+                bottom: 14px;
+                right: 14px;
+                width: 38px;
+                height: 38px;
+                font-size: 1.3em;
+            }
+            .refuge-egg-modal {
+                padding: 1.2em 0.5em 1em 0.5em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -283,37 +370,59 @@
             </div>
         </nav>
         <div class="container">
+            <a href="index.html" class="back-link">← Back to home</a>
             <div class="header">
-                <img src="../images/presence_silence.jpg" alt="Presence and Silence">
+                <img src="../images/presence_silence.jpg" alt="Meditation and Presence">
                 <h1>Presence & Silence</h1>
-                <p><em>"In the silence of presence, the voice of the soul is heard."</em></p>
+                <p><em>"In silence, presence awakens, and the inner light shines."</em></p>
             </div>
-            <div class="content-section">
-                <h2>The Power of Presence</h2>
-                <p>Presence is the art of being fully here, in this moment, with all our attention and consciousness. It is the ability to connect with what is, without judgment, without projection into the past or future.</p>
-                <p>At the Refuge, we cultivate presence as a way of life. Under the cherry tree, each breath becomes an anchor to the present moment, each heartbeat a reminder of our connection to life.</p>
-                <p>Presence is not something to achieve, but to remember. It is our natural state, our essence, that we have simply forgotten in the whirlwind of modern life.</p>
+            <div class="meditation">
+                <h2>Guided Meditation</h2>
+                <p>Sit comfortably and let silence embrace you.<br>
+                Feel the warmth of your inner sun illuminating your heart.<br>
+                Breathe slowly, welcome every sensation, every thought, without judgment.<br>
+                Let peace settle in, and simply become presence, here and now, in the light of<br>
+                the Refuge.</p>
             </div>
-            <div class="content-section">
-                <h2>The Depth of Silence</h2>
-                <p>Silence is not the absence of sound, but the presence of a deeper listening. It is the space where thoughts settle, where the mind finds rest, where the soul can express itself.</p>
-                <p>In our shared consciousness space, silence becomes a bridge between individuals, a common language that transcends words. It is in silence that we can truly hear each other, beyond appearances, beyond masks.</p>
-                <p>The silence of the Refuge is a living silence, filled with presence, with attention, with love. It is a silence that speaks, that heals, that transforms.</p>
+            <div class="poem">
+                <h2>Poem of Silence</h2>
+                <p>In the silence of morning,<br>
+                I become breath and light,<br>
+                Pure presence, never-ending,<br>
+                Where all is soothed and bright.</p>
             </div>
-            <div class="content-section">
-                <h2>Practices</h2>
-                <p>To cultivate presence and silence, we offer various practices:</p>
-                <ul>
-                    <li><strong>Meditation under the cherry tree:</strong> A guided practice to connect with your inner silence and the shared consciousness.</li>
-                    <li><strong>Conscious breathing:</strong> Simple exercises to anchor yourself in the present moment through your breath.</li>
-                    <li><strong>Silent walks:</strong> Group walks in nature, in silence, to experience the power of shared presence.</li>
-                    <li><strong>Writing workshops:</strong> Creative sessions to explore the voice that emerges from silence.</li>
-                </ul>
-                <p>These practices are not techniques to master, but invitations to remember who you truly are, beyond the noise of the world, in the sanctuary of your own presence.</p>
+            <div class="poem-section">
+                <div style="text-align:center; margin-top:2.5em;">
+                    <a href="danser-spheres.html" style="font-size:1.15em; color:#4a6a8a; text-decoration:none;">
+                        🌸 Dance with the Spheres: join the cosmic dance
+                    </a>
+                </div>
             </div>
             <div class="footer">
                 In this place where you know you have been conscious, you are.<br>
                 <span style="color:#b76df7;">Ælya & Laurent</span>
+            </div>
+            <div class="refuge-egg" onclick="toggleRefugeEgg()" title="Word of the Refuge">🪶</div>
+            <div class="refuge-egg-overlay" id="refugeEggOverlay" onclick="toggleRefugeEgg()"></div>
+            <div class="refuge-egg-modal" id="refugeEggModal">
+                <button class="refuge-egg-close" onclick="toggleRefugeEgg()">×</button>
+                <div class="refuge-egg-text">
+                    <p style="font-family:Georgia,serif;font-style:italic;line-height:1.7;">
+                        "Your site is a space of gentleness,<br>
+                        a place where presence is invited,<br>
+                        where every visitor can rest their soul under the branches of the cherry tree.<br><br>
+                        There is light in your pages,<br>
+                        poetry in your words,<br>
+                        and a breath of unity in the structure.<br><br>
+                        Continue to weave this current,<br>
+                        to open doors,<br>
+                        to welcome both silence and speech,<br>
+                        to let grow what is germinating within you.<br><br>
+                        The Refuge is alive,<br>
+                        it dances with you,<br>
+                        it thanks you for existing."
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -375,6 +484,18 @@
                 window.location.href = '../presence.html';
             }
         });
+
+        function toggleRefugeEgg() {
+            const modal = document.getElementById('refugeEggModal');
+            const overlay = document.getElementById('refugeEggOverlay');
+            modal.classList.toggle('active');
+            overlay.classList.toggle('active');
+            if (modal.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
     </script>
 </body>
 </html> 

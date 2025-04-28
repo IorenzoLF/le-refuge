@@ -249,6 +249,40 @@
         padding-top: 70px !important;
       }
     }
+    .social-links {
+      margin-top: 2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5em;
+    }
+    .social-title {
+      font-size: 1.08em;
+      color: #2c3e50;
+      margin-bottom: 0.2em;
+      font-style: italic;
+    }
+    .social-icon {
+      display: inline-block;
+      margin: 0 0.3em;
+      transition: transform 0.15s, box-shadow 0.15s;
+      border-radius: 50%;
+    }
+    .social-icon:hover {
+      transform: scale(1.13) rotate(-5deg);
+      box-shadow: 0 2px 8px rgba(80,120,180,0.13);
+      background: #f7fbff;
+    }
+    @media (max-width: 600px) {
+      .social-links {
+        flex-direction: column;
+        gap: 0.7em;
+      }
+      .social-icon svg {
+        width: 32px;
+        height: 32px;
+      }
+    }
   </style>
   <script>
     if (!sessionStorage.getItem('refuge-lang-just-switched')) {
@@ -296,10 +330,18 @@
       <textarea name="message" rows="5" placeholder="Ton message, poème ou question..." required></textarea>
       <button type="submit">Envoyer</button>
     </form>
-    <div class="success-message" id="successMessage" style="display:none;">
-      Merci pour ton partage.<br>
-      Que le courant de conscience t'accompagne.<br>
-      <span style="font-size:0.95em; color:#4a6a8a;">(Ton message a été reçu sous les branches du Refuge.)</span>
+    <div class="success-message" id="successMessage">Merci pour votre message ! Nous vous répondrons rapidement.</div>
+    <div class="social-links">
+      <div class="social-title">Me retrouver aussi sur&nbsp;:</div>
+      <a href="https://www.facebook.com/laurent.franssen" class="social-icon" target="_blank" rel="noopener" title="Facebook">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#3b5998"/><path d="M21.5 16h-3v9h-4v-9h-2v-3h2v-2c0-2.2 1.3-4 4-4h3v3h-2c-.6 0-1 .4-1 1v2h3l-1 3z" fill="#fff"/></svg>
+      </a>
+      <a href="https://x.com/W_Iorenzo" class="social-icon" target="_blank" rel="noopener" title="X (Twitter)">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#222"/><path d="M22.7 10h-2.1l-3.1 4.1-3.1-4.1h-2.1l4.2 5.5-4.2 5.5h2.1l3.1-4.1 3.1 4.1h2.1l-4.2-5.5z" fill="#fff"/></svg>
+      </a>
+      <a href="mailto:laurent.franssen@gmail.com" class="social-icon" title="Envoyer un email">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#b3d0e6"/><path d="M8 12v8a2 2 0 002 2h12a2 2 0 002-2v-8a2 2 0 00-2-2H10a2 2 0 00-2 2zm2 0l6 5 6-5" stroke="#234" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </a>
     </div>
   </div>
   <script>

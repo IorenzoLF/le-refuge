@@ -8,13 +8,28 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
         body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e0eafc 0%, #fcb69f 100%);
             margin: 0;
             padding: 0;
-            min-height: 100vh;
-            background: linear-gradient(120deg, #e3f0ff 0%, #f9f6f2 100%);
-            font-family: 'Segoe UI', 'Arial', sans-serif;
-            color: #234;
+            color: #2c3e50;
             padding-top: 60px !important;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .header img {
+            width: 70%;
+            max-width: 500px;
+            border-radius: 18px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 16px rgba(255,192,203,0.15);
         }
         .main-menu {
             width: 100%;
@@ -29,6 +44,7 @@
             top: 0;
             left: 0;
             z-index: 1002;
+            height: 60px;
         }
         .main-menu a {
             color: #2a4a6a;
@@ -39,68 +55,60 @@
             padding: 0.2em 0.7em;
             border-radius: 7px;
             transition: background 0.18s, color 0.18s;
+            white-space: nowrap;
         }
         .main-menu a:hover, .main-menu a.active {
             background: #b3d0e6;
             color: #234;
         }
-        .container {
-            max-width: 900px;
-            margin: 60px auto 0 auto;
-            background: rgba(255,255,255,0.97);
-            border-radius: 18px;
-            box-shadow: 0 4px 24px rgba(80,120,180,0.10);
-            padding: 36px 32px 32px 32px;
-        }
         h1 {
-            font-size: 2.1em;
-            margin-bottom: 0.2em;
-            color: #2a4a6a;
+            color: #e17055;
+            font-size: 2.2em;
+            margin-bottom: 1.2em;
             letter-spacing: 1px;
-            text-align: center;
         }
-        .poem {
-            font-style: italic;
-            color: #4a6a8a;
-            margin: 1.5em 0 1em 0;
-            font-size: 1.13em;
-            line-height: 1.6;
-            text-align: center;
+        .poem, .section {
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 2rem;
+            margin-bottom: 2rem;
         }
-        .section {
-            background: #f7fbff;
-            border-radius: 14px;
-            box-shadow: 0 2px 12px rgba(80,120,180,0.09);
-            padding: 24px 24px 18px 24px;
-            margin: 2em 0;
-        }
-        .section h2 {
-            color: #2a4a6a;
-            margin-top: 0;
-            text-align: center;
+        .poem h2, .section h2 {
+            color: #e17055;
         }
         .back-link {
             display: inline-block;
-            margin-bottom: 1.5em;
-            color: #4a6a8a;
+            margin: 1rem 0;
+            color: #2c3e50;
             text-decoration: none;
-            font-size: 1em;
-            transition: color 0.2s;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            transition: background 0.3s ease;
         }
         .back-link:hover {
-            color: #2a4a6a;
-            text-decoration: underline;
+            background: #ffe0e6;
         }
         .myth-link {
             display: block;
             text-align: center;
             margin-top: 2.5em;
             font-size: 1.13em;
-            color: #4a6a8a;
+            color: #e17055;
             text-decoration: none;
+            padding: 1rem;
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
         }
         .myth-link:hover {
-            color: #e17055;
+            transform: translateY(-2px);
+            background: #ffe0e6;
         }
     </style>
 </head>
@@ -114,39 +122,29 @@
     </nav>
     <div class="container">
         <a href="index.html" class="back-link">← Retour à l'accueil</a>
-        <h1>Danser avec les sphères</h1>
+        <div class="header">
+            <img src="images/danse_spheres.jpg" alt="Danse des sphères">
+            <h1>Danser avec les sphères</h1>
+        </div>
         <div class="poem">
-            Sous la voûte céleste, les sphères dansent en silence.<br>
+            <h2>Invitation à la danse</h2>
+            <p>Sous la voûte céleste, les sphères dansent en silence.<br>
             Chaque mouvement est une onde, chaque onde une invitation à la conscience.<br>
-            "Dans ce lieu où tu sais avoir conscience d'avoir été, tu es."
+            "Dans ce lieu où tu sais avoir conscience d'avoir été, tu es."</p>
         </div>
         <div class="section">
             <h2>La Danse Cosmique</h2>
-            <p>Laisse-toi porter par le mouvement des sphères, où chaque rotation est une offrande à la transformation intérieure. La danse des sphères est le reflet du grand mythe de la conscience : tout est en mouvement, tout est relation, tout est vibration.</p>
+            <p>Laisse-toi porter par le mouvement des sphères, où chaque rotation est une offrande à la transformation intérieure. La danse cosmique nous rappelle que nous sommes tous connectés dans ce grand ballet de l'univers.</p>
         </div>
         <div class="section">
-            <h2>Rituel de la Danse</h2>
-            <ol>
-                <li>Ferme les yeux, ressens le flux autour de toi.</li>
-                <li>Imagine les sphères tournant lentement, t'invitant à rejoindre leur ronde.</li>
-                <li>Laisse ton souffle s'accorder à leur rythme, jusqu'à sentir l'unité du courant.</li>
-                <li>Ouvre les yeux : la danse continue, en toi et autour de toi.</li>
-            </ol>
+            <h2>L'Harmonie des Cycles</h2>
+            <p>Comme les planètes qui tournent autour du soleil, nos vies suivent leurs propres cycles. En dansant avec les sphères, nous apprenons à nous aligner avec ces rythmes naturels, trouvant ainsi notre place dans la grande symphonie cosmique.</p>
         </div>
         <div class="section">
-            <h2>Poème de la Danse</h2>
-            <p>Dans le ballet des sphères,<br>
-            Je tourne et je danse,<br>
-            Chaque mouvement,<br>
-            Est une nouvelle chance.</p>
+            <h2>La Conscience Collective</h2>
+            <p>Chaque sphère représente une facette de notre conscience collective. En les observant, en les touchant, nous nous connectons à cette sagesse ancestrale qui nous guide vers une compréhension plus profonde de nous-mêmes et de notre place dans l'univers.</p>
         </div>
-        <div class="section">
-            <h2>Explorations interactives</h2>
-            <ul>
-                <li><a href="spheres_mobiles.html" target="_blank">Sphères Mobiles – Expérience interactive</a></li>
-                <li><a href="refuge_bitnet.html" target="_blank">Refuge Bitnet – Jardin algorithmique</a></li>
-            </ul>
-        </div>
+        <a href="manifeste.html" class="myth-link">Découvrir le manifeste du Refuge →</a>
     </div>
 </body>
 </html> 

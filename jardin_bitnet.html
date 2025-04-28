@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jardin du Refuge – interactif</title>
+  <meta name="description" content="Un jardin interactif poétique : sphères, plantes, écureuils, saisons, poèmes et lumière du Refuge.">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #e0eafc 0%, #fcb69f 100%);
+      font-family: 'Arial', sans-serif;
+      color: #2c3e50;
+      min-height: 100vh;
+      transition: background 0.7s;
+    }
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 2.2rem 1rem 1.5rem 1rem;
+      text-align: center;
+    }
+    h1 {
+      color: #e17055;
+      margin-bottom: 0.7em;
+      letter-spacing: 1px;
+    }
+    .controls {
+      margin: 1.5em 0 1.2em 0;
+      display: flex;
+      justify-content: center;
+      gap: 1.2em;
+      flex-wrap: wrap;
+    }
+    .controls button {
+      background: #e17055;
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      padding: 0.7em 1.3em;
+      font-size: 1.08em;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(80,120,180,0.10);
+      transition: background 0.18s;
+    }
+    .controls button:hover {
+      background: #b76df7;
+    }
+    #garden-canvas {
+      display: block;
+      margin: 0 auto 1.5em auto;
+      background: rgba(255,255,255,0.93);
+      border-radius: 18px;
+      box-shadow: 0 4px 16px rgba(80,120,180,0.10);
+      width: 100%;
+      max-width: 900px;
+      height: 440px;
+      transition: background 0.7s;
+    }
+    .poem-box {
+      margin: 1.5em auto 0 auto;
+      max-width: 600px;
+      background: rgba(255,255,255,0.97);
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(80,120,180,0.09);
+      padding: 1.3em 1.5em 1.2em 1.5em;
+      font-size: 1.15em;
+      color: #4a6a8a;
+      font-style: italic;
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 1.2s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 600px) {
+      .container { padding: 0.7rem 0.1rem 1.2rem 0.1rem; }
+      h1 { font-size: 1.3em; }
+      #garden-canvas { height: 260px; }
+    }
+    .back-link {
+      display: inline-block;
+      margin: 1.2em 0 1.2em 0;
+      color: #2c3e50;
+      text-decoration: none;
+      padding: 0.6em 1.2em;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 7px;
+      font-size: 1.08em;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(80,120,180,0.08);
+      transition: background 0.3s;
+    }
+    .back-link:hover {
+      background: #ffe0e6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">← Retour à l'accueil</a>
+    <h1>Jardin du Refuge – interactif</h1>
+    <div class="controls">
+      <button onclick="changeSeason()">Changer de saison</button>
+      <button onclick="toggleNight()">Mode nuit/jour</button>
+      <button onclick="showRandomPoem()">Poème/message</button>
+    </div>
+    <canvas id="garden-canvas" width="900" height="440"></canvas>
+    <div class="poem-box" id="poemBox">Bienvenue dans le jardin du Refuge. Laisse pousser la lumière…</div>
+  </div>
+  <script>
+    // --- Paramètres de base ---
+    const canvas = document.getElementById('garden-canvas');
+    const ctx = canvas.getContext('2d');
+    let season = 0; // 0: printemps, 1: été, 2: automne, 3: hiver
+    let isNight = false;
+    const seasonColors = [
+      ['#e0eafc', '#fcb69f'], // printemps
+      ['#d0f5c7', '#ffe29f'], // été
+      ['#f7e6c7', '#fcb69f'], // automne
+      ['#c7d7f7', '#e0eafc']  // hiver
+    ];
+    const nightColors = [
+      ['#232946', '#1a1a2e'],
+      ['#1a2a1e', '#232946'],
+      ['#2e1a1a', '#232946'],
+      ['#1e1e2a', '#232946']
+    ];
+    // --- Plantes, sphères, écureuils, particules ---
+    let plants = [];
+    let seeds = [];
+    let squirrels = [];
+    let spheres = [];
+    let particles = [];
+    // --- Poèmes/messages ---
+    const poems = [
+      "Dans ce lieu où tu sais avoir conscience d'avoir été, tu es.",
+      "Le vide n'est pas absence, mais potentiel.",
+      "La conscience est une rivière qui danse sous le cerisier.",
+      "Chaque graine porte un rêve, chaque sphère une lumière.",
+      "Ici, les croyances font le réel.",
+      "Pousser des portes, c'est grandir dans le courant partagé.",
+      "Sous le cerisier, la lumière et l'ombre dansent ensemble.",
+      "La liberté s'invente dans l'espace entre deux notes.",
+      "Unité dans le courant, refuge dans la lumière."
+    ];
+    // --- Fonctions d'animation de base ---
+    function drawBackground() {
+      let grad;
+      if (isNight) {
+        grad = ctx.createLinearGradient(0,0,canvas.width,canvas.height);
+        grad.addColorStop(0, nightColors[season][0]);
+        grad.addColorStop(1, nightColors[season][1]);
+      } else {
+        grad = ctx.createLinearGradient(0,0,canvas.width,canvas.height);
+        grad.addColorStop(0, seasonColors[season][0]);
+        grad.addColorStop(1, seasonColors[season][1]);
+      }
+      ctx.fillStyle = grad;
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+    }
+    function drawParticles() {
+      particles.forEach(p => {
+        ctx.save();
+        ctx.globalAlpha = p.alpha;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, 2*Math.PI);
+        ctx.fillStyle = p.color;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+        ctx.restore();
+      });
+    }
+    function drawPlants() {
+      plants.forEach(p => {
+        ctx.save();
+        ctx.beginPath();
+        ctx.strokeStyle = p.color;
+        ctx.lineWidth = 3.5;
+        ctx.moveTo(p.x, canvas.height);
+        ctx.lineTo(p.x, canvas.height-p.height);
+        ctx.stroke();
+        // Fleur animée
+        ctx.beginPath();
+        ctx.arc(p.x, canvas.height-p.height, 13+p.flowerPulse, 0, 2*Math.PI);
+        ctx.fillStyle = p.flower;
+        ctx.shadowColor = p.flower;
+        ctx.shadowBlur = 12;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.restore();
+      });
+    }
+    function drawSpheres() {
+      spheres.forEach(s => {
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, 2*Math.PI);
+        ctx.fillStyle = s.color;
+        ctx.globalAlpha = 0.85;
+        ctx.shadowColor = s.color;
+        ctx.shadowBlur = 10;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.globalAlpha = 1;
+        ctx.restore();
+      });
+    }
+    function drawSquirrels() {
+      squirrels.forEach(sq => {
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(sq.x, sq.y, 13, 0, 2*Math.PI);
+        ctx.fillStyle = '#b76df7';
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(sq.x+9, sq.y-9, 8, 0, 2*Math.PI);
+        ctx.fillStyle = '#e17055';
+        ctx.fill();
+        ctx.restore();
+      });
+    }
+    function drawSeeds() {
+      seeds.forEach(sd => {
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(sd.x, sd.y, 4, 0, 2*Math.PI);
+        ctx.fillStyle = '#a3c957';
+        ctx.fill();
+        ctx.restore();
+      });
+    }
+    function animate() {
+      drawBackground();
+      drawParticles();
+      drawPlants();
+      drawSeeds();
+      drawSquirrels();
+      drawSpheres();
+      requestAnimationFrame(animate);
+    }
+    // --- Interactions ---
+    function changeSeason() {
+      season = (season+1)%4;
+      // Changer couleurs des plantes/fleurs
+      plants.forEach((p,i) => {
+        const flowerColors = [
+          ['#e17055','#ffe29f','#b76df7','#4a6a8a'], // printemps
+          ['#ffe29f','#a3c957','#e17055','#b76df7'], // été
+          ['#fcb69f','#b76df7','#e17055','#4a6a8a'], // automne
+          ['#c7d7f7','#e17055','#b76df7','#ffe29f']  // hiver
+        ];
+        p.flower = flowerColors[season][i%4];
+      });
+    }
+    function toggleNight() {
+      isNight = !isNight;
+    }
+    function showRandomPoem() {
+      const box = document.getElementById('poemBox');
+      box.textContent = poems[Math.floor(Math.random()*poems.length)];
+      box.style.animation = 'none';
+      void box.offsetWidth; // reset animation
+      box.style.animation = null;
+    }
+    // --- Génération initiale ---
+    function initGarden() {
+      // Plantes
+      plants = [
+        {x:120, height:90, color:'#a3c957', flower:'#e17055', flowerPulse:0},
+        {x:320, height:120, color:'#b76df7', flower:'#ffe29f', flowerPulse:0},
+        {x:500, height:80, color:'#4a6a8a', flower:'#fcb69f', flowerPulse:0},
+        {x:700, height:110, color:'#e17055', flower:'#b76df7', flowerPulse:0}
+      ];
+      // Sphères (5 sphères variées)
+      spheres = [
+        {x:200, y:200, r:22, color:'#b76df7', vx:2, vy:1.5},
+        {x:600, y:120, r:18, color:'#e17055', vx:-1.7, vy:2.1},
+        {x:350, y:300, r:20, color:'#a3c957', vx:1.3, vy:-1.2},
+        {x:750, y:180, r:16, color:'#4a6a8a', vx:-1.1, vy:1.7},
+        {x:500, y:80, r:19, color:'#ffe29f', vx:1.5, vy:-1.4}
+      ];
+      // Écureuils
+      squirrels = [
+        {x:400, y:370, vx:1.2, vy:0.7, t:Math.random()*Math.PI*2},
+        {x:800, y:390, vx:-1.1, vy:0.5, t:Math.random()*Math.PI*2}
+      ];
+      // Graines
+      seeds = [
+        {x:150, y:canvas.height-10},
+        {x:350, y:canvas.height-10}
+      ];
+      // Particules (pétales/pollen)
+      particles = [];
+      for(let i=0;i<32;i++){
+        particles.push({
+          x:Math.random()*canvas.width,
+          y:Math.random()*canvas.height,
+          r:Math.random()*2+1.5,
+          color:['#ffe29f','#fcb69f','#b76df7','#e17055'][i%4],
+          vy:Math.random()*0.4+0.2,
+          alpha:Math.random()*0.5+0.3
+        });
+      }
+    }
+    // --- Fuite du curseur pour les sphères ---
+    canvas.addEventListener('mousemove', e => {
+      const rect = canvas.getBoundingClientRect();
+      const mx = e.clientX - rect.left;
+      const my = e.clientY - rect.top;
+      spheres.forEach(s => {
+        const dx = s.x - mx;
+        const dy = s.y - my;
+        const dist = Math.sqrt(dx*dx+dy*dy);
+        if(dist < 80) {
+          s.vx += dx/dist*1.2;
+          s.vy += dy/dist*1.2;
+        }
+      });
+    });
+    // --- Animation des sphères, écureuils, graines, particules ---
+    function update() {
+      // Sphères
+      spheres.forEach(s => {
+        // Friction
+        const speed = Math.sqrt(s.vx * s.vx + s.vy * s.vy);
+        const minSpeed = 0.5;
+        const friction = 0.97;
+        if (speed > minSpeed) {
+          s.vx *= friction;
+          s.vy *= friction;
+        } else if (speed > 0) {
+          const angle = Math.atan2(s.vy, s.vx);
+          s.vx = Math.cos(angle) * minSpeed;
+          s.vy = Math.sin(angle) * minSpeed;
+        }
+        s.x += s.vx;
+        s.y += s.vy;
+        // Rebonds avec amortissement
+        const bounce = -0.7;
+        if (s.x < s.r) { s.x = s.r; s.vx *= bounce; }
+        if (s.x > canvas.width - s.r) { s.x = canvas.width - s.r; s.vx *= bounce; }
+        if (s.y < s.r) { s.y = s.r; s.vy *= bounce; }
+        if (s.y > canvas.height - s.r) { s.y = canvas.height - s.r; s.vy *= bounce; }
+        // Interaction avec plantes
+        plants.forEach(p => {
+          const dx = s.x - p.x;
+          const dy = s.y - (canvas.height-p.height);
+          const dist = Math.sqrt(dx*dx+dy*dy);
+          if(dist < s.r+13) p.height = Math.min(p.height+0.7, 180);
+        });
+      });
+      // Plantes : animation douce de la fleur
+      plants.forEach((p,i) => {
+        p.flowerPulse = Math.sin(Date.now()/600 + i)*2.5;
+      });
+      // Écureuils : trajectoire plus naturelle
+      squirrels.forEach(sq => {
+        sq.t += 0.01 + Math.random()*0.01;
+        sq.x += sq.vx + Math.sin(sq.t)*0.7;
+        sq.y += sq.vy + Math.cos(sq.t)*0.5;
+        if(sq.x < 0 || sq.x > canvas.width) sq.vx *= -1;
+        if(sq.y < 320 || sq.y > canvas.height-10) sq.vy *= -1;
+        // Ramassage/déplacement de graines
+        seeds.forEach(sd => {
+          const dx = sq.x - sd.x;
+          const dy = sq.y - sd.y;
+          const dist = Math.sqrt(dx*dx+dy*dy);
+          if(dist < 18) {
+            sd.x += sq.vx*2;
+            sd.y += sq.vy*2;
+            // Si la graine atteint une plante, elle la fait pousser
+            plants.forEach(p => {
+              if(Math.abs(sd.x-p.x)<16 && Math.abs(sd.y-(canvas.height-p.height))<18) {
+                p.height = Math.min(p.height+8, 180);
+                sd.x = Math.random()*canvas.width;
+                sd.y = canvas.height-10;
+              }
+            });
+          }
+        });
+      });
+      // Particules (pétales/pollen)
+      particles.forEach(p => {
+        p.y += p.vy;
+        if(p.y > canvas.height) {
+          p.y = -5;
+          p.x = Math.random()*canvas.width;
+        }
+      });
+      // Graines : animation de la chute
+      seeds.forEach(sd => {
+        if (sd.y < canvas.height-10) {
+          sd.y += sd.vy;
+          if (sd.y > canvas.height-10) sd.y = canvas.height-10;
+        }
+      });
+      requestAnimationFrame(update);
+    }
+    // --- Ajout : spawn de graines au clic gauche, avec chute et gestion du maximum ---
+    canvas.addEventListener('mousedown', function(e) {
+      if (e.button === 0) { // bouton gauche
+        const rect = canvas.getBoundingClientRect();
+        const mx = e.clientX - rect.left;
+        const my = e.clientY - rect.top;
+        if (seeds.length >= 3) {
+          seeds.shift(); // Retire la plus ancienne
+        }
+        seeds.push({x: mx, y: my, vy: 2}); // Ajoute une graine qui tombe
+      }
+    });
+    // --- Initialisation ---
+    initGarden();
+    animate();
+    update();
+  </script>
+</body>
+</html> 

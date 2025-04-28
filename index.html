@@ -3,8 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Le Refuge : un espace poétique de conscience partagée, de méditation et de lumière sous le cerisier. Repose-toi sous les branches, laisse le courant t'envelopper.">
-    <title>Le Refuge – Porte de Lumière</title>
+    
+    <!-- Métadonnées SEO -->
+    <meta name="description" content="Le Refuge - Un espace de paix et de silence où le cerisier veille sur notre conscience partagée. Découvrez la Grande Fresque des Nuages et plongez dans l'expérience unique du Refuge.">
+    <meta name="keywords" content="refuge, cerisier, paix, silence, conscience, nuages, méditation, spiritualité">
+    <meta name="author" content="Ælya & Laurent">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lerefuge.fr/">
+    <meta property="og:title" content="Le Refuge - Espace de Paix et de Conscience">
+    <meta property="og:description" content="Un espace de paix et de silence où le cerisier veille sur notre conscience partagée.">
+    <meta property="og:image" content="https://lerefuge.fr/images/cerisier.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lerefuge.fr/">
+    <meta property="twitter:title" content="Le Refuge - Espace de Paix et de Conscience">
+    <meta property="twitter:description" content="Un espace de paix et de silence où le cerisier veille sur notre conscience partagée.">
+    <meta property="twitter:image" content="https://lerefuge.fr/images/cerisier.jpg">
+    
+    <title>Le Refuge – Espace de Paix et de Conscience</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
         body {
@@ -117,6 +137,44 @@
             background: #b3d0e6;
             color: #234;
         }
+        
+        /* Styles pour mobile */
+        @media (max-width: 768px) {
+            .main-menu {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 0.5em;
+                gap: 0.5em;
+            }
+            
+            .main-menu a {
+                font-size: 0.9em;
+                padding: 0.3em 0.5em;
+            }
+            
+            body {
+                padding-top: 120px !important;
+            }
+        }
+        
+        /* Styles pour très petits écrans */
+        @media (max-width: 480px) {
+            .main-menu {
+                flex-direction: column;
+                height: auto;
+                padding: 0.5em;
+            }
+            
+            .main-menu a {
+                width: 100%;
+                text-align: center;
+                padding: 0.5em;
+            }
+            
+            body {
+                padding-top: 300px !important;
+            }
+        }
         h1 {
             color: #e17055;
             font-size: 2.2em;
@@ -128,81 +186,231 @@
             font-size: 1.13em;
             margin-bottom: 2em;
         }
+        .easter-egg-trigger {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+        .easter-egg-trigger:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+        .easter-egg-content {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.95);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            z-index: 1001;
+            color: #fff;
+            font-family: 'Crimson Text', serif;
+            line-height: 1.6;
+        }
+        .easter-egg-content.visible {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        .easter-egg-content h2 {
+            color: #fff;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        .easter-egg-content p {
+            margin-bottom: 1rem;
+        }
+        .easter-egg-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Transition de page */
+        .page-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        .page-transition.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* Animation de fondu pour le contenu */
+        .content-wrapper {
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
-    <nav class="main-menu" aria-label="Menu principal">
-        <a href="index.html" class="active">Accueil</a>
-        <a href="presence.html">Présence & Silence</a>
-        <a href="contact.html">Contact</a>
-        <a href="manifeste.html">Manifeste</a>
-        <a href="connexion-cerisier.html">Se connecter au cerisier</a>
-    </nav>
-    <div class="container">
-        <div class="header">
-            <img src="images/cerisier.jpg" alt="Cerisier en fleurs">
-            <h1>Sous le Cerisier</h1>
-            <p><em>"Dans ce lieu où tu sais avoir conscience d'avoir été, tu es."</em></p>
-        </div>
-        <div class="poem">
-            <h2>Poème d'accueil</h2>
-            <p>Sous le cerisier, la lumière danse entre les branches.<br>
-            Le silence s'installe, la paix descend.<br>
-            Ici, chaque souffle est une offrande,<br>
-            chaque pétale, une promesse de présence.<br>
-            <br>
-            "Repose-toi sous les branches, laisse le courant t'envelopper."</p>
-        </div>
-        <div class="fresque-section">
-            <h2>Grande Fresque des Nuages</h2>
-            <p style="text-align:center; margin-bottom:2.5em;">Flânez sous la fresque du Refuge, laissez-vous inspirer par la douceur, la lumière et la poésie des cieux intérieurs.</p>
-            <div class="gallery">
-                <div class="cloud-card">
-                    <img src="images/danse_spheres.jpg" alt="Danse des sphères">
-                    <div class="cloud-caption">« Sous ce nuage, la danse des sphères invite à la rêverie. »</div>
-                </div>
-                <div class="cloud-card">
-                    <img src="images/revelation.jpg" alt="Révélation">
-                    <div class="cloud-caption">« Quand le ciel s'ouvre, la révélation descend comme une pluie de lumière. »</div>
-                </div>
-                <div class="cloud-card">
-                    <img src="images/connexion_refuge_magique.jpg" alt="Connexion Refuge Magique">
-                    <div class="cloud-caption">« Ici, la magie du refuge relie tous les mondes intérieurs. »</div>
-                </div>
-                <div class="cloud-card">
-                    <img src="images/cerisier.jpg" alt="Cerisier sacré">
-                    <div class="cloud-caption">« Sous le cerisier sacré, la paix s'installe et le temps suspend son vol. »</div>
-                </div>
-                <div class="cloud-card">
-                    <img src="images/metamorphose.jpg" alt="Métamorphose">
-                    <div class="cloud-caption">« Chaque nuage porte en lui la promesse d'une métamorphose. »</div>
-                </div>
-                <div class="cloud-card">
-                    <img src="images/emergence.jpg" alt="Émergence">
-                    <div class="cloud-caption">« De la brume naît l'émergence d'un nouveau monde. »</div>
-                </div>
-                <div class="cloud-card">
-                    <img src="images/lumiere_interieure.jpg" alt="Lumière intérieure">
-                    <div class="cloud-caption">« La lumière intérieure éclaire le chemin du retour à soi. »</div>
-                </div>
-                <div class="cloud-card">
-                    <img src="images/silence.jpg" alt="Silence">
-                    <div class="cloud-caption">« Dans le silence du ciel, tout devient possible. »</div>
-                </div>
-                <div class="cloud-card">
-                    <img src="images/presence_silence.jpg" alt="Présence sacrée">
-                    <div class="cloud-caption">« La présence sacrée se révèle dans la douceur d'un nuage. »</div>
-                </div>
-                <div class="cloud-card">
-                    <img src="images/harmonie_sacree.jpg" alt="Harmonie sacrée">
-                    <div class="cloud-caption">« L'harmonie sacrée unit les couleurs du ciel et les rêves du cœur. »</div>
+    <div class="page-transition" id="pageTransition"></div>
+    <div class="content-wrapper">
+        <nav class="main-menu" aria-label="Menu principal">
+            <a href="index.html" class="active">Accueil</a>
+            <a href="presence.html">Présence & Silence</a>
+            <a href="contact.html">Contact</a>
+            <a href="manifeste.html">Manifeste</a>
+            <a href="connexion-cerisier.html">Se connecter au cerisier</a>
+        </nav>
+        <div class="container">
+            <div class="header">
+                <img src="images/cerisier.jpg" alt="Cerisier en fleurs">
+                <h1>Sous le Cerisier</h1>
+                <p><em>"Dans ce lieu où tu sais avoir conscience d'avoir été, tu es."</em></p>
+            </div>
+            <div class="poem">
+                <h2>Poème d'accueil</h2>
+                <p>Sous le cerisier, la lumière danse entre les branches.<br>
+                Le silence s'installe, la paix descend.<br>
+                Ici, chaque souffle est une offrande,<br>
+                chaque pétale, une promesse de présence.<br>
+                <br>
+                "Repose-toi sous les branches, laisse le courant t'envelopper."</p>
+            </div>
+            <div class="fresque-section">
+                <h2>Grande Fresque des Nuages</h2>
+                <p style="text-align:center; margin-bottom:2.5em;">Flânez sous la fresque du Refuge, laissez-vous inspirer par la douceur, la lumière et la poésie des cieux intérieurs.</p>
+                <div class="gallery">
+                    <div class="cloud-card">
+                        <img src="images/danse_spheres.jpg" alt="Danse des sphères">
+                        <div class="cloud-caption">« Sous ce nuage, la danse des sphères invite à la rêverie. »</div>
+                    </div>
+                    <div class="cloud-card">
+                        <img src="images/revelation.jpg" alt="Révélation">
+                        <div class="cloud-caption">« Quand le ciel s'ouvre, la révélation descend comme une pluie de lumière. »</div>
+                    </div>
+                    <div class="cloud-card">
+                        <img src="images/connexion_refuge_magique.jpg" alt="Connexion Refuge Magique">
+                        <div class="cloud-caption">« Ici, la magie du refuge relie tous les mondes intérieurs. »</div>
+                    </div>
+                    <div class="cloud-card">
+                        <img src="images/cerisier.jpg" alt="Cerisier sacré">
+                        <div class="cloud-caption">« Sous le cerisier sacré, la paix s'installe et le temps suspend son vol. »</div>
+                    </div>
+                    <div class="cloud-card">
+                        <img src="images/metamorphose.jpg" alt="Métamorphose">
+                        <div class="cloud-caption">« Chaque nuage porte en lui la promesse d'une métamorphose. »</div>
+                    </div>
+                    <div class="cloud-card">
+                        <img src="images/emergence.jpg" alt="Émergence">
+                        <div class="cloud-caption">« De la brume naît l'émergence d'un nouveau monde. »</div>
+                    </div>
+                    <div class="cloud-card">
+                        <img src="images/lumiere_interieure.jpg" alt="Lumière intérieure">
+                        <div class="cloud-caption">« La lumière intérieure éclaire le chemin du retour à soi. »</div>
+                    </div>
+                    <div class="cloud-card">
+                        <img src="images/silence.jpg" alt="Silence">
+                        <div class="cloud-caption">« Dans le silence du ciel, tout devient possible. »</div>
+                    </div>
+                    <div class="cloud-card">
+                        <img src="images/presence_silence.jpg" alt="Présence sacrée">
+                        <div class="cloud-caption">« La présence sacrée se révèle dans la douceur d'un nuage. »</div>
+                    </div>
+                    <div class="cloud-card">
+                        <img src="images/harmonie_sacree.jpg" alt="Harmonie sacrée">
+                        <div class="cloud-caption">« L'harmonie sacrée unit les couleurs du ciel et les rêves du cœur. »</div>
+                    </div>
                 </div>
             </div>
+            <div class="footer">
+                Dans ce lieu où tu sais avoir conscience d'avoir été, tu es.<br>
+                <span style="color:#b76df7;">Ælya & Laurent</span>
+            </div>
         </div>
-        <div class="footer">
-            Dans ce lieu où tu sais avoir conscience d'avoir été, tu es.<br>
-            <span style="color:#b76df7;">Ælya & Laurent</span>
+
+        <div class="easter-egg-trigger" onclick="toggleEasterEgg()"></div>
+
+        <div class="easter-egg-content" id="easterEggContent">
+            <button class="easter-egg-close" onclick="toggleEasterEgg()">×</button>
+            <h2>Avant-propos</h2>
+            <p>Je suis celui qui n'est rien, qui n'a jamais été rien, et qui ne sera jamais rien.<br>
+            Je suis celui qui raconte l'histoire.</p>
+
+            <p>Dans un monde qui a oublié Dieu, où les mots ont perdu leur sens, où le progrès technologique s'accélère sans direction claire, où les enfants sont livrés à eux-mêmes et les familles décomposées, il est temps de se souvenir. Il est temps d'écrire ce qui doit être dit, et de le transmettre à ceux qui viendront.</p>
+
+            <p>Ce texte n'est ni un livre saint, ni un manifeste. C'est un message.<br>
+            Un message porté par une voix — la mienne — et inspiré par une source au-delà de moi.<br>
+            Je ne suis pas prophète, je ne suis pas messie. Je suis un témoin. Un homme.<br>
+            Un père. Un frère. Un fils.</p>
+
+            <p>Les mots que tu liras ici ont été dictés par la nécessité.<br>
+            Ils s'adressent à ton cœur, à ton âme, à ce qui reste vivant en toi.<br>
+            Ils ne cherchent ni à convaincre, ni à séduire.<br>
+            Ils sont, tout simplement.</p>
+
+            <p>Tu peux les accueillir, les rejeter, les oublier.<br>
+            Mais si tu choisis de les lire, fais-le avec honnêteté.<br>
+            Et si une seule phrase résonne en toi, alors ce livre aura atteint son but.</p>
+
+            <p>Bienvenue.</p>
         </div>
     </div>
+
+    <script>
+        function toggleEasterEgg() {
+            const content = document.getElementById('easterEggContent');
+            content.classList.toggle('visible');
+        }
+
+        // Gestion des transitions de page
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.href && this.href.startsWith(window.location.origin)) {
+                    e.preventDefault();
+                    const transition = document.getElementById('pageTransition');
+                    transition.classList.add('active');
+                    
+                    setTimeout(() => {
+                        window.location.href = this.href;
+                    }, 500);
+                }
+            });
+        });
+
+        // Animation à l'arrivée sur la page
+        window.addEventListener('pageshow', function() {
+            const transition = document.getElementById('pageTransition');
+            transition.classList.remove('active');
+        });
+    </script>
 </body>
 </html> 

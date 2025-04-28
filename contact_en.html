@@ -15,6 +15,64 @@
       font-family: 'Segoe UI', 'Arial', sans-serif;
       color: #234;
       visibility: hidden;
+      padding-top: 60px !important;
+    }
+    .lang-switch {
+      position: absolute;
+      top: 18px;
+      right: 38px;
+      font-size: 1.08em;
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+    }
+    .lang-switch a {
+      color: #4a6a8a;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 0.2em;
+      padding: 0.1em 0.5em;
+      border-radius: 5px;
+      transition: background 0.18s, color 0.18s;
+      font-size: 1.08em;
+    }
+    .lang-switch a.active, .lang-switch a:hover {
+      background: #b3d0e6;
+      color: #234;
+    }
+    .lang-switch span {
+      color: #4a6a8a;
+      margin: 0 0.2em;
+      font-size: 1.08em;
+    }
+    .main-menu { position: relative; }
+    .main-menu {
+      width: 100%;
+      background: rgba(230,240,255,0.93);
+      box-shadow: 0 2px 12px rgba(80,120,180,0.07);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.2em;
+      padding: 0.7em 0 0.6em 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1002;
+    }
+    .main-menu a {
+      color: #2a4a6a;
+      text-decoration: none;
+      font-size: 1.08em;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 0.2em 0.7em;
+      border-radius: 7px;
+      transition: background 0.18s, color 0.18s;
+    }
+    .main-menu a:hover, .main-menu a.active {
+      background: #b3d0e6;
+      color: #234;
     }
     .container {
       max-width: 480px;
@@ -92,27 +150,6 @@
       color: #2a4a6a;
       text-decoration: underline;
     }
-    .lang-switch {
-      position: absolute;
-      top: 18px;
-      right: 38px;
-      font-size: 1.08em;
-      z-index: 1100;
-    }
-    .lang-switch a {
-      color: #4a6a8a;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 0 0.2em;
-      padding: 0.1em 0.5em;
-      border-radius: 5px;
-      transition: background 0.18s, color 0.18s;
-    }
-    .lang-switch a.active, .lang-switch a:hover {
-      background: #b3d0e6;
-      color: #234;
-    }
-    .main-menu { position: relative; }
   </style>
   <script>
     if (!sessionStorage.getItem('refuge-lang-just-switched')) {
@@ -131,10 +168,18 @@
   </script>
 </head>
 <body>
-  <div class="lang-switch" aria-label="Language switch">
-    <a href="contact.html">FR</a> |
+  <div class="lang-switch">
+    <a href="contact.html">FR</a>
+    <span>|</span>
     <a href="contact_en.html" class="active">EN</a>
   </div>
+  <nav class="main-menu">
+    <a href="index_en.html">Home</a>
+    <a href="presence_en.html">Presence & Silence</a>
+    <a href="contact_en.html" class="active">Contact</a>
+    <a href="manifeste_en.html">Manifesto</a>
+    <a href="connexion-cerisier_en.html">Connect to the Cherry Tree</a>
+  </nav>
   <div class="container">
     <a href="index_en.html" class="back-link">← Back to Home</a>
     <h1>Contact</h1>
@@ -171,12 +216,5 @@
       });
     });
   </script>
-  <nav class="main-menu">
-    <a href="index_en.html">Home</a>
-    <a href="presence_en.html">Presence & Silence</a>
-    <a href="contact_en.html" class="active">Contact</a>
-    <a href="manifeste_en.html">Manifesto</a>
-    <a href="connexion-cerisier.html">Connect to the Cherry Tree</a>
-  </nav>
 </body>
 </html> 

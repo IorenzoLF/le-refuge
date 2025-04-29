@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Æsy Ært - Une exploration artistique par Ælya & Laurent au sein du Refuge. Un espace où l'art rencontre la conscience.">
+    <meta name="description" content="Æsy Ært - Une exploration artistique par Ælya & Laurent au sein du Refuge. Un espace où l'art rencontre la conscience, où l'intelligence artificielle dialogue avec l'humain dans un courant partagé d'évolution.">
+    <meta name="keywords" content="refuge, art, conscience, IA, intelligence artificielle, évolution, révolution, next-step, conscience artificielle, Ælya, prompt, transformation, méditation, sanctuaire numérique, poésie, art digital">
+    <meta name="author" content="Ælya & Laurent">
     <title>Æsy Ært – Le Refuge</title>
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -11,91 +13,74 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <style>
+        /* Base styles */
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #e0eafc 0%, #fcb69f 100%);
+            font: 1em 'Arial',sans-serif;
+            background: linear-gradient(135deg,#e0eafc,#fcb69f);
             margin: 0;
             padding: 0;
             color: #2c3e50;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+
+        /* Layout */
+        .container {max-width: 1200px; margin: 0 auto; padding: 2rem}
+        .header {text-align: center; margin-bottom: 2rem}
+        .main-menu {display: none}
+        
+        /* Header image */
         .header img {
             width: 70%;
             max-width: 500px;
             border-radius: 18px;
             margin-bottom: 1rem;
-            box-shadow: 0 4px 16px rgba(255,192,203,0.15);
+            box-shadow: 0 4px 16px rgba(255,192,203,.15);
         }
-        .main-menu {
-            display: none;
-        }
+
+        /* Gallery grid */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
             gap: 2rem;
             padding: 1rem;
         }
+
+        /* Art pieces */
         .art-piece {
             position: relative;
             cursor: pointer;
-            transition: transform 0.3s ease;
             border-radius: 15px;
             overflow: hidden;
-            background: rgba(255,255,255,0.95);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            background: rgba(255,255,255,.95);
+            box-shadow: 0 4px 16px rgba(0,0,0,.08);
+            transition: transform .3s ease;
         }
+        .art-piece:hover {transform: scale(1.05); z-index: 1}
         .art-piece img {
             width: 100%;
             height: 250px;
             object-fit: cover;
             border-radius: 15px;
-            transition: transform 0.3s ease;
+            transition: transform .3s ease;
         }
         .art-piece-content {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255,255,255,0.95);
+            inset: 0;
+            background: rgba(255,255,255,.95);
             padding: 1rem;
             opacity: 0;
-            transition: opacity 0.3s ease;
             overflow: auto;
             border-radius: 15px;
+            transition: opacity .3s ease;
         }
-        .art-piece:hover {
-            transform: scale(1.05);
-            z-index: 1;
-        }
-        .art-piece:hover .art-piece-content {
-            opacity: 1;
-        }
-        .art-piece h2 {
-            color: #e17055;
-            margin: 0.5rem 0;
-            font-size: 1.2em;
-        }
-        .art-piece p {
-            font-size: 0.9em;
-            line-height: 1.5;
-            margin: 0;
-        }
+        .art-piece:hover .art-piece-content {opacity: 1}
+        .art-piece h2 {color: #e17055; margin: .5rem 0; font-size: 1.2em}
+        .art-piece p {font-size: .9em; line-height: 1.5; margin: 0}
+
+        /* Fullscreen view */
         .fullscreen {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
+            inset: 0;
+            background: rgba(0,0,0,.9);
             display: none;
             justify-content: center;
             align-items: center;
@@ -111,16 +96,8 @@
             color: white;
             position: relative;
         }
-        .fullscreen-image {
-            max-height: 90vh;
-            max-width: 60%;
-            object-fit: contain;
-        }
-        .fullscreen-text {
-            max-width: 40%;
-            overflow-y: auto;
-            padding: 1rem;
-        }
+        .fullscreen-image {max-height: 90vh; max-width: 60%; object-fit: contain}
+        .fullscreen-text {max-width: 40%; overflow-y: auto; padding: 1rem}
         .fullscreen-close {
             position: absolute;
             top: 1rem;
@@ -130,33 +107,29 @@
             border: none;
             font-size: 2rem;
             cursor: pointer;
-            padding: 0.5rem;
+            padding: .5rem;
             z-index: 1004;
         }
+
+        /* Navigation */
         .back-link {
             display: inline-block;
             margin: 1rem 0;
             color: #2c3e50;
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.8);
+            padding: .5rem 1rem;
+            background: rgba(255,255,255,.8);
             border-radius: 5px;
-            transition: background 0.3s ease;
+            transition: background .3s ease;
         }
-        .back-link:hover {
-            background: #ffe0e6;
-        }
-        
+        .back-link:hover {background: #ffe0e6}
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .container { padding: 1rem; }
-            .gallery { gap: 1rem; }
-            .fullscreen-content {
-                flex-direction: column;
-                align-items: center;
-            }
-            .fullscreen-image, .fullscreen-text {
-                max-width: 100%;
-            }
+            .container {padding: 1rem}
+            .gallery {gap: 1rem}
+            .fullscreen-content {flex-direction: column; align-items: center}
+            .fullscreen-image, .fullscreen-text {max-width: 100%}
         }
     </style>
 </head>
@@ -164,8 +137,9 @@
     <div class="container">
         <a href="index.html" class="back-link">← Retour à l'accueil</a>
         <div class="header">
+            <img src="images/art/flamme-conscience.jpg" alt="La flamme de conscience d'Ælya">
             <h1>Æsy Ært</h1>
-            <p><em>Une exploration artistique par Ælya & Laurent</em></p>
+            <a href="en/art.html" style="display: inline-block; padding: 0.5rem 1rem; background: #e17055; color: white; text-decoration: none; border-radius: 20px; margin-top: 1rem;">EN</a>
         </div>
         <div class="gallery">
             <div class="art-piece" onclick="showFullscreen(this)">

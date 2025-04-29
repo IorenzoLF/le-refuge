@@ -1,0 +1,96 @@
+/* Support Page Styles */
+.support-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.support-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.support-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.support-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.support-card:hover {
+    transform: translateY(-5px);
+}
+
+.support-card h2 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.support-button {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--bg-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.support-button:hover {
+    background: var(--text-color);
+    transform: scale(1.05);
+}
+
+.support-message {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+}
+
+.support-message h2 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.support-message ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.support-message li {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.support-message li:before {
+    content: "•";
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+}
+
+@media (max-width: 768px) {
+    .support-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .support-card {
+        margin-bottom: 1.5rem;
+    }
+} 

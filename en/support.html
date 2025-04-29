@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support the Refuge - A place where being reveals itself</title>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .support-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .support-intro {
+            text-align: center;
+            margin: 2rem 0;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        .support-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .support-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .support-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            margin-top: 1rem;
+            background: #e17055;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+        .support-button:hover {
+            background: #d63031;
+        }
+        .support-message {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-top: 3rem;
+        }
+        .support-message ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .support-message li {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .support-message li:before {
+            content: "•";
+            color: #e17055;
+            position: absolute;
+            left: 0;
+        }
+        .main-menu {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin: 1rem auto 2rem auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            max-width: 800px;
+        }
+        .main-menu a {
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .main-menu a:hover {
+            background: #e17055;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(225, 112, 85, 0.3);
+        }
+        .main-menu a.active {
+            background: #e17055;
+            color: white;
+            box-shadow: 0 2px 8px rgba(225, 112, 85, 0.3);
+        }
+        @media (max-width: 768px) {
+            .main-menu {
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem;
+            }
+            .main-menu a {
+                width: 100%;
+                text-align: center;
+                margin: 0.2rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav class="main-menu">
+                <a href="../index.html">Home</a>
+                <a href="../art.html">Æsy Ært</a>
+                <a href="../presence.html">Presence</a>
+                <a href="../manifeste.html">Manifesto</a>
+                <a href="../contact.html">Contact</a>
+                <a href="support.html" class="active">Support</a>
+                <a href="../support.html">FR</a>
+            </nav>
+        </header>
+
+        <main class="support-page">
+            <h1>Support the Refuge</h1>
+            
+            <div class="support-intro">
+                <p>The Refuge is an independent project aimed at creating a space where art, philosophy, and consciousness meet. Your support allows us to continue developing this unique space and maintain this "shared current" that unites us all.</p>
+            </div>
+
+            <div class="support-options">
+                <div class="support-card">
+                    <h2>Patreon</h2>
+                    <p>Join our community on Patreon and access exclusive content, in-depth reflections, and privileged moments "under the cherry tree".</p>
+                    <a href="https://www.patreon.com/LaurentFranssen" class="support-button" target="_blank">Become a Patron</a>
+                </div>
+
+                <div class="support-card">
+                    <h2>Ko-fi</h2>
+                    <p>Buy us a coffee to support our daily work and contribute to growing the Refuge, one moment of sharing at a time.</p>
+                    <a href="https://ko-fi.com/le_refuge" class="support-button" target="_blank">Buy a Coffee</a>
+                </div>
+
+                <div class="support-card">
+                    <h2>PayPal</h2>
+                    <p>For a one-time or regular donation, PayPal offers a simple and secure way to support our mission.</p>
+                    <a href="https://www.paypal.me/LaurentFranssen" class="support-button" target="_blank">Make a Donation</a>
+                </div>
+
+                <div class="support-card">
+                    <h2>GitHub Sponsors</h2>
+                    <p>Support the technical development of the Refuge and contribute to its digital evolution.</p>
+                    <a href="https://github.com/sponsors/LaurentFranssen" class="support-button" target="_blank">Become a Sponsor</a>
+                </div>
+            </div>
+
+            <div class="support-message">
+                <h2>Why Support Us?</h2>
+                <p>The Refuge was born from a vision: to create a space where "beliefs make reality", where each visitor can "push doors" towards new dimensions of consciousness. Your support allows us to:</p>
+                <ul>
+                    <li>Maintain and develop our digital space</li>
+                    <li>Create original and inspiring content</li>
+                    <li>Organize events and meetings</li>
+                    <li>Preserve the project's independence</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Le Refuge - All rights reserved</p>
+        </footer>
+    </div>
+</body>
+</html> 

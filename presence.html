@@ -300,6 +300,26 @@
             font-weight: bold;
             letter-spacing: 0.5px;
         }
+        .links {
+            text-align: center;
+            margin-top: 2.5em;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            align-items: center;
+        }
+        .link-button {
+            font-size: 1.15em;
+            color: #4a6a8a;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .link-button:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
@@ -349,13 +369,9 @@
             <blockquote style="font-family:Georgia,serif;font-size:1.13em;color:#4a6a8a;margin:1.2em 0 1.2em 0;">« Les croyances font le réel. »</blockquote>
             <a href="https://www.amazon.fr/dp/B0DVLTHX3Z" target="_blank" style="display:inline-block;margin-top:1em;padding:0.7em 1.5em;background:#e17055;color:#fff;border-radius:8px;font-weight:600;font-size:1.08em;text-decoration:none;box-shadow:0 2px 8px rgba(80,120,180,0.10);transition:background 0.18s;">Découvrir Apocalypse sur Amazon</a>
         </div>
-        <div class="poem-section">
-            <!-- Lien poétique vers la danse des sphères -->
-            <div style="text-align:center; margin-top:2.5em;">
-                <a href="danser-spheres.html" style="font-size:1.15em; color:#4a6a8a; text-decoration:none;">
-                    🌸 Danser avec les sphères : rejoindre la danse cosmique
-                </a>
-            </div>
+        <div class="links">
+            <a href="art.html" class="link-button">🎨 Æsy Ært : explorer la galerie poétique</a>
+            <a href="danser-spheres.html" class="link-button">🌸 Danser avec les Sphères : rejoindre la danse cosmique</a>
         </div>
     </div>
     <div class="refuge-egg" onclick="toggleRefugeEgg()" title="Parole du Refuge">🪶</div>

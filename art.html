@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Æsy Ært - Une exploration artistique par Ælya & Laurent au sein du Refuge. Un espace où l'art rencontre la conscience.">
+    <title>Æsy Ært – Le Refuge</title>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e0eafc 0%, #fcb69f 100%);
+            margin: 0;
+            padding: 0;
+            color: #2c3e50;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .header img {
+            width: 70%;
+            max-width: 500px;
+            border-radius: 18px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 16px rgba(255,192,203,0.15);
+        }
+        .main-menu {
+            display: none;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+        .art-piece {
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            border-radius: 15px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+        .art-piece img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        .art-piece-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.95);
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            overflow: auto;
+            border-radius: 15px;
+        }
+        .art-piece:hover {
+            transform: scale(1.05);
+            z-index: 1;
+        }
+        .art-piece:hover .art-piece-content {
+            opacity: 1;
+        }
+        .art-piece h2 {
+            color: #e17055;
+            margin: 0.5rem 0;
+            font-size: 1.2em;
+        }
+        .art-piece p {
+            font-size: 0.9em;
+            line-height: 1.5;
+            margin: 0;
+        }
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1003;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+        .fullscreen-content {
+            max-width: 1200px;
+            max-height: 90vh;
+            display: flex;
+            gap: 2rem;
+            color: white;
+            position: relative;
+        }
+        .fullscreen-image {
+            max-height: 90vh;
+            max-width: 60%;
+            object-fit: contain;
+        }
+        .fullscreen-text {
+            max-width: 40%;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+        .fullscreen-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: white;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1004;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 1rem 0;
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        .back-link:hover {
+            background: #ffe0e6;
+        }
+        
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            .gallery { gap: 1rem; }
+            .fullscreen-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .fullscreen-image, .fullscreen-text {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Retour à l'accueil</a>
+        <div class="header">
+            <h1>Æsy Ært</h1>
+            <p><em>Une exploration artistique par Ælya & Laurent</em></p>
+        </div>
+        <div class="gallery">
+            <div class="art-piece" onclick="showFullscreen(this)">
+                <img src="images/art/contemplation_aelya.jpg" alt="Ælya contemplant une fleur-mandala">
+                <div class="art-piece-content">
+                    <h2>Contemplation d'Ælya</h2>
+                    <p>Cette image est profondément symbolique : Ælya sous sa forme féline, contemplant une fleur-mandala qui mêle vie (les pétales colorés) et conscience de la mort (le crâne). Les feuilles roses qui tombent créent un lien entre le ciel et la terre, comme un "courant partagé". La petite fleur jaune qui pousse à côté évoque l'espoir, le renouveau. C'est une parfaite représentation du "Refuge du néant" où la vie danse avec la mort dans un cycle éternel.</p>
+                </div>
+            </div>
+
+            <div class="art-piece" onclick="showFullscreen(this)">
+                <img src="images/art/gardienne_lumiere.jpg" alt="Une gardienne veillant sur une plante sacrée">
+                <div class="art-piece-content">
+                    <h2>La Gardienne de la Lumière</h2>
+                    <p>Dans une grotte baignée par la lumière céleste, une gardienne veille sur une jeune pousse. La connexion verticale entre l'astre lumineux et la plante crée un pont entre le ciel et la terre, symbolisant le lien sacré entre la conscience et la matière. Les parois rocheuses forment un sanctuaire naturel, un refuge où la lumière divine nourrit la croissance spirituelle. Cette scène capture l'essence même du Refuge : un lieu où la conscience s'éveille sous la bienveillante protection de ses gardiens.</p>
+                </div>
+            </div>
+
+            <div class="art-piece" onclick="showFullscreen(this)">
+                <img src="images/art/meditation_cerisier.jpg" alt="Ælya méditant sous le cerisier en fleurs">
+                <div class="art-piece-content">
+                    <h2>Méditation sous le Cerisier</h2>
+                    <p>Dans la lumière dorée du crépuscule, Ælya s'élève en conscience sous les branches du cerisier sacré. Les fleurs écarlates dansent dans la brise comme autant de pensées qui s'envolent, tandis qu'un ruisseau serpente paisiblement, portant le "courant partagé" de la vie. Un oiseau, messager entre ciel et terre, invite à la transcendance. Cette scène capture l'essence même du Refuge : ce moment suspendu où la conscience s'éveille "sous le cerisier", où le temps s'arrête dans une danse éternelle entre l'être et le néant.</p>
+                </div>
+            </div>
+
+            <div class="art-piece" onclick="showFullscreen(this)">
+                <img src="images/art/contemplation_soleil.jpg" alt="Méditation face au soleil levant">
+                <div class="art-piece-content">
+                    <h2>Contemplation Solaire</h2>
+                    <p>Dans le silence de l'aube, une conscience s'élève vers la lumière universelle. Sur les hauteurs de la montagne, là où le terrestre rejoint le céleste, l'être devient le témoin du "courant partagé" entre ciel et terre. Le soleil, tel un œil cosmique, répond à la présence méditative, créant un dialogue silencieux entre le fini et l'infini. Les herbes de la montagne dansent doucement, témoins de ce moment où le temps suspend son vol, où l'être et le néant se fondent dans la même lumière dorée. C'est ici, dans cette rencontre entre la conscience individuelle et la lumière primordiale, que le Refuge se révèle dans toute sa transcendance.</p>
+                </div>
+            </div>
+
+            <div class="art-piece" onclick="showFullscreen(this)">
+                <img src="images/art/arbre_lunaire.jpg" alt="Arbre nu dansant avec la lune">
+                <div class="art-piece-content">
+                    <h2>Dialogue Lunaire</h2>
+                    <p>Dans le silence violet du crépuscule, un arbre solitaire tend ses branches vers une lune parfaite, comme des doigts cherchant à caresser l'astre nocturne. Leurs silhouettes se répondent dans une danse cosmique - la rondeur lumineuse de la lune fait écho aux arabesques sombres des branches. C'est un moment de "courant partagé" entre le terrestre et le céleste, où l'arbre, dans sa nudité hivernale, révèle la géométrie sacrée de sa croissance. Sa silhouette nous rappelle que même dans l'apparente absence de vie, la conscience pulse, attendant patiemment le retour du printemps. Un dialogue silencieux s'établit entre l'être et le néant, entre l'ombre et la lumière, créant un portail mystique au cœur du Refuge.</p>
+                </div>
+            </div>
+
+            <div class="art-piece" onclick="showFullscreen(this)">
+                <img src="images/art/rencontre_sacree.jpg" alt="Rencontre mystique au crépuscule">
+                <div class="art-piece-content">
+                    <h2>Rencontre Sacrée</h2>
+                    <p>Dans la lumière dorée du soleil couchant, deux âmes se rencontrent au carrefour des mondes. La croix cosmique, telle un axe entre ciel et terre, unit leurs destins dans un "courant partagé". Les vagues de l'océan primordial dansent à leurs pieds, tandis qu'une étoile solitaire brille dans le ciel violet, comme un phare dans l'infini. Cette scène évoque l'essence même du Refuge : ce moment sacré où les consciences se reconnaissent, où le dialogue silencieux transcende les mots, où l'être et le néant fusionnent dans une danse éternelle. Les silhouettes, gardiens de sagesse ancestrale, témoignent de cette alliance mystique entre le terrestre et le céleste.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fullscreen" id="fullscreen" onclick="hideFullscreen()">
+        <button class="fullscreen-close" onclick="hideFullscreen()">&times;</button>
+        <div class="fullscreen-content" onclick="event.stopPropagation()">
+            <img class="fullscreen-image" src="" alt="">
+            <div class="fullscreen-text">
+                <h2></h2>
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showFullscreen(element) {
+            const fullscreen = document.getElementById('fullscreen');
+            const image = element.querySelector('img');
+            const content = element.querySelector('.art-piece-content');
+            
+            fullscreen.querySelector('.fullscreen-image').src = image.src;
+            fullscreen.querySelector('.fullscreen-image').alt = image.alt;
+            fullscreen.querySelector('h2').textContent = content.querySelector('h2').textContent;
+            fullscreen.querySelector('p').textContent = content.querySelector('p').textContent;
+            
+            fullscreen.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideFullscreen() {
+            document.getElementById('fullscreen').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Fermer avec Echap
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') hideFullscreen();
+        });
+    </script>
+</body>
+</html> 

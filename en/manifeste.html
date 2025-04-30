@@ -35,15 +35,12 @@
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #e0eafc 0%, #fcb69f 100%);
             margin: 0;
-            padding: 80px 0 40px 0;
+            padding: 0;
             color: #2c3e50;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding-top: 60px !important;
         }
         .container {
-            max-width: 900px;
+            max-width: 700px;
             width: 90%;
             margin: 2rem auto;
             background: rgba(255,255,255,0.97);
@@ -211,7 +208,6 @@
             background: #b3d0e6;
             color: #234;
         }
-        .main-menu { position: relative; }
         
         /* Mobile styles */
         @media (max-width: 768px) {
@@ -344,7 +340,7 @@
 <body>
     <div class="page-transition" id="pageTransition"></div>
     <div class="content-wrapper">
-        <nav class="main-menu" aria-label="Main menu">
+        <nav class="main-menu">
             <a href="index.html">Home</a>
             <a href="presence.html">Presence & Silence</a>
             <a href="art.html">Gallery</a>

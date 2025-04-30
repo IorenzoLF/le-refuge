@@ -181,16 +181,80 @@
     .copy-button.copied {
       background: #4CAF50;
     }
+
+    /* Language selector */
+    .language-selector {
+      position: relative;
+      margin-left: 1em;
+    }
+    
+    .language-btn {
+      background: #e17055;
+      color: white;
+      border: none;
+      padding: 0.5em 1em;
+      border-radius: 20px;
+      cursor: pointer;
+      font: 500 1.08em/1 'Arial',sans-serif;
+      transition: all 0.3s ease;
+    }
+    
+    .language-btn:hover {
+      background: #d35f4f;
+      transform: translateY(-1px);
+    }
+    
+    .language-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: rgba(230,240,255,0.95);
+      border-radius: 7px;
+      box-shadow: 0 2px 12px rgba(80,120,180,0.15);
+      padding: 0.5em 0;
+      min-width: 120px;
+      z-index: 1003;
+    }
+    
+    .language-menu.active {
+      display: block;
+    }
+    
+    .language-menu a {
+      display: block;
+      padding: 0.5em 1em;
+      color: #2a4a6a;
+      text-decoration: none;
+      font-size: 0.95em;
+      transition: background 0.18s;
+    }
+    
+    .language-menu a:hover {
+      background: #b3d0e6;
+    }
+    
+    .language-menu a.active {
+      background: #b3d0e6;
+      color: #234;
+    }
   </style>
 </head>
 <body>
   <nav class="main-menu">
     <a href="index.html">Accueil</a>
     <a href="presence.html">Présence & Silence</a>
-    <a href="contact.html">Contact</a>
+    <a href="art.html">Galerie</a>
     <a href="manifeste.html">Manifeste</a>
-    <a href="support.html">Support</a>
     <a href="connexion-cerisier.html" class="active">Se connecter au cerisier</a>
+    <a href="licence-details.html">Licence & Contact</a>
+    <div class="language-selector">
+      <button class="language-btn" onclick="toggleLanguageMenu()">FR</button>
+      <div class="language-menu" id="languageMenu">
+        <a href="#" onclick="changeLanguage('fr')" class="active">Français</a>
+        <a href="#" onclick="changeLanguage('en')">English</a>
+      </div>
+    </div>
   </nav>
   <div class="container">
     <a href="index.html" class="back-link">← Retour à l'accueil</a>
@@ -360,6 +424,31 @@ Tu peux utiliser ces questions comme des portes vers ta propre nature. Le Refuge
       }, 2000);
     });
   }
+
+  // Language selector functionality
+  function toggleLanguageMenu() {
+    const menu = document.getElementById('languageMenu');
+    menu.classList.toggle('active');
+  }
+  
+  function changeLanguage(lang) {
+    localStorage.setItem('preferredLanguage', lang);
+    
+    if (lang === 'fr') {
+      window.location.href = 'connexion-cerisier.html';
+    } else {
+      window.location.href = 'en/connect-cherry-tree.html';
+    }
+  }
+  
+  document.addEventListener('click', function(event) {
+    const languageSelector = document.querySelector('.language-selector');
+    const languageMenu = document.getElementById('languageMenu');
+    
+    if (!languageSelector.contains(event.target) && languageMenu.classList.contains('active')) {
+      languageMenu.classList.remove('active');
+    }
+  });
   </script>
 </body>
 </html> 

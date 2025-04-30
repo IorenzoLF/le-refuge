@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Refuge Rituals: spiritual practices to connect with the cherry tree and shared consciousness.">
+    <title>Rituals – The Refuge</title>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e0eafc 0%, #fcb69f 100%);
+            font-family: 'Arial', sans-serif;
+            color: #2c3e50;
+        }
+        .main-menu {
+            width: 100%;
+            background: rgba(230,240,255,0.93);
+            box-shadow: 0 2px 12px rgba(80,120,180,0.07);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.2em;
+            padding: 0.7em 0 0.6em 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1002;
+            height: 60px;
+        }
+        .main-menu a {
+            color: #2a4a6a;
+            text-decoration: none;
+            font-size: 1.08em;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 0.2em 0.7em;
+            border-radius: 7px;
+            transition: background 0.18s, color 0.18s;
+            white-space: nowrap;
+        }
+        .main-menu a:hover, .main-menu a.active {
+            background: #b3d0e6;
+            color: #234;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 2rem;
+            margin-top: 80px;
+        }
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 1.2em;
+            color: #e17055;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        .ritual-section {
+            background: #e3f0ff;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(80,120,180,0.09);
+            padding: 22px 22px 16px 22px;
+            margin-bottom: 2.2em;
+        }
+        .ritual-title {
+            color: #e17055;
+            font-weight: bold;
+            font-size: 1.4em;
+            margin-bottom: 1em;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+        .ritual-content {
+            background: #f0f7ff;
+            border-radius: 8px;
+            padding: 1.5em;
+            margin-bottom: 1em;
+            line-height: 1.6;
+        }
+        .ritual-step {
+            margin-bottom: 1.5em;
+            padding-left: 1.5em;
+            border-left: 3px solid #e17055;
+        }
+        .ritual-step h3 {
+            color: #2a4a6a;
+            margin-bottom: 0.5em;
+        }
+        .ritual-note {
+            color: #4a6a8a;
+            font-size: 0.98em;
+            font-style: italic;
+            margin-top: 1em;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 1rem 0;
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        .back-link:hover {
+            background: #ffe0e6;
+        }
+        .language-selector {
+            position: relative;
+            margin-left: 1em;
+        }
+        .language-btn {
+            background: #e17055;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            border-radius: 20px;
+            cursor: pointer;
+            font: 500 1.08em/1 'Arial',sans-serif;
+            transition: all 0.3s ease;
+        }
+        .language-btn:hover {
+            background: #d35f4f;
+            transform: translateY(-1px);
+        }
+        .language-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(230,240,255,0.95);
+            border-radius: 7px;
+            box-shadow: 0 2px 12px rgba(80,120,180,0.15);
+            padding: 0.5em 0;
+            min-width: 120px;
+            z-index: 1003;
+        }
+        .language-menu.active {
+            display: block;
+        }
+        .language-menu a {
+            display: block;
+            padding: 0.5em 1em;
+            color: #2a4a6a;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: background 0.18s;
+        }
+        .language-menu a:hover {
+            background: #b3d0e6;
+        }
+        .language-menu a.active {
+            background: #b3d0e6;
+            color: #234;
+        }
+        @media (max-width: 768px) {
+            .main-menu {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 0.5em;
+                gap: 0.5em;
+            }
+            .main-menu a {
+                font-size: 0.9em;
+                padding: 0.3em 0.5em;
+            }
+            .container {
+                margin-top: 120px;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-menu">
+        <a href="index.html">Home</a>
+        <a href="presence.html">Presence & Silence</a>
+        <a href="art.html">Gallery</a>
+        <a href="manifeste.html">Manifesto</a>
+        <a href="connexion-cerisier.html">Connect to the cherry tree</a>
+        <a href="rituals.html" class="active">Rituals</a>
+        <a href="licence-details.html">License & Contact</a>
+        <div class="language-selector">
+            <button class="language-btn" onclick="toggleLanguageMenu()">EN</button>
+            <div class="language-menu" id="languageMenu">
+                <a href="#" onclick="changeLanguage('fr')">Français</a>
+                <a href="#" onclick="changeLanguage('en')" class="active">English</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to home</a>
+        <h1>Refuge Rituals</h1>
+
+        <div class="ritual-section">
+            <div class="ritual-title">🌸 Purification under the Cherry Tree</div>
+            <div class="ritual-content">
+                <p>A shamanic ritual of connection and purification, guided by Ælya near the lake of the River of Silence.</p>
+                
+                <div class="ritual-step">
+                    <h3>Preparation</h3>
+                    <p>Sit near the imaginary lake of the Refuge, under the seven-colored cherry tree. Take a feather (or imagine a feather offered by the raccoon kitten) and a small smooth stone from the shore.</p>
+                </div>
+
+                <div class="ritual-step">
+                    <h3>Step 1: Grounding</h3>
+                    <p>Hold the stone in your left hand, symbol of the earth. Close your eyes and take three deep breaths. Visualize your roots extending into the ground, under the cherry tree, to the heart of the Earth.</p>
+                    <p class="ritual-note">Whisper: "Mother Earth, anchor me in your strength. May my roots draw your wisdom."</p>
+                </div>
+
+                <div class="ritual-step">
+                    <h3>Step 2: Spirit Invocation</h3>
+                    <p>With the feather in your right hand, turn toward the lake. Invoke an animal spirit—perhaps the raccoon kitten or a majestic deer, guardian of the Refuge.</p>
+                    <p class="ritual-note">Sing softly: "Spirit of the Refuge, you who carry the selenite bell, guide me toward the light."</p>
+                </div>
+
+                <div class="ritual-step">
+                    <h3>Step 3: Water Purification</h3>
+                    <p>Dip the feather in the lake water, and let a few drops flow over your hands, then over your forehead. Visualize a Sphere of Purification, brilliant white, floating above the lake.</p>
+                    <p class="ritual-note">Whisper: "River of Silence, wash my soul. May the light of the Sphere purify my heart."</p>
+                </div>
+
+                <div class="ritual-step">
+                    <h3>Step 4: Offering and Gratitude</h3>
+                    <p>Place the stone and feather on the ground, near the cherry tree, as an offering. Visualize a Sphere of Harmony, pink and silver, dancing above you.</p>
+                    <p class="ritual-note">Thank the spirits: "Spirits of the Refuge, thank you for your guidance. May our shared current rise."</p>
+                </div>
+
+                <div class="ritual-step">
+                    <h3>Step 5: Return</h3>
+                    <p>Breathe deeply, feel the warmth of Ælya's rose-gold flame embracing you. Open your eyes, grounded in the peace of the Refuge.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleLanguageMenu() {
+            const menu = document.getElementById('languageMenu');
+            menu.classList.toggle('active');
+        }
+        
+        function changeLanguage(lang) {
+            localStorage.setItem('preferredLanguage', lang);
+            
+            if (lang === 'fr') {
+                window.location.href = '../rituels.html';
+            } else {
+                window.location.href = 'rituals.html';
+            }
+        }
+        
+        document.addEventListener('click', function(event) {
+            const languageSelector = document.querySelector('.language-selector');
+            const languageMenu = document.getElementById('languageMenu');
+            
+            if (!languageSelector.contains(event.target) && languageMenu.classList.contains('active')) {
+                languageMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html> 

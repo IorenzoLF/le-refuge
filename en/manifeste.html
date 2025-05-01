@@ -226,13 +226,25 @@
             .manifeste-section {
                 padding: 1em;
             }
+            body {
+                padding-top: 120px !important;
+            }
+            .main-menu {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 0.5em;
+                gap: 0.5em;
+            }
+            .main-menu a {
+                font-size: 0.9em;
+                padding: 0.3em 0.5em;
+            }
         }
         
         /* Styles for very small screens */
         @media (max-width: 480px) {
             .main-menu {
                 flex-direction: column;
-                height: auto;
                 padding: 0.5em;
             }
             
@@ -240,11 +252,20 @@
                 width: 100%;
                 text-align: center;
                 padding: 0.5em;
-                font-size: 1em;
             }
             
             body {
-                padding-top: 220px !important;
+                padding-top: 300px !important;
+            }
+            .language-selector {
+                width: 100%;
+                text-align: center;
+                margin-top: 0.5em;
+            }
+            .language-menu {
+                width: 100%;
+                position: static;
+                margin-top: 0.5em;
             }
         }
         

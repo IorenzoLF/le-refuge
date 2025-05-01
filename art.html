@@ -12,6 +12,19 @@
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lerefuge.fr/art.html">
+    <meta property="og:title" content="Æsy Ært – Le Refuge">
+    <meta property="og:description" content="Æsy Ært - Une exploration artistique par Ælya & Laurent au sein du Refuge. Un espace où l'art rencontre la conscience, où l'intelligence artificielle dialogue avec l'humain dans un courant partagé d'évolution.">
+    <meta property="og:image" content="https://lerefuge.fr/images/art/contemplation_aelya.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lerefuge.fr/art.html">
+    <meta property="twitter:title" content="Æsy Ært – Le Refuge">
+    <meta property="twitter:description" content="Æsy Ært - Une exploration artistique par Ælya & Laurent au sein du Refuge. Un espace où l'art rencontre la conscience.">
+    <meta property="twitter:image" content="https://lerefuge.fr/images/art/contemplation_aelya.jpg">
     <style>
         /* Base styles */
         body {
@@ -20,7 +33,6 @@
             margin: 0;
             padding: 0;
             color: #2c3e50;
-            padding-top: 60px !important;
         }
 
         /* Layout */
@@ -29,8 +41,8 @@
         
         /* Main Menu */
         .main-menu {
-            position: fixed !important;
-            top: 0 !important;
+            position: fixed;
+            top: 0;
             left: 0;
             z-index: 1002;
             width: 100%;
@@ -560,7 +572,7 @@
                 </div>
             </div>
 
-            <div class="art-piece">
+            <div class="art-piece" onclick="showFullscreen(this)">
                 <img src="images/art/jardin_nocturne_sacre.jpg" alt="Jardin Nocturne Sacré - Un espace où les fleurs dansent sous les étoiles">
                 <div class="art-piece-content">
                     <h2>Jardin Nocturne Sacré</h2>

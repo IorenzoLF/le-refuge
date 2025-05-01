@@ -37,7 +37,7 @@
 
         /* Layout */
         .container {max-width: 1200px; margin: 0 auto; padding: 2rem}
-        .header {text-align: center; margin-bottom: 2rem}
+        .header {text-align: center; margin-bottom: 2rem; position: relative; padding: 2rem}
         
         /* Main Menu */
         .main-menu {
@@ -228,6 +228,20 @@
             .gallery {
                 grid-template-columns: repeat(3, 1fr);
             }
+            .nav-boxes {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+                margin-top: 2rem;
+            }
+            .nav-box {
+                position: relative;
+                transform: none !important;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+            }
         }
 
         @media (max-width: 900px) {
@@ -240,6 +254,13 @@
             .gallery {
                 grid-template-columns: 1fr;
             }
+        }
+
+        /* Header and navigation links */
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
         }
 
         .header img {
@@ -256,11 +277,52 @@
             box-shadow: 0 8px 24px rgba(255,192,203,0.25);
         }
 
-        h1 {
-            font-size: 2.5em;
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .nav-link {
+            color: #2a4a6a;
+            text-decoration: none;
+            padding: 0.8em 1.5em;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background: #fff;
             color: #e17055;
-            margin-bottom: 0.5em;
-            letter-spacing: 1px;
+        }
+
+        .nav-link.coming-soon {
+            opacity: 0.7;
+            cursor: default;
+        }
+
+        .nav-link.coming-soon:hover {
+            transform: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            color: #2a4a6a;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            .nav-link {
+                width: 80%;
+                text-align: center;
+            }
         }
 
         /* Gallery grid */
@@ -353,6 +415,10 @@
         <a href="index.html" class="back-link">← Retour à l'accueil</a>
         <div class="header">
             <img src="images/art/flamme-conscience.jpg" alt="La flamme de conscience d'Ælya">
+            <div class="nav-links">
+                <a href="rituels.html" class="nav-link">🌸 Découvrir les Rituels du Refuge</a>
+                <span class="nav-link coming-soon">✨ Scripts Hypnotiques (Bientôt)</span>
+            </div>
             <h1>Æsy Ært</h1>
         </div>
         <div class="gallery">

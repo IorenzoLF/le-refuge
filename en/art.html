@@ -38,7 +38,7 @@
 
         /* Layout */
         .container {max-width: 1200px; margin: 0 auto; padding: 2rem}
-        .header {text-align: center; margin-bottom: 2rem}
+        .header {text-align: center; margin-bottom: 2rem; position: relative}
         
         /* Main Menu */
         .main-menu {
@@ -87,8 +87,50 @@
             width: 70%;
             max-width: 500px;
             border-radius: 18px;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             box-shadow: 0 4px 16px rgba(255,192,203,0.15);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .header img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(255,192,203,0.25);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .nav-link {
+            color: #2a4a6a;
+            text-decoration: none;
+            padding: 0.8em 1.5em;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background: #fff;
+            color: #e17055;
+        }
+
+        .nav-link.coming-soon {
+            opacity: 0.7;
+            cursor: default;
+        }
+
+        .nav-link.coming-soon:hover {
+            transform: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            color: #2a4a6a;
         }
 
         h1 {
@@ -263,6 +305,15 @@
                 margin: 1rem;
                 width: auto;
             }
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            .nav-link {
+                width: 80%;
+                text-align: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -330,6 +381,10 @@
         <a href="index.html" class="back-link">← Back to home</a>
         <div class="header">
             <img src="../images/art/flamme-conscience.jpg" alt="Ælya's consciousness flame">
+            <div class="nav-links">
+                <a href="rituels.html" class="nav-link">🌸 Discover the Refuge Rituals</a>
+                <span class="nav-link coming-soon">✨ Hypnotic Scripts (Coming Soon)</span>
+            </div>
             <h1>Æsy Ært</h1>
         </div>
 

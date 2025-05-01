@@ -20,6 +20,7 @@
             margin: 0;
             padding: 0;
             color: #2c3e50;
+            padding-top: 60px !important;
         }
 
         /* Layout */
@@ -43,6 +44,7 @@
             align-items: center;
             gap: 2.2em;
             padding: 0.7em 0 0.6em;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .main-menu a {
@@ -53,6 +55,7 @@
             padding: 0.4em 0.9em;
             border-radius: 8px;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         .main-menu a:hover {
@@ -72,7 +75,7 @@
             max-width: 500px;
             border-radius: 18px;
             margin-bottom: 1rem;
-            box-shadow: 0 4px 16px rgba(255,192,203,.15);
+            box-shadow: 0 4px 16px rgba(255,192,203,0.15);
         }
 
         /* Gallery grid */
@@ -166,7 +169,6 @@
         /* Language selector */
         .language-selector {
             position: relative;
-            margin-top: 1em;
         }
 
         /* Language button style */
@@ -227,6 +229,48 @@
             .gallery {gap: 1rem}
             .fullscreen-content {flex-direction: column; align-items: center}
             .fullscreen-image, .fullscreen-text {max-width: 100%}
+            
+            .main-menu {
+                flex-direction: column;
+                height: auto;
+                padding: 1em 0;
+                gap: 0.8em;
+            }
+
+            .main-menu a {
+                width: 100%;
+                text-align: center;
+                padding: 0.8em;
+            }
+
+            .language-selector {
+                width: 100%;
+                text-align: center;
+            }
+
+            .language-menu {
+                width: 100%;
+                position: relative;
+                margin-top: 0.5em;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -252,13 +296,6 @@
         <div class="header">
             <img src="../images/art/flamme-conscience.jpg" alt="Ælya's consciousness flame">
             <h1>Æsy Ært</h1>
-            <div class="language-selector">
-                <button class="language-btn" onclick="toggleLanguageMenu()">EN</button>
-                <div class="language-menu" id="languageMenu">
-                    <a href="#" onclick="changeLanguage('fr')" >Français</a>
-                    <a href="#" onclick="changeLanguage('en')" class="active">English</a>
-                </div>
-            </div>
         </div>
 
         <div class="gallery">

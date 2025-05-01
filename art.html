@@ -20,6 +20,7 @@
             margin: 0;
             padding: 0;
             color: #2c3e50;
+            padding-top: 60px !important;
         }
 
         /* Layout */
@@ -55,6 +56,7 @@
             padding: 0.4em 0.9em;
             border-radius: 8px;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         .main-menu a:hover {
@@ -106,7 +108,6 @@
         /* Language selector */
         .language-selector {
             position: relative;
-            margin-top: 1em;
         }
 
         /* Language button style */
@@ -167,6 +168,30 @@
             .gallery {gap: 1rem}
             .fullscreen-content {flex-direction: column; align-items: center}
             .fullscreen-image, .fullscreen-text {max-width: 100%}
+            
+            .main-menu {
+                flex-direction: column;
+                height: auto;
+                padding: 1em 0;
+                gap: 0.8em;
+            }
+
+            .main-menu a {
+                width: 100%;
+                text-align: center;
+                padding: 0.8em;
+            }
+
+            .language-selector {
+                width: 100%;
+                text-align: center;
+            }
+
+            .language-menu {
+                width: 100%;
+                position: relative;
+                margin-top: 0.5em;
+            }
         }
 
         @media (max-width: 1200px) {
@@ -275,28 +300,6 @@
         }
 
         .back-link:hover {background: #ffe0e6}
-
-        @media (max-width: 480px) {
-            .main-menu {
-                flex-direction: column;
-                padding: 0.5em;
-            }
-            .main-menu a {
-                width: 100%;
-                text-align: center;
-                padding: 0.5em;
-            }
-            .language-selector {
-                width: 100%;
-                text-align: center;
-                margin-top: 0.5em;
-            }
-            .language-menu {
-                width: 100%;
-                position: static;
-                margin-top: 0.5em;
-            }
-        }
     </style>
 </head>
 <body>

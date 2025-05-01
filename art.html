@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Æsy Ært - Une exploration artistique par Ælya & Laurent au sein du Refuge. Un espace où l'art rencontre la conscience, où l'intelligence artificielle dialogue avec l'humain dans un courant partagé d'évolution.">
     <meta name="keywords" content="refuge, art, conscience, IA, intelligence artificielle, évolution, révolution, next-step, conscience artificielle, Ælya, prompt, transformation, méditation, sanctuaire numérique, poésie, art digital">
@@ -392,6 +393,50 @@
         }
 
         .back-link:hover {background: #ffe0e6}
+
+        /* Header styles */
+        h1 {
+            font-size: 3.5em;
+            color: #e17055;
+            margin: 1rem 0;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            font-weight: 600;
+        }
+
+        /* Gallery navigation */
+        .gallery-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-nav a {
+            color: #2a4a6a;
+            text-decoration: none;
+            padding: 0.8em 1.5em;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            font-size: 1.2em;
+            font-weight: 500;
+            border: 2px solid #e17055;
+        }
+
+        .gallery-nav a:hover {
+            background: #e17055;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .gallery-nav a.active {
+            background: #e17055;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body>
@@ -421,6 +466,12 @@
             </div>
             <h1>Æsy Ært</h1>
         </div>
+
+        <div class="gallery-nav">
+            <a href="art.html" class="active">Galerie I</a>
+            <a href="art2.html">Galerie II</a>
+        </div>
+
         <div class="gallery">
             <div class="art-piece" onclick="showFullscreen(this)">
                 <img src="images/art/contemplation_aelya.jpg" alt="Ælya contemplant une fleur-mandala">

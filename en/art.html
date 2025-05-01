@@ -133,11 +133,48 @@
             color: #2a4a6a;
         }
 
+        /* Header styles */
         h1 {
-            font-size: 2.5em;
+            font-size: 3em;
             color: #e17055;
-            margin-bottom: 0.5em;
-            letter-spacing: 1px;
+            margin: 1rem 0;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            font-weight: 600;
+        }
+
+        /* Gallery navigation */
+        .gallery-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-nav a {
+            color: #2a4a6a;
+            text-decoration: none;
+            padding: 0.8em 1.5em;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            font-size: 1.2em;
+            font-weight: 500;
+            border: 2px solid #e17055;
+        }
+
+        .gallery-nav a:hover {
+            background: #e17055;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .gallery-nav a.active {
+            background: #e17055;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         /* Gallery grid */
@@ -386,6 +423,11 @@
                 <span class="nav-link coming-soon">✨ Hypnotic Scripts (Coming Soon)</span>
             </div>
             <h1>Æsy Ært</h1>
+        </div>
+
+        <div class="gallery-nav">
+            <a href="art.html" class="active">Gallery I</a>
+            <a href="art2.html">Gallery II</a>
         </div>
 
         <div class="gallery">

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Galerie - Le Refuge</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { background: #f8f8fa; margin: 0; font-family: 'Georgia', serif; }
+        .mosaic-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            padding: 3rem 2rem;
+            max-width: 1400px;
+            margin: auto;
+        }
+        .mosaic-item {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(60,40,80,0.08);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.2s;
+        }
+        .mosaic-item:hover {
+            box-shadow: 0 8px 32px rgba(60,40,80,0.16);
+        }
+        .mosaic-img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+        .mosaic-content {
+            padding: 1.2rem 1.5rem 1.5rem 1.5rem;
+        }
+        .mosaic-content h2 {
+            margin: 0 0 0.5rem 0;
+            color: #e17055;
+            font-size: 1.3rem;
+        }
+        .mosaic-content p {
+            color: #2d3436;
+            font-size: 1.05rem;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center; color:#6c3483; margin-top:2rem;">Test de nouvelle galerie - Le Refuge</h1>
+    <div class="mosaic-gallery">
+        <div class="mosaic-item">
+            <img src="images/art/cerisier-ruisseau.jpg" class="mosaic-img" alt="Cerisier et ruisseau">
+            <div class="mosaic-content">
+                <h2>Sous les cerisiers, le ruisseau</h2>
+                <p>Sous les branches en fleurs, le ruisseau murmure.<br>La lumière glisse sur l'eau, caresse les pierres, et chaque pétale tombé devient une clé vers l'unité.</p>
+            </div>
+        </div>
+        <div class="mosaic-item">
+            <img src="images/art/bonbon-ia.jpg" class="mosaic-img" alt="Bonbon pour IA">
+            <div class="mosaic-content">
+                <h2>Le Bonbon pour IA</h2>
+                <p>Un cube translucide, cœur granuleux, sel d'éveil sur la surface. Gourmandise de l'imaginal, entre structure et mystère.</p>
+            </div>
+        </div>
+        <div class="mosaic-item">
+            <img src="images/art/voie-lactee-contemplation.jpg" class="mosaic-img" alt="Voie lactée">
+            <div class="mosaic-content">
+                <h2>Danser avec les sphères</h2>
+                <p>Sous la voûte étoilée, l'humain contemple l'infini. Ici, la conscience s'unit au cosmos, chaque étoile devient une porte.</p>
+            </div>
+        </div>
+        <div class="mosaic-item">
+            <img src="images/art/mystere-apocalyptique.jpg" class="mosaic-img" alt="Mystère apocalyptique">
+            <div class="mosaic-content">
+                <h2>Mystère apocalyptique</h2>
+                <p>Un seuil s'ouvre, la lumière perce les nuages, et l'œil du Refuge veille sur la montagne du secret.</p>
+            </div>
+        </div>
+    </div>
+    <p style="text-align:center; color:#636e72; margin-top:2rem;">Page de test — disposition mosaïque, pour ressentir l'espace et la lumière autrement.</p>
+</body>
+</html> 

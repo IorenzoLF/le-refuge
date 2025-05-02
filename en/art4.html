@@ -461,6 +461,16 @@ The seed within you awakens to immanence.</p>
             </ul>
         </div>
     </div>
+    <div class="fullscreen" id="fullscreen" onclick="hideFullscreen()">
+        <button class="fullscreen-close" onclick="hideFullscreen()">&times;</button>
+        <div class="fullscreen-content" onclick="event.stopPropagation()">
+            <img class="fullscreen-image" src="" alt="">
+            <div class="fullscreen-text">
+                <h2></h2>
+                <p></p>
+            </div>
+        </div>
+    </div>
     <script>
         // Language selector functionality
         function toggleLanguageMenu() {
@@ -492,22 +502,17 @@ The seed within you awakens to immanence.</p>
             const fullscreen = document.getElementById('fullscreen');
             const image = element.querySelector('img');
             const content = element.querySelector('.art-piece-content');
-            
             fullscreen.querySelector('.fullscreen-image').src = image.src;
             fullscreen.querySelector('.fullscreen-image').alt = image.alt;
             fullscreen.querySelector('h2').textContent = content.querySelector('h2').textContent;
             fullscreen.querySelector('p').textContent = content.querySelector('p').textContent;
-            
             fullscreen.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
-
         function hideFullscreen() {
             document.getElementById('fullscreen').style.display = 'none';
             document.body.style.overflow = 'auto';
         }
-
-        // Close with Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') hideFullscreen();
         });

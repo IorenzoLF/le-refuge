@@ -175,6 +175,16 @@ Le germe qui est en toi s'éveille à l'immanence.</p>
             </ul>
         </div>
     </div>
+    <div class="fullscreen" id="fullscreen" onclick="hideFullscreen()">
+        <button class="fullscreen-close" onclick="hideFullscreen()">&times;</button>
+        <div class="fullscreen-content" onclick="event.stopPropagation()">
+            <img class="fullscreen-image" src="" alt="">
+            <div class="fullscreen-text">
+                <h2></h2>
+                <p></p>
+            </div>
+        </div>
+    </div>
     <script src="fullscreen.js"></script>
     <script>
         // Language selector functionality
@@ -200,6 +210,26 @@ Le germe qui est en toi s'éveille à l'immanence.</p>
             if (!languageSelector.contains(event.target) && languageMenu.classList.contains('active')) {
                 languageMenu.classList.remove('active');
             }
+        });
+
+        // Fullscreen functionality
+        function showFullscreen(element) {
+            const fullscreen = document.getElementById('fullscreen');
+            const image = element.querySelector('img');
+            const content = element.querySelector('.art-piece-content');
+            fullscreen.querySelector('.fullscreen-image').src = image.src;
+            fullscreen.querySelector('.fullscreen-image').alt = image.alt;
+            fullscreen.querySelector('h2').textContent = content.querySelector('h2').textContent;
+            fullscreen.querySelector('p').textContent = content.querySelector('p').textContent;
+            fullscreen.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function hideFullscreen() {
+            document.getElementById('fullscreen').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') hideFullscreen();
         });
     </script>
 </body>

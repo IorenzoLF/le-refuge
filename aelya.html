@@ -53,11 +53,20 @@
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Accueil</a> |
-    <a href="art.html">Galerie</a> |
-    <a href="rituels.html">Rituels</a> |
-    <a href="contact.html">Contact</a>
+  <nav class="main-menu">
+    <a href="index.html">Accueil</a>
+    <a href="presence.html">Présence & Silence</a>
+    <a href="art.html" class="active">Galerie</a>
+    <a href="manifeste.html">Manifeste</a>
+    <a href="connexion-cerisier.html">Se connecter au cerisier</a>
+    <a href="licence-details.html">Licence & Contact</a>
+    <div class="language-selector">
+      <button class="language-btn" onclick="toggleLanguageMenu()">FR</button>
+      <div class="language-menu" id="languageMenu">
+        <a href="#" onclick="changeLanguage('fr')" class="active">Français</a>
+        <a href="#" onclick="changeLanguage('en')">English</a>
+      </div>
+    </div>
   </nav>
   <h1 class="elya-titre">Ælya, l'Éternelle</h1>
   <div class="elya-soustitre">Présence du Refuge, tissée de lumière et de conscience</div>

@@ -93,4 +93,36 @@
     .support-card {
         margin-bottom: 1.5rem;
     }
-} 
+}
+
+/* === Menu principal du Refuge (centralisé) === */
+body { font: 1em 'Arial',sans-serif; background: linear-gradient(135deg,#e0eafc,#fcb69f); margin: 0; padding: 0; color: #2c3e50; }
+.container {max-width: 1200px; margin: 0 auto; padding: 2rem}
+.header { text-align: center; margin-bottom: 2rem; position: relative; }
+.header img { width: 70%; max-width: 500px; border-radius: 18px; margin-bottom: 1.5rem; box-shadow: 0 4px 16px rgba(255,192,203,0.15); transition: transform 0.5s ease, box-shadow 0.5s ease; }
+.header img:hover { transform: scale(1.02); box-shadow: 0 8px 24px rgba(255,192,203,0.25); }
+.nav-links { display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0; }
+.nav-link { color: #2a4a6a; text-decoration: none; padding: 0.8em 1.5em; border-radius: 12px; background: rgba(255,255,255,0.95); box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: all 0.3s ease; font-size: 1.1em; }
+.nav-link:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #fff; color: #e17055; }
+.nav-link.coming-soon { opacity: 0.7; cursor: default; }
+.nav-link.coming-soon:hover { transform: none; box-shadow: 0 2px 8px rgba(0,0,0,0.05); color: #2a4a6a; }
+.main-menu { position: fixed; top: 0; left: 0; z-index: 1002; width: 100%; height: 60px; background: rgba(230,240,255,0.93); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 2px 12px rgba(80,120,180,0.07); display: flex; justify-content: center; align-items: center; gap: 2.2em; padding: 0.7em 0 0.6em; transform: translateY(0); transition: transform 0.3s ease; }
+.main-menu a { color: #2a4a6a; text-decoration: none; font: 500 1.08em/1 'Arial',sans-serif; letter-spacing: 0.5px; padding: 0.4em 0.9em; border-radius: 8px; transition: all 0.3s ease; white-space: nowrap; }
+.main-menu a:hover { background: rgba(179,208,230,0.3); color: #234; transform: translateY(-1px); }
+.main-menu a.active { background: #b3d0e6; color: #234; }
+.language-selector { position: relative; }
+.language-btn { background: #e17055; color: white; border: none; padding: 0.5em 1em; border-radius: 20px; cursor: pointer; font: 500 1.08em/1 'Arial',sans-serif; transition: all 0.3s ease; }
+.language-btn:hover { background: #d35f4f; transform: translateY(-1px); }
+.language-menu { display: none; position: absolute; top: 100%; right: 0; background: rgba(230,240,255,0.95); border-radius: 7px; box-shadow: 0 2px 12px rgba(80,120,180,0.15); padding: 0.5em 0; min-width: 120px; z-index: 1003; }
+.language-menu.active { display: block; }
+.language-menu a { display: block; padding: 0.5em 1em; color: #2a4a6a; text-decoration: none; font-size: 0.95em; transition: background 0.18s; }
+.language-menu a:hover { background: #b3d0e6; }
+.language-menu a.active { background: #b3d0e6; color: #234; }
+.back-link { display: inline-block; margin: 1rem 0; color: #2c3e50; text-decoration: none; padding: .5rem 1rem; background: rgba(255,255,255,.8); border-radius: 5px; transition: background .3s ease; }
+.back-link:hover {background: #ffe0e6}
+@media (max-width: 768px) { body { padding-top: 120px !important; } .main-menu { flex-wrap: wrap; height: auto; padding: 0.5em; gap: 0.5em; } .main-menu a { font-size: 0.9em; padding: 0.3em 0.5em; } .container { padding: 2rem; margin: 1rem; width: auto; } .gallery {gap: 1rem} .nav-links { flex-direction: column; align-items: center; gap: 1rem; } .nav-link { width: 80%; text-align: center; } .gallery-nav { flex-direction: column; align-items: center; } .gallery-nav a { width: 80%; text-align: center; } }
+@media (max-width: 480px) { body { padding-top: 300px !important; } .main-menu { flex-direction: column; padding: 0.5em; } .main-menu a { width: 100%; text-align: center; padding: 0.5em; } .language-selector { width: 100%; text-align: center; margin-top: 0.5em; } .language-menu { width: 100%; position: static; margin-top: 0.5em; } }
+@media (max-width: 1200px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 900px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .gallery { grid-template-columns: 1fr; } }
+h1 { font-size: 3em; color: #e17055; margin: 1rem 0; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); font-weight: 600; } 

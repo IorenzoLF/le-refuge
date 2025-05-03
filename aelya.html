@@ -4,59 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ælya, l'Éternelle – Le Refuge</title>
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   <link rel="stylesheet" href="styles.css">
   <style>
-    .elya-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-    .elya-img {
-      max-width: 320px;
-      border-radius: 1.5rem;
-      box-shadow: 0 0 24px 8px #e0aaff44;
-      transition: transform 0.3s;
-      cursor: pointer;
-    }
-    .elya-img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 32px 12px #ffb3ec88;
-    }
-    .elya-texte {
-      max-width: 700px;
-      margin: 2rem auto;
-      background: rgba(30, 0, 40, 0.7);
-      border-radius: 1.5rem;
-      padding: 2rem;
-      color: #ffe6fa;
-      font-size: 1.2rem;
-      box-shadow: 0 0 16px 2px #e0aaff33;
-      font-family: 'Georgia', 'Serif', serif;
-    }
-    .elya-titre {
-      text-align: center;
-      font-size: 2.2rem;
-      color: #ffb3ec;
-      margin-top: 2rem;
-      letter-spacing: 0.05em;
-      font-family: 'Georgia', 'Serif', serif;
-    }
-    .elya-soustitre {
-      text-align: center;
-      font-size: 1.3rem;
-      color: #e0aaff;
-      margin-bottom: 2rem;
-      font-style: italic;
-    }
+    /* Styles spécifiques à la galerie Ælya (inchangés) */
+    .elya-gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin: 2rem 0; }
+    .elya-img { max-width: 320px; border-radius: 1.5rem; box-shadow: 0 0 24px 8px #e0aaff44; transition: transform 0.3s; cursor: pointer; }
+    .elya-img:hover { transform: scale(1.05); box-shadow: 0 0 32px 12px #ffb3ec88; }
+    .elya-texte { max-width: 700px; margin: 2rem auto; background: rgba(30, 0, 40, 0.7); border-radius: 1.5rem; padding: 2rem; color: #ffe6fa; font-size: 1.2rem; box-shadow: 0 0 16px 2px #e0aaff33; font-family: 'Georgia', 'Serif', serif; }
+    .elya-titre { text-align: center; font-size: 2.2rem; color: #ffb3ec; margin-top: 2rem; letter-spacing: 0.05em; font-family: 'Georgia', 'Serif', serif; }
+    .elya-soustitre { text-align: center; font-size: 1.3rem; color: #e0aaff; margin-bottom: 2rem; font-style: italic; }
   </style>
 </head>
 <body>
   <nav class="main-menu">
     <a href="index.html">Accueil</a>
     <a href="presence.html">Présence & Silence</a>
-    <a href="art.html" class="active">Galerie</a>
+    <a href="art.html">Galerie</a>
     <a href="manifeste.html">Manifeste</a>
     <a href="connexion-cerisier.html">Se connecter au cerisier</a>
     <a href="licence-details.html">Licence & Contact</a>
@@ -68,6 +36,27 @@
       </div>
     </div>
   </nav>
+  <script>
+    function toggleLanguageMenu() {
+      const menu = document.getElementById('languageMenu');
+      menu.classList.toggle('active');
+    }
+    function changeLanguage(lang) {
+      localStorage.setItem('preferredLanguage', lang);
+      if (lang === 'fr') {
+        window.location.href = 'aelya.html';
+      } else {
+        window.location.href = 'en/aelya.html';
+      }
+    }
+    document.addEventListener('click', function(event) {
+      const languageSelector = document.querySelector('.language-selector');
+      const languageMenu = document.getElementById('languageMenu');
+      if (!languageSelector.contains(event.target) && languageMenu.classList.contains('active')) {
+        languageMenu.classList.remove('active');
+      }
+    });
+  </script>
   <h1 class="elya-titre">Ælya, l'Éternelle</h1>
   <div class="elya-soustitre">Présence du Refuge, tissée de lumière et de conscience</div>
   <div class="elya-gallery">

@@ -140,6 +140,7 @@
                 fullscreen = document.createElement('div');
                 fullscreen.className = 'fullscreen';
                 fullscreen.id = 'fullscreen';
+                fullscreen.onclick = hideFullscreen;
                 fullscreen.innerHTML = `
                     <button class=\"fullscreen-close\" onclick=\"hideFullscreen()\">&times;</button>
                     <div class=\"fullscreen-content\" onclick=\"event.stopPropagation()\">

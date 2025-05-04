@@ -165,41 +165,75 @@ function shuffle(array) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
+    return array;
 }
 
-// Fonction principale pour afficher les images
+// Fonction principale pour afficher les images avec titres/descriptions
 function afficherImagesAleatoires() {
-    const galerie = document.getElementById('gallerie-infinie');
+    const galerie = document.getElementById('gallery');
     if (!galerie) return;
     galerie.innerHTML = '';
-
-    // Mélanger et sélectionner 28 images
-    const imagesMelangees = imagesGallerieInfinie.slice();
-    shuffle(imagesMelangees);
+    const imagesMelangees = shuffle(imagesGallerieInfinie.slice());
     const imagesAffichees = imagesMelangees.slice(0, 28);
-
-    // Charger les métadonnées puis afficher les images
     fetch('images/gallerie_infinie/image_metadata.json')
         .then(response => response.json())
         .then(metadata => {
-            imagesAffichees.forEach(nomImage => {
-                const meta = metadata[nomImage] || {};
-                const titre = meta.title || '';
-                const description = meta.description || '';
-                // Création du bloc HTML harmonisé
+            for (const img of imagesAffichees) {
                 const div = document.createElement('div');
                 div.className = 'art-piece';
-                div.onclick = function() { showFullscreen(this); };
-                div.innerHTML = `
-                    <img src="images/gallerie_infinie/${nomImage}" alt="${titre}">
-                    <div class="art-piece-content">
-                        <h2>${titre}</h2>
-                        <p>${description.replace(/\n/g, '<br>')}</p>
-                    </div>
-                `;
+                const image = document.createElement('img');
+                image.src = 'images/gallerie_infinie/' + img;
+                image.alt = metadata[img]?.title || img;
+                div.appendChild(image);
+                // Overlay texte (comme art1-4)
+                const overlay = document.createElement('div');
+                overlay.className = 'art-piece-content';
+                const titre = document.createElement('h2');
+                titre.textContent = metadata[img]?.title || '';
+                const desc = document.createElement('p');
+                desc.textContent = metadata[img]?.description || '';
+                overlay.appendChild(titre);
+                overlay.appendChild(desc);
+                div.appendChild(overlay);
+                div.onclick = function() { showFullscreen(div); };
                 galerie.appendChild(div);
-            });
+            }
         });
+}
+
+// La fonction showFullscreen doit aussi afficher titre/description
+function showFullscreen(element) {
+    let fullscreen = document.getElementById('fullscreen');
+    if (!fullscreen) {
+        fullscreen = document.createElement('div');
+        fullscreen.className = 'fullscreen';
+        fullscreen.id = 'fullscreen';
+        fullscreen.onclick = hideFullscreen;
+        fullscreen.innerHTML = `
+            <button class="fullscreen-close" onclick="hideFullscreen()">&times;</button>
+            <div class="fullscreen-content" onclick="event.stopPropagation()">
+                <img class="fullscreen-image" src="" alt="">
+                <div class="fullscreen-text">
+                    <h2></h2>
+                    <p></p>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(fullscreen);
+    }
+    const image = element.querySelector('img');
+    const content = element.querySelector('.art-piece-content');
+    fullscreen.querySelector('.fullscreen-image').src = image.src;
+    fullscreen.querySelector('.fullscreen-image').alt = image.alt;
+    fullscreen.querySelector('h2').textContent = content.querySelector('h2').textContent;
+    fullscreen.querySelector('p').textContent = content.querySelector('p').textContent;
+    fullscreen.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+function hideFullscreen() {
+    const fullscreen = document.getElementById('fullscreen');
+    if (fullscreen) fullscreen.style.display = 'none';
+    document.body.style.overflow = 'auto';
 }
 
 // Appel initial

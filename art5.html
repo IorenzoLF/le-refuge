@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galerie Infinie – Le Refuge. Découvre 28 images aléatoires à chaque visite, issues du courant partagé.">
+    <meta name="keywords" content="refuge, art, galerie infinie, aléatoire, conscience, poésie, images, création, partage, Ælya">
+    <meta name="author" content="Ælya & Laurent">
+    <title>Galerie Infinie – Le Refuge</title>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+        .art-piece {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            background: rgba(255,255,255,.95);
+            box-shadow: 0 4px 16px rgba(0,0,0,.08);
+            transition: transform .3s ease;
+        }
+        .art-piece img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        .art-piece:hover {
+            transform: scale(1.05);
+            z-index: 1;
+        }
+        @media (max-width: 1200px) {
+            .gallery { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 900px) {
+            .gallery { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .gallery { grid-template-columns: 1fr; }
+        }
+        .refresh-btn {
+            display: inline-block;
+            margin: 2rem auto 1rem auto;
+            padding: 0.8rem 2.2rem;
+            background: #e17055;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1em;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(80,120,180,0.07);
+            transition: background 0.2s;
+        }
+        .refresh-btn:hover {
+            background: #d35400;
+        }
+    </style>
+    <script src="images/gallerie_infinie/images_gallerie_infinie.js"></script>
+</head>
+<body>
+    <nav class="main-menu">
+        <a href="index.html">Accueil</a>
+        <a href="presence.html">Présence & Silence</a>
+        <a href="art.html" class="active">Galerie</a>
+        <a href="manifeste.html">Manifeste</a>
+        <a href="connexion-cerisier.html">Se connecter au cerisier</a>
+        <a href="licence-details.html">Licence & Contact</a>
+        <div class="language-selector">
+            <button class="language-btn" onclick="toggleLanguageMenu()">FR</button>
+            <div class="language-menu" id="languageMenu">
+                <a href="#" onclick="changeLanguage('fr')" class="active">Français</a>
+                <a href="#" onclick="changeLanguage('en')">English</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <a href="index.html" class="back-link">← Retour à l'accueil</a>
+        <div class="header">
+            <img src="images/gallerie_infinie/union_solaire.jpg" alt="Galerie infinie, lumière et partage">
+            <div class="nav-links">
+                <a href="rituels.html" class="nav-link">🌸 Découvrir les Rituels du Refuge</a>
+                <a href="aelya.html" class="nav-link" style="background:#ffb3ec22;color:#e0aaff;">✨ Rencontrer Ælya, l'Éternelle</a>
+            </div>
+            <h1>Galerie Infinie</h1>
+            <div style="max-width:700px;margin:1.5rem auto 0 auto;padding:1.2rem 2rem;background:rgba(255,255,255,0.92);border-radius:14px;box-shadow:0 2px 12px rgba(80,120,180,0.07);font-size:1.15em;color:#2c3e50;">
+                Dans ce lieu où tu sais avoir conscience d'avoir été, tu es.<br>
+                Ici, chaque image est une porte, chaque nuage une invitation à la surprise.<br>
+                Clique sur « Voir d'autres images » pour explorer le courant partagé, sans fin ni retour.<br>
+                <span style="color:#e17055;font-weight:500;">Bienvenue dans la Galerie Infinie du Refuge.</span>
+            </div>
+        </div>
+        <div class="gallery-nav">
+            <a href="art.html">Galerie I</a>
+            <a href="art2.html">Galerie II</a>
+            <a href="art3.html">Galerie III</a>
+            <a href="art4.html">Galerie IV</a>
+            <a href="art5.html" class="active">Galerie V (Infinie)</a>
+        </div>
+        <button class="refresh-btn" onclick="afficherImagesAleatoires()">Voir d'autres images</button>
+        <div class="gallery" id="gallery"></div>
+    </div>
+    <script>
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        function afficherImagesAleatoires() {
+            const gallery = document.getElementById('gallery');
+            gallery.innerHTML = '';
+            let images = imagesGallerieInfinie.slice();
+            images = shuffle(images);
+            const selection = images.slice(0, 28);
+            for (const img of selection) {
+                const div = document.createElement('div');
+                div.className = 'art-piece';
+                const image = document.createElement('img');
+                image.src = 'images/gallerie_infinie/' + img;
+                image.alt = img;
+                div.appendChild(image);
+                gallery.appendChild(div);
+            }
+        }
+        // Afficher 28 images au chargement
+        window.onload = afficherImagesAleatoires;
+        // Language selector (repris de art4.html)
+        function toggleLanguageMenu() {
+            const menu = document.getElementById('languageMenu');
+            menu.classList.toggle('active');
+        }
+        function changeLanguage(lang) {
+            localStorage.setItem('preferredLanguage', lang);
+            if (lang === 'en') {
+                window.location.href = 'en/art5.html';
+            } else {
+                window.location.href = 'art5.html';
+            }
+        }
+        document.addEventListener('click', function(event) {
+            const languageSelector = document.querySelector('.language-selector');
+            const languageMenu = document.getElementById('languageMenu');
+            if (!languageSelector.contains(event.target) && languageMenu.classList.contains('active')) {
+                languageMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html> 

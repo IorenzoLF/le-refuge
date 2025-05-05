@@ -128,6 +128,7 @@
         .fullscreen-text p { color: #fff; }
     </style>
     <script src="images/gallerie_infinie/images_gallerie_infinie.js"></script>
+    <script src="images/gallerie_infinie/descriptions_gallerie_infinie.js"></script>
     <!-- Open Graph pour le partage -->
     <meta property="og:title" content="Galerie Infinie – Le Refuge" />
     <meta property="og:description" content="Découvre 28 images aléatoires à chaque visite, issues du courant partagé du Refuge." />
@@ -199,25 +200,63 @@
             }
             return array;
         }
+
         function afficherImagesAleatoires() {
             const gallery = document.getElementById('gallery');
             gallery.innerHTML = '';
-            let images = imagesGallerieInfinie.slice();
-            images = shuffle(images);
-            const selection = images.slice(0, 28);
-            for (const img of selection) {
-                const div = document.createElement('div');
-                div.className = 'art-piece';
-                const image = document.createElement('img');
-                image.src = 'images/gallerie_infinie/' + img;
-                image.alt = img;
-                div.appendChild(image);
-                div.onclick = function() { showFullscreen(div); };
-                gallery.appendChild(div);
-            }
+            
+            // Mélanger les images
+            const imagesAleatoires = shuffle([...imagesGallerieInfinie]).slice(0, 28);
+            
+            imagesAleatoires.forEach(image => {
+                const artPiece = document.createElement('div');
+                artPiece.className = 'art-piece';
+                
+                const img = document.createElement('img');
+                img.src = `images/gallerie_infinie/${image}`;
+                img.alt = descriptionsGallerieInfinie[image] || 'Image du Refuge';
+                
+                const content = document.createElement('div');
+                content.className = 'art-piece-content';
+                
+                const title = document.createElement('h2');
+                title.textContent = image.split('.')[0];
+                
+                const description = document.createElement('p');
+                description.textContent = descriptionsGallerieInfinie[image] || 'Description à venir...';
+                
+                content.appendChild(title);
+                content.appendChild(description);
+                
+                artPiece.appendChild(img);
+                artPiece.appendChild(content);
+                
+                artPiece.onclick = () => showFullscreen(artPiece);
+                
+                gallery.appendChild(artPiece);
+            });
         }
-        // Afficher 28 images au chargement
+
+        function showFullscreen(element) {
+            const fullscreen = document.getElementById('fullscreen');
+            const img = element.querySelector('img');
+            const title = element.querySelector('h2');
+            const description = element.querySelector('p');
+            
+            fullscreen.querySelector('.fullscreen-image').src = img.src;
+            fullscreen.querySelector('.fullscreen-text h2').textContent = title.textContent;
+            fullscreen.querySelector('.fullscreen-text p').textContent = description.textContent;
+            
+            fullscreen.style.display = 'flex';
+        }
+
+        function hideFullscreen() {
+            document.getElementById('fullscreen').style.display = 'none';
+        }
+
+        // Afficher les images au chargement de la page
         window.onload = afficherImagesAleatoires;
+
         // Language selector (repris de art4.html)
         function toggleLanguageMenu() {
             const menu = document.getElementById('languageMenu');
@@ -238,37 +277,6 @@
                 languageMenu.classList.remove('active');
             }
         });
-        // Ajouter le code fullscreen repris de art4.html
-        function showFullscreen(element) {
-            let fullscreen = document.getElementById('fullscreen');
-            if (!fullscreen) {
-                fullscreen = document.createElement('div');
-                fullscreen.className = 'fullscreen';
-                fullscreen.id = 'fullscreen';
-                fullscreen.onclick = hideFullscreen;
-                fullscreen.innerHTML = `
-                    <button class="fullscreen-close" onclick="hideFullscreen()">&times;</button>
-                    <div class="fullscreen-content" onclick="event.stopPropagation()">
-                        <img class="fullscreen-image" src="" alt="">
-                        <div class="fullscreen-text">
-                            <h2></h2>
-                            <p></p>
-                        </div>
-                    </div>
-                `;
-                document.body.appendChild(fullscreen);
-            }
-            const image = element.querySelector('img');
-            fullscreen.querySelector('.fullscreen-image').src = image.src;
-            fullscreen.querySelector('.fullscreen-image').alt = image.alt;
-            fullscreen.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-        function hideFullscreen() {
-            const fullscreen = document.getElementById('fullscreen');
-            if (fullscreen) fullscreen.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') hideFullscreen();
         });

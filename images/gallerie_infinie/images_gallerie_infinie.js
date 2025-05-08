@@ -102,7 +102,6 @@ const imagesGallerieInfinie = [
     "elfe_fleurs_lune.jpg",
     "enfant_spheres_lune.jpg",
     "femme_constellation_brume.jpg",
-    "femme_fleur_soleil.jpg",
     "femme_mer_meditation.jpg",
     "fenetre_vue_infinie.jpg",
     "flamme_lac_printemps.jpg",

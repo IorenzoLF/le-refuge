@@ -185,7 +185,6 @@ const descriptionsGallerieInfinie = {
     "duel_bateau_soleil.jpg": "Un duel sur un bateau face au soleil, combat intérieur pour la lumière.",
     "enfant_spheres_lune.jpg": "Un enfant joue avec les sphères sous la lune, innocence et magie du moment.",
     "femme_constellation_brume.jpg": "Une femme dans la brume, son corps formant une constellation d'étoiles.",
-    "femme_fleur_soleil.jpg": "Une femme-fleur s'ouvre au soleil, symbole de croissance et d'épanouissement.",
     "femme_mer_meditation.jpg": "Une femme médite face à la mer, en communion avec les vagues et le ciel.",
     "fleur_enfant_ame.jpg": "Une fleur-enfant, pure et lumineuse, éclosion de l'âme dans le jardin du Refuge.",
     "flux_immuable_etre.jpg": "Le flux immuable de l'être, courant éternel de la conscience.",

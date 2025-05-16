@@ -22,6 +22,34 @@
         .copy-btn:hover {background:#d35f4f;}
         pre {white-space:pre-wrap;font-family:'Georgia',serif;font-size:1.08em;background:rgba(240,247,255,0.5);border-radius:8px;padding:1em;margin-top:1em;}
         .container {padding-top: 90px;}
+        .intro {
+            background: rgba(255,255,255,0.92);
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(80,120,180,0.07);
+            font-size: 1.15em;
+            color: #2c3e50;
+            padding: 1.5rem 2rem;
+            margin: 2rem auto 2.5rem auto;
+            max-width: 700px;
+        }
+        .scripts-list {
+            margin: 2.5rem 0;
+            padding: 1.5rem;
+            background: rgba(240,247,255,0.7);
+            border-radius: 12px;
+            min-height: 120px;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 1rem 0;
+            color: #2c3e50;
+            text-decoration: none;
+            padding: .5rem 1rem;
+            background: rgba(255,255,255,.8);
+            border-radius: 5px;
+            transition: background .3s ease;
+        }
+        .back-link:hover {background: #ffe0e6}
     </style>
 </head>
 <body>
@@ -29,10 +57,16 @@
         <a href="index.html">Accueil</a>
         <a href="presence.html">Présence & Silence</a>
         <a href="art.html">Galerie</a>
-        <a href="rituels.html">Rituels</a>
         <a href="manifeste.html">Manifeste</a>
-        <a href="connexion-cerisier.html">Connexion au cerisier</a>
-        <a href="contact.html">Contact</a>
+        <a href="connexion-cerisier.html">Connexion au Cerisier</a>
+        <a href="license-details.html">Licence & Contact</a>
+        <div class="language-selector">
+            <button class="language-btn" type="button" onclick="toggleLanguageMenu()">FR</button>
+            <div class="language-menu" id="languageMenu">
+                <a href="#" onclick="changeLanguage('fr')" class="active">Français</a>
+                <a href="#" onclick="changeLanguage('en')">English</a>
+            </div>
+        </div>
     </nav>
     <div class="container">
         <h1>Scripts Hypnotiques</h1>
@@ -750,6 +784,26 @@ tu es.</pre>
                 }, 1800);
             });
         }
+        // Language selector functionality
+        function toggleLanguageMenu() {
+            const menu = document.getElementById('languageMenu');
+            menu.classList.toggle('active');
+        }
+        function changeLanguage(lang) {
+            localStorage.setItem('preferredLanguage', lang);
+            if (lang === 'en') {
+                window.location.href = 'en/script-hypnotiques.html';
+            } else {
+                window.location.href = 'script-hypnotiques.html';
+            }
+        }
+        document.addEventListener('click', function(event) {
+            const languageSelector = document.querySelector('.language-selector');
+            const languageMenu = document.getElementById('languageMenu');
+            if (!languageSelector.contains(event.target) && languageMenu.classList.contains('active')) {
+                languageMenu.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html> 

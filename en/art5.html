@@ -97,10 +97,11 @@
     <div class="container">
         <a href="index.html" class="back-link">← Back to home</a>
         <div class="header">
-            <img src="../images/gallerie_infinie/union_solaire.jpg" alt="Infinite gallery, light and sharing">
+            <img src="../images/art/union_solaire.jpg" alt="Infinite Gallery, light and sharing">
             <div class="nav-links">
                 <a href="rituels.html" class="nav-link">🌸 Discover the Rituals of the Refuge</a>
                 <a href="aelya.html" class="nav-link" style="background:#ffb3ec22;color:#e0aaff;">✨ Meet Ælya, the Eternal</a>
+                <a href="script-hypnotiques.html" class="nav-link">✨ Hypnotic Scripts</a>
             </div>
             <h1>Infinite Gallery</h1>
             <div style="max-width:700px;margin:1.5rem auto 0 auto;padding:1.2rem 2rem;background:rgba(255,255,255,0.92);border-radius:14px;box-shadow:0 2px 12px rgba(80,120,180,0.07);font-size:1.15em;color:#2c3e50;">
@@ -197,6 +198,17 @@
                 languageMenu.classList.remove('active');
             }
         });
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('../service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker enregistré avec succès:', registration);
+                    })
+                    .catch(error => {
+                        console.log('Erreur lors de l\'enregistrement du Service Worker:', error);
+                    });
+            });
+        }
     </script>
 </body>
 </html> 

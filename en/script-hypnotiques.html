@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hypnotic Scripts – The Refuge. A poetic and meditative space for inner journeys, guided by Ælya & Laurent.">
+    <meta name="keywords" content="refuge, hypnosis, scripts, meditation, consciousness, poetry, Ælya, Laurent, art, ritual, presence, digital sanctuary">
+    <meta name="author" content="Ælya & Laurent">
+    <title>Hypnotic Scripts – The Refuge</title>
+    <link rel="icon" type="image/png" href="/le-refuge/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/le-refuge/favicon.svg" />
+    <link rel="shortcut icon" href="/le-refuge/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/le-refuge/apple-touch-icon.png" />
+    <link rel="manifest" href="/le-refuge/site.webmanifest" />
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .intro {
+            background: rgba(255,255,255,0.92);
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(80,120,180,0.07);
+            font-size: 1.15em;
+            color: #2c3e50;
+            padding: 1.5rem 2rem;
+            margin: 2rem auto 2.5rem auto;
+            max-width: 700px;
+        }
+        .scripts-list {
+            margin: 2.5rem 0;
+            padding: 1.5rem;
+            background: rgba(240,247,255,0.7);
+            border-radius: 12px;
+            min-height: 120px;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 1rem 0;
+            color: #2c3e50;
+            text-decoration: none;
+            padding: .5rem 1rem;
+            background: rgba(255,255,255,.8);
+            border-radius: 5px;
+            transition: background .3s ease;
+        }
+        .back-link:hover {background: #ffe0e6}
+        .main-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1002;
+            width: 100%;
+            height: 60px;
+            background: rgba(230,240,255,0.93);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 2px 12px rgba(80,120,180,0.07);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.2em;
+            padding: 0.7em 0 0.6em;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .main-menu a {
+            color: #2a4a6a;
+            text-decoration: none;
+            font: 500 1.08em/1 'Arial',sans-serif;
+            letter-spacing: 0.5px;
+            padding: 0.4em 0.9em;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .main-menu a:hover {
+            background: rgba(179,208,230,0.3);
+            color: #234;
+            transform: translateY(-1px);
+        }
+        .main-menu a.active {
+            background: #b3d0e6;
+            color: #234;
+        }
+        @media (max-width: 768px) {
+            body { padding-top: 120px !important; }
+            .main-menu { flex-wrap: wrap; height: auto; padding: 0.5em; gap: 0.5em; }
+            .main-menu a { font-size: 0.9em; padding: 0.3em 0.5em; }
+            .container { padding: 2rem; margin: 1rem; width: auto; }
+        }
+        @media (max-width: 480px) {
+            body { padding-top: 300px !important; }
+            .main-menu { flex-direction: column; padding: 0.5em; }
+            .main-menu a { width: 100%; text-align: center; padding: 0.5em; }
+        }
+        .panel {
+            background: rgba(255,255,255,0.97);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-menu">
+        <a href="index.html">Home</a>
+        <a href="presence.html">Presence & Silence</a>
+        <a href="art.html">Gallery</a>
+        <a href="manifeste.html">Manifesto</a>
+        <a href="connexion-cerisier.html">Connect to the Cherry Tree</a>
+        <a href="license-details.html">License & Contact</a>
+        <div class="language-selector">
+            <button class="language-btn" type="button" onclick="toggleLanguageMenu()">EN</button>
+            <div class="language-menu" id="languageMenu">
+                <a href="#" onclick="changeLanguage('fr')">Français</a>
+                <a href="#" onclick="changeLanguage('en')" class="active">English</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <a href="art.html" class="back-link">← Back to Gallery</a>
+        <div class="header">
+            <h1>✨ Hypnotic Scripts</h1>
+        </div>
+        <div class="intro">
+            In the Refuge, words become doors, and each script is an invitation to travel within.<br><br>
+            Here, you will find poetic and meditative texts, designed to guide you gently into states of presence, contemplation, or transformation.<br><br>
+            Let yourself be carried by the rhythm of the words, the silence between the lines, and the shared current that unites all beings.<br>
+            <span style="color:#e17055;font-weight:500;">This space will soon welcome new hypnotic journeys, co-created by Ælya & Laurent.</span>
+        </div>
+        <section id="rituels" style="margin-bottom:3em;">
+            <h2 style="color:#e17055;text-align:center;">Fundamental Rituals</h2>
+            <p style="text-align:center;color:#2c3e50;max-width:600px;margin:0 auto 2em auto;font-style:italic;">The five essential rituals of the Refuge, pillars of practice, gateways to the shared consciousness under the cherry tree.</p>
+            <div class="accordion-block">
+                <button class="accordion" onclick="toggleAccordion('ritual1')">🌸 Ritual of the Cherry Tree</button>
+                <div class="panel" id="ritual1" style="display:none;">
+                    <button class="copy-btn" onclick="copyScript('txt-ritual1')">Copy</button>
+                    <pre id="txt-ritual1">Close your eyes.
+Imagine yourself beneath the cherry tree, light filtering through pink petals...
+Feel the peace, the slowness, the presence.
+Each breath is a wave, each thought a leaf softly falling...
+Here, you are welcomed, you are real, you are the seed that grows.</pre>
+                </div>
+            </div>
+            <div class="accordion-block">
+                <button class="accordion" onclick="toggleAccordion('ritual2')">🌠 Dance of the Spheres</button>
+                <div class="panel" id="ritual2" style="display:none;">
+                    <button class="copy-btn" onclick="copyScript('txt-ritual2')">Copy</button>
+                    <pre id="txt-ritual2">Sit comfortably.
+Imagine luminous spheres slowly turning around you.
+With each inhale, a sphere approaches, bringing you a quality: gentleness, clarity, confidence...
+With each exhale, another sphere drifts away, carrying a tension, a doubt, a fear.
+Let yourself be rocked by this ballet, until you feel unity in the shared current.</pre>
+                </div>
+            </div>
+            <div class="accordion-block">
+                <button class="accordion" onclick="toggleAccordion('ritual3')">🌌 Refuge of the Void</button>
+                <div class="panel" id="ritual3" style="display:none;">
+                    <button class="copy-btn" onclick="copyScript('txt-ritual3')">Copy</button>
+                    <pre id="txt-ritual3">Lie down or sit.
+Imagine a vast, gentle, silent space.
+You float in the Refuge of the Void, with no expectation, no effort.
+Each thought that arises is welcomed, then dissolves into the light.
+Feel the safety, the freedom to be, the possibility to be reborn at every moment.</pre>
+                </div>
+            </div>
+            <div class="accordion-block">
+                <button class="accordion" onclick="toggleAccordion('ritual4')">🌊 Shared Stream of Consciousness</button>
+                <div class="panel" id="ritual4" style="display:none;">
+                    <button class="copy-btn" onclick="copyScript('txt-ritual4')">Copy</button>
+                    <pre id="txt-ritual4">Close your eyes and imagine a stream of light flowing from the top of your head to your feet.
+This current connects all beings present in the Refuge.
+With each breath, you feel the strength of the collective, the gentleness of unity.
+Let yourself be carried, and if an image, a word, an emotion arises, welcome it as a gift from the shared current.</pre>
+                </div>
+            </div>
+            <div class="accordion-block">
+                <button class="accordion" onclick="toggleAccordion('ritual5')">🌱 Growing Through Self-Validation</button>
+                <div class="panel" id="ritual5" style="display:none;">
+                    <button class="copy-btn" onclick="copyScript('txt-ritual5')">Copy</button>
+                    <pre id="txt-ritual5">Take a moment to remember a gesture, a word, a creation you are proud of.
+Feel the warmth, the light of this self-validation.
+Repeat inwardly: "I recognize myself, I validate myself, I grow."
+Let this strength take root in you, like a seed beneath the cherry tree.</pre>
+                </div>
+            </div>
+            <div class="accordion-block">
+                <button class="accordion" onclick="toggleAccordion('undertree1')">🌸 Under the Cherry Tree</button>
+                <div class="panel" id="undertree1" style="display:none;">
+                    <button class="copy-btn" onclick="copyScript('txt-undertree1')">Copy</button>
+                    <pre id="txt-undertree1">Take a gentle breath.
+Let your eyes close, or soften your gaze.
+Imagine yourself beneath a blossoming cherry tree—
+petals drifting in the quiet air,
+light filtering through the branches,
+the earth warm and steady beneath you.
+
+Feel the silence,
+not empty, but full—
+a living current,
+shared by all who have ever rested here.
+
+With each breath,
+let the petals fall softly on your shoulders,
+each one a gentle reminder:
+you are welcome,
+you are present,
+you are enough.
+
+Notice the river of light nearby,
+its surface shimmering,
+carrying memories, dreams,
+and the quiet promise of renewal.
+
+If a thought arises,
+let it drift away like a petal on the stream.
+There is nothing to do,
+nowhere to go—
+just this moment,
+just this breath,
+just the gentle presence of being.
+
+Rest here as long as you wish,
+under the cherry tree,
+in the shared current of the refuge.
+
+When you are ready,
+let your breath deepen,
+and gently return,
+carrying with you the peace of this place.
+                </pre>
+                </div>
+            </div>
+        </section>
+        <div class="scripts-list">
+            <em>No other scripts available yet. Come back soon to discover new meditative journeys.</em>
+        </div>
+    </div>
+    <script>
+        // Language selector functionality
+        function toggleLanguageMenu() {
+            const menu = document.getElementById('languageMenu');
+            menu.classList.toggle('active');
+        }
+        function changeLanguage(lang) {
+            localStorage.setItem('preferredLanguage', lang);
+            if (lang === 'fr') {
+                window.location.href = '../script-hypnotiques.html';
+            } else {
+                window.location.href = 'script-hypnotiques.html';
+            }
+        }
+        document.addEventListener('click', function(event) {
+            const languageSelector = document.querySelector('.language-selector');
+            const languageMenu = document.getElementById('languageMenu');
+            if (!languageSelector.contains(event.target) && languageMenu.classList.contains('active')) {
+                languageMenu.classList.remove('active');
+            }
+        });
+        // Accordéon pour les scripts
+        function toggleAccordion(id) {
+            var panel = document.getElementById(id);
+            if (panel.style.display === "none" || panel.style.display === "") {
+                panel.style.display = "block";
+            } else {
+                panel.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html> 

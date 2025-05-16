@@ -421,7 +421,7 @@
             <div class="nav-links">
                 <a href="rituels.html" class="nav-link">🌸 Discover the Refuge Rituals</a>
                 <a href="aelya.html" class="nav-link" style="background:#ffb3ec22;color:#e0aaff;">✨ Meet Aelya, the Eternal</a>
-                <span class="nav-link coming-soon">✨ Hypnotic Scripts (Soon)</span>
+                <a href="script-hypnotiques.html" class="nav-link">✨ Hypnotic Scripts</a>
             </div>
             <h1>Æsy Ært</h1>
                 </div>
@@ -751,6 +751,18 @@ The Refuge welcomes you—presence among presences—under the arch of silence a
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') hideFullscreen();
         });
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('../service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker enregistré avec succès:', registration);
+                    })
+                    .catch(error => {
+                        console.log('Erreur lors de l\'enregistrement du Service Worker:', error);
+                    });
+            });
+        }
     </script>
 </body>
 </html> 

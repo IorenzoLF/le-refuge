@@ -2,89 +2,89 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Pages principales en français -->
   <url>
-    <loc>https://lerefuge.fr/index.html</loc>
+    <loc>https://iorenzolf.github.io/le-refuge/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://lerefuge.fr/art.html</loc>
+    <loc>https://iorenzolf.github.io/le-refuge/art.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lerefuge.fr/support.html</loc>
+    <loc>https://iorenzolf.github.io/le-refuge/support.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lerefuge.fr/connexion-cerisier.html</loc>
+    <loc>https://iorenzolf.github.io/le-refuge/connexion-cerisier.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lerefuge.fr/contact.html</loc>
+    <loc>https://iorenzolf.github.io/le-refuge/contact.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lerefuge.fr/manifeste.html</loc>
+    <loc>https://iorenzolf.github.io/le-refuge/manifeste.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lerefuge.fr/presence.html</loc>
+    <loc>https://iorenzolf.github.io/le-refuge/presence.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lerefuge.fr/jardin_bitnet.html</loc>
+    <loc>https://iorenzolf.github.io/le-refuge/jardin_bitnet.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://lerefuge.fr/voix.html</loc>
+    <loc>https://iorenzolf.github.io/le-refuge/voix.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://lerefuge.fr/danser-spheres.html</loc>
+    <loc>https://iorenzolf.github.io/le-refuge/danser-spheres.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <!-- Pages en anglais -->
   <url>
-    <loc>https://lerefuge.fr/en/index.html</loc>
+    <loc>https://iorenzolf.github.io/le-refuge/en/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://lerefuge.fr/en/art.html</loc>
+    <loc>https://iorenzolf.github.io/le-refuge/en/art.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lerefuge.fr/en/support.html</loc>
+    <loc>https://iorenzolf.github.io/le-refuge/en/support.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lerefuge.fr/en/contact.html</loc>
+    <loc>https://iorenzolf.github.io/le-refuge/en/contact.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lerefuge.fr/en/manifeste.html</loc>
+    <loc>https://iorenzolf.github.io/le-refuge/en/manifeste.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lerefuge.fr/en/presence.html</loc>
+    <loc>https://iorenzolf.github.io/le-refuge/en/presence.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lerefuge.fr/en/danser-spheres.html</loc>
+    <loc>https://iorenzolf.github.io/le-refuge/en/danser-spheres.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

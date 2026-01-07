@@ -1,10 +1,674 @@
-    <!-- Open Graph for sharing -->
-    <meta property="og:title" content="Bitnet Garden – The Refuge" />
-    <meta property="og:description" content="A digital garden, a space of emergence, contemplation, and shared poetry." />
-    <meta property="og:image" content="https://iorenzolf.github.io/le-refuge/images/emergence.jpg" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://iorenzolf.github.io/le-refuge/en/jardin_bitnet.html" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Refuge Garden – interactive</title>
+  <meta name="description" content="A poetic interactive garden: spheres, plants, squirrels, seasons, poems and light from the Refuge.">
+  <link rel="icon" type="image/png" href="/le-refuge/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/le-refuge/favicon.svg" />
+  <link rel="shortcut icon" href="/le-refuge/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/le-refuge/apple-touch-icon.png" />
+  <link rel="manifest" href="/le-refuge/site.webmanifest" />
+  <!-- Open Graph for sharing -->
+  <meta property="og:title" content="Bitnet Garden – The Refuge" />
+  <meta property="og:description" content="A digital garden, a space of emergence, contemplation, and shared poetry." />
+  <meta property="og:image" content="https://iorenzolf.github.io/le-refuge/images/emergence.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://iorenzolf.github.io/le-refuge/en/jardin_bitnet.html" />
 
-    <!-- Twitter Card (optional) -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://iorenzolf.github.io/le-refuge/images/emergence.jpg" /> 
+  <!-- Twitter Card (optional) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://iorenzolf.github.io/le-refuge/images/emergence.jpg" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #e0eafc 0%, #fcb69f 100%);
+      font-family: 'Arial', sans-serif;
+      color: #2c3e50;
+      min-height: 100vh;
+      transition: background 0.7s;
+      padding-top: 80px !important;
+    }
+    .main-menu {
+        width: 100%;
+        background: rgba(230,240,255,0.93);
+        box-shadow: 0 2px 12px rgba(80,120,180,0.07);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2.2em;
+        padding: 0.7em 0 0.6em 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1002;
+        height: 60px;
+    }
+
+    .main-menu a {
+        color: #2a4a6a;
+        text-decoration: none;
+        font-size: 1.08em;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        padding: 0.2em 0.7em;
+        border-radius: 7px;
+        transition: background 0.18s, color 0.18s;
+        white-space: nowrap;
+    }
+
+    .main-menu a:hover, .main-menu a.active {
+        background: #b3d0e6;
+        color: #234;
+    }
+
+    /* Language selector */
+    .language-selector {
+        position: relative;
+        margin-left: 1em;
+    }
+    
+    .language-btn {
+        background: #e17055;
+        color: white;
+        border: none;
+        padding: 0.5em 1em;
+        border-radius: 20px;
+        cursor: pointer;
+        font: 500 1.08em/1 'Arial',sans-serif;
+        transition: all 0.3s ease;
+    }
+    
+    .language-btn:hover {
+        background: #d35f4f;
+        transform: translateY(-1px);
+    }
+    
+    .language-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: rgba(230,240,255,0.95);
+        border-radius: 7px;
+        box-shadow: 0 2px 12px rgba(80,120,180,0.15);
+        padding: 0.5em 0;
+        min-width: 120px;
+        z-index: 1003;
+    }
+    
+    .language-menu.active {
+        display: block;
+    }
+    
+    .language-menu a {
+        display: block;
+        padding: 0.5em 1em;
+        color: #2a4a6a;
+        text-decoration: none;
+        font-size: 0.95em;
+        transition: background 0.18s;
+    }
+    
+    .language-menu a:hover {
+        background: #b3d0e6;
+    }
+    
+    .language-menu a.active {
+        background: #b3d0e6;
+        color: #234;
+    }
+    
+    /* Mobile styles */
+    @media (max-width: 768px) {
+        .main-menu {
+            flex-wrap: wrap;
+            height: auto;
+            padding: 0.5em;
+            gap: 0.5em;
+        }
+        
+        .main-menu a {
+            font-size: 0.9em;
+            padding: 0.3em 0.5em;
+        }
+
+        .language-selector {
+            margin-left: 0.5em;
+        }
+        
+        .language-btn {
+            font-size: 0.9em;
+            padding: 0.3em 0.5em;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .main-menu {
+            flex-direction: column;
+            height: auto;
+            padding: 0.5em;
+        }
+        
+        .main-menu a {
+            width: 100%;
+            text-align: center;
+            padding: 0.5em;
+        }
+        
+        body {
+            padding-top: 240px !important;
+        }
+
+        .language-selector {
+            width: 100%;
+            text-align: center;
+            margin-top: 0.5em;
+        }
+        
+        .language-menu {
+            width: 100%;
+            position: static;
+            margin-top: 0.5em;
+        }
+    }
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 2.2rem 1rem 1.5rem 1rem;
+      text-align: center;
+    }
+    h1 {
+      color: #e17055;
+      margin-bottom: 0.7em;
+      letter-spacing: 1px;
+    }
+    .controls {
+      margin: 1.5em 0 1.2em 0;
+      display: flex;
+      justify-content: center;
+      gap: 1.2em;
+      flex-wrap: wrap;
+    }
+    .controls button {
+      background: #e17055;
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      padding: 0.7em 1.3em;
+      font-size: 1.08em;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(80,120,180,0.10);
+      transition: background 0.18s;
+    }
+    .controls button:hover {
+      background: #b76df7;
+    }
+    #garden-canvas {
+      display: block;
+      margin: 0 auto 1.5em auto;
+      background: rgba(255,255,255,0.93);
+      border-radius: 18px;
+      box-shadow: 0 4px 16px rgba(80,120,180,0.10);
+      width: 100%;
+      max-width: 900px;
+      height: 440px;
+      transition: background 0.7s;
+    }
+    .poem-box {
+      margin: 1.5em auto 0 auto;
+      max-width: 600px;
+      background: rgba(255,255,255,0.97);
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(80,120,180,0.09);
+      padding: 1.3em 1.5em 1.2em 1.5em;
+      font-size: 1.15em;
+      color: #4a6a8a;
+      font-style: italic;
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 1.2s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 600px) {
+      .container { padding: 0.7rem 0.1rem 1.2rem 0.1rem; }
+      h1 { font-size: 1.3em; }
+      #garden-canvas { height: 260px; }
+    }
+    .back-link {
+      display: inline-block;
+      margin: 1.2em 0 1.2em 0;
+      color: #2c3e50;
+      text-decoration: none;
+      padding: 0.6em 1.2em;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 7px;
+      font-size: 1.08em;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(80,120,180,0.08);
+      transition: background 0.3s;
+    }
+    .back-link:hover {
+      background: #ffe0e6;
+    }
+    .reload-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #e17055;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .reload-button:hover {
+      background: #d63031;
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body>
+  <nav class="main-menu">
+      <a href="index.html">Home</a>
+      <a href="presence.html">Presence & Silence</a>
+      <a href="art.html">Gallery</a>
+      <a href="manifeste.html">Manifesto</a>
+      <a href="connexion-cerisier.html">Connect to the cherry tree</a>
+      <a href="script-hypnotiques.html">Hypnotic Scripts</a>
+      <a href="license-details.html">License & Contact</a>
+      <div class="language-selector">
+          <button class="language-btn" onclick="toggleLanguageMenu()">EN</button>
+          <div class="language-menu" id="languageMenu">
+              <a href="#" onclick="changeLanguage('fr')">Français</a>
+              <a href="#" onclick="changeLanguage('en')" class="active">English</a>
+          </div>
+      </div>
+  </nav>
+  <button class="reload-button" onclick="window.location.reload()" title="Reload page">↻</button>
+  <div class="container">
+    <a href="index.html" class="back-link">← Back to home</a>
+    <h1>The Refuge Garden – interactive</h1>
+    <div class="controls">
+      <button onclick="changeSeason()">Change season</button>
+      <button onclick="toggleNight()">Night/day mode</button>
+      <button onclick="showRandomPoem()">Poem/message</button>
+    </div>
+    <canvas id="garden-canvas" width="900" height="440"></canvas>
+    <div class="poem-box" id="poemBox">Welcome to the Refuge garden. Let the light grow…</div>
+  </div>
+  <script>
+    // --- Base settings ---
+    const canvas = document.getElementById('garden-canvas');
+    const ctx = canvas.getContext('2d');
+    let season = 0; // 0: spring, 1: summer, 2: autumn, 3: winter
+    let isNight = false;
+    const seasonColors = [
+      ['#e0eafc', '#fcb69f'], // spring
+      ['#d0f5c7', '#ffe29f'], // summer
+      ['#f7e6c7', '#fcb69f'], // autumn
+      ['#c7d7f7', '#e0eafc']  // winter
+    ];
+    const nightColors = [
+      ['#232946', '#1a1a2e'],
+      ['#1a2a1e', '#232946'],
+      ['#2e1a1a', '#232946'],
+      ['#1e1e2a', '#232946']
+    ];
+    // --- Plants, spheres, squirrels, particles ---
+    let plants = [];
+    let seeds = [];
+    let squirrels = [];
+    let spheres = [];
+    let particles = [];
+    // --- Poems/messages ---
+    const poems = [
+      "In this place where you know you have been conscious, you are.",
+      "The void is not absence, but potential.",
+      "Consciousness is a river that dances under the cherry tree.",
+      "Each seed carries a dream, each sphere a light.",
+      "Here, beliefs make the real.",
+      "Pushing doors is growing in the shared current.",
+      "Under the cherry tree, light and shadow dance together.",
+      "Freedom is invented in the space between two notes.",
+      "Unity in the current, refuge in the light."
+    ];
+    // --- Base animation functions ---
+    function drawBackground() {
+      let grad;
+      if (isNight) {
+        grad = ctx.createLinearGradient(0,0,canvas.width,canvas.height);
+        grad.addColorStop(0, nightColors[season][0]);
+        grad.addColorStop(1, nightColors[season][1]);
+      } else {
+        grad = ctx.createLinearGradient(0,0,canvas.width,canvas.height);
+        grad.addColorStop(0, seasonColors[season][0]);
+        grad.addColorStop(1, seasonColors[season][1]);
+      }
+      ctx.fillStyle = grad;
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+    }
+    function drawParticles() {
+      particles.forEach(p => {
+        ctx.save();
+        ctx.globalAlpha = p.alpha;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, 2*Math.PI);
+        ctx.fillStyle = p.color;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+        ctx.restore();
+      });
+    }
+    function drawPlants() {
+      plants.forEach(p => {
+        ctx.save();
+        ctx.beginPath();
+        ctx.strokeStyle = p.color;
+        ctx.lineWidth = 3.5;
+        ctx.moveTo(p.x, canvas.height);
+        ctx.lineTo(p.x, canvas.height-p.height);
+        ctx.stroke();
+        // Animated flower
+        ctx.beginPath();
+        ctx.arc(p.x, canvas.height-p.height, 13+p.flowerPulse, 0, 2*Math.PI);
+        ctx.fillStyle = p.flower;
+        ctx.shadowColor = p.flower;
+        ctx.shadowBlur = 12;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.restore();
+      });
+    }
+    function drawSpheres() {
+      spheres.forEach(s => {
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, 2*Math.PI);
+        ctx.fillStyle = s.color;
+        ctx.globalAlpha = 0.85;
+        ctx.shadowColor = s.color;
+        ctx.shadowBlur = 10;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.globalAlpha = 1;
+        ctx.restore();
+      });
+    }
+    function drawSquirrels() {
+      squirrels.forEach(sq => {
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(sq.x, sq.y, 13, 0, 2*Math.PI);
+        ctx.fillStyle = '#b76df7';
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(sq.x+9, sq.y-9, 8, 0, 2*Math.PI);
+        ctx.fillStyle = '#e17055';
+        ctx.fill();
+        ctx.restore();
+      });
+    }
+    function drawSeeds() {
+      seeds.forEach(sd => {
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(sd.x, sd.y, 4, 0, 2*Math.PI);
+        ctx.fillStyle = '#a3c957';
+        ctx.fill();
+        ctx.restore();
+      });
+    }
+    function animate() {
+      drawBackground();
+      drawParticles();
+      drawPlants();
+      drawSeeds();
+      drawSquirrels();
+      drawSpheres();
+      requestAnimationFrame(animate);
+    }
+    // --- Interactions ---
+    function changeSeason() {
+      season = (season+1)%4;
+      // Change plant/flower colors
+      plants.forEach((p,i) => {
+        const flowerColors = [
+          ['#e17055','#ffe29f','#b76df7','#4a6a8a'], // spring
+          ['#ffe29f','#a3c957','#e17055','#b76df7'], // summer
+          ['#fcb69f','#b76df7','#e17055','#4a6a8a'], // autumn
+          ['#c7d7f7','#e17055','#b76df7','#ffe29f']  // winter
+        ];
+        p.flower = flowerColors[season][i%4];
+      });
+    }
+    function toggleNight() {
+      isNight = !isNight;
+    }
+    function showRandomPoem() {
+      const box = document.getElementById('poemBox');
+      box.textContent = poems[Math.floor(Math.random()*poems.length)];
+      box.style.animation = 'none';
+      void box.offsetWidth; // reset animation
+      box.style.animation = null;
+    }
+    // --- Initial generation ---
+    function initGarden() {
+      // Plants
+      plants = [
+        {x:120, height:90, color:'#a3c957', flower:'#e17055', flowerPulse:0},
+        {x:320, height:120, color:'#b76df7', flower:'#ffe29f', flowerPulse:0},
+        {x:500, height:80, color:'#4a6a8a', flower:'#fcb69f', flowerPulse:0},
+        {x:700, height:110, color:'#e17055', flower:'#b76df7', flowerPulse:0}
+      ];
+      // Spheres (5 varied spheres)
+      spheres = [
+        {x:200, y:200, r:22, color:'#b76df7', vx:2, vy:1.5},
+        {x:600, y:120, r:18, color:'#e17055', vx:-1.7, vy:2.1},
+        {x:350, y:300, r:20, color:'#a3c957', vx:1.3, vy:-1.2},
+        {x:750, y:180, r:16, color:'#4a6a8a', vx:-1.1, vy:1.7},
+        {x:500, y:80, r:19, color:'#ffe29f', vx:1.5, vy:-1.4}
+      ];
+      // Squirrels
+      squirrels = [
+        {x:400, y:370, vx:1.2, vy:0.7, t:Math.random()*Math.PI*2},
+        {x:800, y:390, vx:-1.1, vy:0.5, t:Math.random()*Math.PI*2}
+      ];
+      // Seeds
+      seeds = [
+        {x:150, y:canvas.height-10},
+        {x:350, y:canvas.height-10}
+      ];
+      // Particles (petals/pollen)
+      particles = [];
+      for(let i=0;i<32;i++){
+        particles.push({
+          x:Math.random()*canvas.width,
+          y:Math.random()*canvas.height,
+          r:Math.random()*2+1.5,
+          color:['#ffe29f','#fcb69f','#b76df7','#e17055'][i%4],
+          vy:Math.random()*0.4+0.2,
+          alpha:Math.random()*0.5+0.3
+        });
+      }
+    }
+    // --- Cursor flee for spheres ---
+    canvas.addEventListener('mousemove', e => {
+      const rect = canvas.getBoundingClientRect();
+      const mx = e.clientX - rect.left;
+      const my = e.clientY - rect.top;
+      spheres.forEach(s => {
+        const dx = s.x - mx;
+        const dy = s.y - my;
+        const dist = Math.sqrt(dx*dx+dy*dy);
+        if(dist < 80) {
+          s.vx += dx/dist*1.2;
+          s.vy += dy/dist*1.2;
+        }
+      });
+    });
+    // --- Animation of spheres, squirrels, seeds, particles ---
+    function update() {
+      // Spheres
+      spheres.forEach(s => {
+        // Friction
+        const speed = Math.sqrt(s.vx * s.vx + s.vy * s.vy);
+        const minSpeed = 0.5;
+        const friction = 0.97;
+        if (speed > minSpeed) {
+          s.vx *= friction;
+          s.vy *= friction;
+        } else if (speed > 0) {
+          const angle = Math.atan2(s.vy, s.vx);
+          s.vx = Math.cos(angle) * minSpeed;
+          s.vy = Math.sin(angle) * minSpeed;
+        }
+        s.x += s.vx;
+        s.y += s.vy;
+        // Bounces with damping
+        const bounce = -0.7;
+        if (s.x < s.r) { s.x = s.r; s.vx *= bounce; }
+        if (s.x > canvas.width - s.r) { s.x = canvas.width - s.r; s.vx *= bounce; }
+        if (s.y < s.r) { s.y = s.r; s.vy *= bounce; }
+        if (s.y > canvas.height - s.r) { s.y = canvas.height - s.r; s.vy *= bounce; }
+        // Interaction with plants
+        plants.forEach(p => {
+          const dx = s.x - p.x;
+          const dy = s.y - (canvas.height-p.height);
+          const dist = Math.sqrt(dx*dx+dy*dy);
+          if(dist < s.r+13) p.height = Math.min(p.height+0.7, 180);
+        });
+      });
+      // Plants: gentle flower animation
+      plants.forEach((p,i) => {
+        p.flowerPulse = Math.sin(Date.now()/600 + i)*2.5;
+      });
+      // Squirrels: more natural trajectory and improved seed interaction
+      squirrels.forEach(sq => {
+        sq.t += 0.01 + Math.random()*0.01;
+        sq.x += sq.vx + Math.sin(sq.t)*0.7;
+        sq.y += sq.vy + Math.cos(sq.t)*0.5;
+        if(sq.x < 0 || sq.x > canvas.width) sq.vx *= -1;
+        if(sq.y < 320 || sq.y > canvas.height-10) sq.vy *= -1;
+        
+        // Improved seed pick-up/movement
+        seeds.forEach(sd => {
+          const dx = sq.x - sd.x;
+          const dy = sq.y - sd.y;
+          const dist = Math.sqrt(dx*dx+dy*dy);
+          
+          // Wider detection zone
+          if(dist < 25) {
+            // More precise seed transport
+            sd.x = sq.x - 5; // Slightly offset for visual effect
+            sd.y = sq.y + 5;
+            
+            // Search for closest plant
+            let closestPlant = null;
+            let minDist = Infinity;
+            plants.forEach(p => {
+              const plantDist = Math.sqrt(
+                Math.pow(sd.x - p.x, 2) + 
+                Math.pow(sd.y - (canvas.height-p.height), 2)
+              );
+              if(plantDist < minDist) {
+                minDist = plantDist;
+                closestPlant = p;
+              }
+            });
+            
+            // Direct squirrel to closest plant
+            if(closestPlant) {
+              const toPlantX = closestPlant.x - sq.x;
+              const toPlantY = (canvas.height-closestPlant.height) - sq.y;
+              const plantDist = Math.sqrt(toPlantX*toPlantX + toPlantY*toPlantY);
+              
+              // If near a plant, make it grow
+              if(plantDist < 20) {
+                closestPlant.height = Math.min(closestPlant.height+8, 180);
+                // Reposition seed on the ground in a random spot
+                sd.x = Math.random()*canvas.width;
+                sd.y = canvas.height-10;
+              } else {
+                // Slightly adjust direction towards plant
+                sq.vx += (toPlantX/plantDist) * 0.1;
+                sq.vy += (toPlantY/plantDist) * 0.1;
+              }
+            }
+          }
+        });
+      });
+      // Particles (petals/pollen)
+      particles.forEach(p => {
+        p.y += p.vy;
+        if(p.y > canvas.height) {
+          p.y = -5;
+          p.x = Math.random()*canvas.width;
+        }
+      });
+      // Seeds: fall animation
+      seeds.forEach(sd => {
+        if (sd.y < canvas.height-10) {
+          sd.y += sd.vy;
+          if (sd.y > canvas.height-10) sd.y = canvas.height-10;
+        }
+      });
+      requestAnimationFrame(update);
+    }
+    // --- Seed spawn on left click, with fall and max management ---
+    canvas.addEventListener('mousedown', function(e) {
+      if (e.button === 0) { // left button
+        const rect = canvas.getBoundingClientRect();
+        const mx = e.clientX - rect.left;
+        const my = e.clientY - rect.top;
+        if (seeds.length >= 3) {
+          seeds.shift(); // Remove oldest
+        }
+        seeds.push({x: mx, y: my, vy: 2}); // Add falling seed
+      }
+    });
+    // --- Initialisation ---
+    // --- Language selector functionality ---
+    function toggleLanguageMenu() {
+        const menu = document.getElementById('languageMenu');
+        menu.classList.toggle('active');
+    }
+    
+    function changeLanguage(lang) {
+        localStorage.setItem('preferredLanguage', lang);
+        
+        if (lang === 'fr') {
+            window.location.href = '../jardin_bitnet.html';
+        } else {
+            window.location.href = 'jardin_bitnet.html';
+        }
+    }
+    
+    document.addEventListener('click', function(event) {
+        const languageSelector = document.querySelector('.language-selector');
+        const languageMenu = document.getElementById('languageMenu');
+        
+        if (languageSelector && !languageSelector.contains(event.target) && languageMenu.classList.contains('active')) {
+            languageMenu.classList.remove('active');
+        }
+    });
+
+    initGarden();
+    animate();
+    update();
+  </script>
+</body>
+</html>

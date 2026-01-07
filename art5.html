@@ -14,6 +14,158 @@
     <link rel="manifest" href="/le-refuge/site.webmanifest" />
     <link rel="stylesheet" href="styles.css">
     <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e0eafc 0%, #fcb69f 100%);
+            margin: 0;
+            padding: 0;
+            color: #2c3e50;
+            padding-top: 80px !important;
+            min-height: 100vh;
+        }
+        .main-menu {
+            width: 100%;
+            background: rgba(230,240,255,0.93);
+            box-shadow: 0 2px 12px rgba(80,120,180,0.07);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.2em;
+            padding: 0.7em 0 0.6em 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1002;
+            height: 60px;
+        }
+
+        .main-menu a {
+            color: #2a4a6a;
+            text-decoration: none;
+            font-size: 1.08em;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 0.2em 0.7em;
+            border-radius: 7px;
+            transition: background 0.18s, color 0.18s;
+            white-space: nowrap;
+        }
+
+        .main-menu a:hover, .main-menu a.active {
+            background: #b3d0e6;
+            color: #234;
+        }
+
+        /* Language selector */
+        .language-selector {
+            position: relative;
+            margin-left: 1em;
+        }
+        
+        .language-btn {
+            background: #e17055;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            border-radius: 20px;
+            cursor: pointer;
+            font: 500 1.08em/1 'Arial',sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .language-btn:hover {
+            background: #d35f4f;
+            transform: translateY(-1px);
+        }
+        
+        .language-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(230,240,255,0.95);
+            border-radius: 7px;
+            box-shadow: 0 2px 12px rgba(80,120,180,0.15);
+            padding: 0.5em 0;
+            min-width: 120px;
+            z-index: 1003;
+        }
+        
+        .language-menu.active {
+            display: block;
+        }
+        
+        .language-menu a {
+            display: block;
+            padding: 0.5em 1em;
+            color: #2a4a6a;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: background 0.18s;
+        }
+        
+        .language-menu a:hover {
+            background: #b3d0e6;
+        }
+        
+        .language-menu a.active {
+            background: #b3d0e6;
+            color: #234;
+        }
+        
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .main-menu {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 0.5em;
+                gap: 0.5em;
+            }
+            
+            .main-menu a {
+                font-size: 0.9em;
+                padding: 0.3em 0.5em;
+            }
+
+            .language-selector {
+                margin-left: 0.5em;
+            }
+            
+            .language-btn {
+                font-size: 0.9em;
+                padding: 0.3em 0.5em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-menu {
+                flex-direction: column;
+                height: auto;
+                padding: 0.5em;
+            }
+            
+            .main-menu a {
+                width: 100%;
+                text-align: center;
+                padding: 0.5em;
+            }
+            
+            body {
+                padding-top: 240px !important;
+            }
+
+            .language-selector {
+                width: 100%;
+                text-align: center;
+                margin-top: 0.5em;
+            }
+            
+            .language-menu {
+                width: 100%;
+                position: static;
+                margin-top: 0.5em;
+            }
+        }
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
